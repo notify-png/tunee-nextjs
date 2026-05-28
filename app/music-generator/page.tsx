@@ -81,7 +81,7 @@ export default function MusicGeneratorIndexPage() {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero-bg-abstract.jpg" alt="" className="w-full h-full object-cover opacity-20" />
+          <img src={publicAssetUrl("/images/hero-bg-abstract.jpg")} alt="" className="w-full h-full object-cover opacity-20" />
         </div>
         <div className="relative z-10 max-w-[900px] mx-auto w-full px-6 md:px-10 pt-[100px] pb-[80px] text-center">
           <h1 className="mb-5">
