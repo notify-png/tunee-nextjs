@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getGenreData, getAllSlugs, hasGenreData } from "@/data/genre-content";
 import { categories, externalSlugs } from "@/data/landingPages";
 import type { GenreData } from "@/data/genre-content/types";
+import { buildAlternates } from "@/lib/musicSeo";
 import s from "./page.module.css";
 import NavBar from "@/components/NavBar";
 import { navCategories } from "../navCategories";
@@ -32,9 +33,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const data = getGenreData(slug);
   if (!data) return {};
+  const engPath = `/music-generator/${slug}`;
   return {
     title: data.seo.title,
     description: data.seo.description,
+    alternates: buildAlternates(engPath),
   };
 }
 
@@ -68,8 +71,62 @@ export default async function GenreLandingPage({
   const nameLower = data.displayName.toLowerCase();
   const validRelated = data.related.filter((g) => hasGenreData(g.slug));
 
+  const genre = data.displayName;
+  const engPath = `/music-generator/${slug}`;
+  const pageCanonical = `https://www.tunee.ai${engPath}`;
+
+  const jsonLdSoftwareApp = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: `Tunee ${genre} Music Generator`,
+    description: data.seo.description,
+    url: pageCanonical,
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    publisher: { "@type": "Organization", name: "Tunee", url: "https://www.tunee.ai" },
+  };
+
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tunee.ai" },
+      { "@type": "ListItem", position: 2, name: "AI Music Generator", item: "https://www.tunee.ai/music-generator" },
+      { "@type": "ListItem", position: 3, name: `${genre} Music Generator`, item: pageCanonical },
+    ],
+  };
+
+  const jsonLdHowTo = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to create ${genre} music with AI`,
+    description: `Generate ${genre} music using Tunee's AI music generator in 3 steps.`,
+    step: STEPS.map((st, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: st.title,
+      text: st.desc,
+    })),
+  };
+
+  const hasFaqs = Array.isArray(data.faqs) && data.faqs.length > 0;
+  const jsonLdFaq = hasFaqs ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: data.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  } : null;
+
   return (
     <div className={s.page} style={cssVars}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftwareApp) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }} />
+      {jsonLdFaq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />}
       <GenreBg />
       <div className={s.pageContent}>
         <NavBar categories={navCategories} variant="genre-dark" />

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllSlugs, hasGenreData } from "@/data/genre-content";
 import { getI18nGenreData, getSlugPageUI } from "@/data/genre-content/i18n";
+import { buildAlternates } from "@/lib/musicSeo";
 import s from "@/app/music-generator/[slug]/page.module.css";
 import NavBar from "@/components/NavBar";
 import { buildNavCategories } from "../buildCategories";
@@ -31,9 +32,11 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   const data = getI18nGenreData(slug, lang);
   if (!data) return {};
+  const engPath = `/music-generator/${slug}`;
   return {
     title: data.seo.title,
     description: data.seo.description,
+    alternates: buildAlternates(engPath, lang),
   };
 }
 
@@ -59,6 +62,46 @@ export default async function I18nGenreLandingPage({
     "--bg-base-rgb": colors.bgBaseRgb,
   } as React.CSSProperties;
 
+  const engPath = `/music-generator/${slug}`;
+  const pageCanonical = lang === "en"
+    ? `https://www.tunee.ai${engPath}`
+    : `https://www.tunee.ai/${lang}${engPath}`;
+
+  const genre = data.displayName;
+
+  const jsonLdSoftwareApp = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: `Tunee ${genre} Music Generator`,
+    description: data.seo.description,
+    url: `https://www.tunee.ai${engPath}`,
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    publisher: { "@type": "Organization", name: "Tunee", url: "https://www.tunee.ai" },
+  };
+
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}` },
+      { "@type": "ListItem", position: 2, name: "AI Music Generator", item: lang === "en" ? "https://www.tunee.ai/music-generator" : `https://www.tunee.ai/${lang}/music-generator` },
+      { "@type": "ListItem", position: 3, name: `${genre} Music Generator`, item: pageCanonical },
+    ],
+  };
+
+  const hasFaqs = Array.isArray(data.faqs) && data.faqs.length > 0;
+  const jsonLdFaq = hasFaqs ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: data.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  } : null;
+
   const nameLower = data.displayName.toLowerCase();
   const r = (t: string) => t.replace(/\{name\}/g, data.displayName);
   const rLower = (t: string) => t.replace(/\{name\}/g, nameLower);
@@ -71,6 +114,9 @@ export default async function I18nGenreLandingPage({
 
   return (
     <div className={s.page} style={cssVars}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftwareApp) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
+      {jsonLdFaq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />}
       <GenreBg />
       <div className={s.pageContent}>
         <NavBar categories={navCategories} variant="genre-dark" />

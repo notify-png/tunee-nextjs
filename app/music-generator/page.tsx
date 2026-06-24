@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import {
   Accordion,
@@ -8,6 +9,7 @@ import {
 import SearchableCategoriesI18n from "../[lang]/music-generator/SearchableCategoriesI18n";
 import { publicAssetUrl } from "@/lib/publicAssetUrl";
 import { allCategories, navCategories } from "./navCategories";
+import { buildAlternates } from "@/lib/musicSeo";
 
 const SIGN_IN = "https://www.tunee.ai";
 
@@ -69,11 +71,44 @@ const footerLinks = {
   ],
 };
 
+const { canonical, languages } = buildAlternates("/music-generator");
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical,
+    languages,
+  },
+};
+
 const totalPages = allCategories.reduce((s, c) => s + c.pages.length, 0);
+
+const jsonLdSoftwareApp = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Tunee AI Music Generator",
+  description: "AI-powered music generator that creates original tracks from text descriptions. Supports pop, hip-hop, EDM, jazz, classical, and 100+ styles.",
+  url: "https://www.tunee.ai/music-generator",
+  applicationCategory: "MultimediaApplication",
+  operatingSystem: "Any",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  publisher: { "@type": "Organization", name: "Tunee", url: "https://www.tunee.ai" },
+};
+
+const jsonLdFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export default function MusicGeneratorIndexPage() {
   return (
     <div className="min-h-screen font-body">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftwareApp) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
       <NavBar categories={navCategories} />
 
       {/* ── Hero ── */}

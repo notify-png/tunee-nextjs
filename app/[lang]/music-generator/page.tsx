@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import { buildAlternates } from "@/lib/musicSeo";
 import {
   Accordion,
   AccordionContent,
@@ -27,6 +28,7 @@ export async function generateMetadata({
   return {
     title: `Tunee – AI Music Generator`,
     description: t.heroSub.replace("\n", " "),
+    alternates: buildAlternates("/music-generator", lang),
   };
 }
 
@@ -70,8 +72,32 @@ export default async function I18nMusicGeneratorPage({
   const totalPages = cats.reduce((n, c) => n + c.pages.length, 0);
   const navCategories = buildNavCategories(lang, t);
 
+  const jsonLdSoftwareApp = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Tunee AI Music Generator",
+    description: t.heroSub.replace("\n", " "),
+    url: "https://www.tunee.ai/music-generator",
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    publisher: { "@type": "Organization", name: "Tunee", url: "https://www.tunee.ai" },
+  };
+
+  const jsonLdFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <div className="min-h-screen font-body">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftwareApp) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
       <NavBar categories={navCategories} />
 
       {/* ── Hero ── */}
