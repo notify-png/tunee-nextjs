@@ -18,3 +18,9 @@ export function getI18nGenreData(slug: string, lang: string): GenreData | null {
   if (translated) return translated;
   return getGenreData(slug); // fallback to English
 }
+
+/** True only when this locale has its own translated content (no EN fallback). */
+export function hasI18nGenreData(slug: string, lang: string): boolean {
+  if (lang === "en") return getGenreData(slug) !== null;
+  return Boolean(langRegistries[lang]?.[slug]);
+}
