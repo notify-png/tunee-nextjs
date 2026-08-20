@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getGenreData, getAllSlugs, hasGenreData } from "@/data/genre-content";
+import { hasI18nGenreData } from "@/data/genre-content/i18n";
 import { categories, externalSlugs } from "@/data/landingPages";
 import type { GenreData } from "@/data/genre-content/types";
 import { buildAlternates } from "@/lib/musicSeo";
@@ -12,6 +13,7 @@ import GenreBg from "./GenreBg";
 import FaqAccordion from "./FaqAccordion";
 import UseCaseTabs from "./UseCaseTabs";
 import TarotPromptFan from "./TarotPromptFan";
+import { SUPPORTED_LANGS } from "@/app/[lang]/music-generator/translations";
 
 export const dynamicParams = false;
 
@@ -34,10 +36,13 @@ export async function generateMetadata({
   const data = getGenreData(slug);
   if (!data) return {};
   const engPath = `/music-generator/${slug}`;
+  const availableLangs = SUPPORTED_LANGS.filter((lang) =>
+    hasI18nGenreData(slug, lang),
+  );
   return {
     title: data.seo.title,
     description: data.seo.description,
-    alternates: buildAlternates(engPath),
+    alternates: buildAlternates(engPath, "en", availableLangs),
   };
 }
 

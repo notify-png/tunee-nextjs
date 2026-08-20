@@ -6,9 +6,13 @@ export function langUrl(lang: string, path: string): string {
 }
 
 /** Returns { canonical, languages } ready to drop into Metadata.alternates */
-export function buildAlternates(engPath: string, currentLang = "en") {
+export function buildAlternates(
+  engPath: string,
+  currentLang = "en",
+  availableLangs: readonly string[] = LANGS,
+) {
   const languages: Record<string, string> = { "x-default": `${SITE}${engPath}` }
-  for (const lang of LANGS) {
+  for (const lang of availableLangs) {
     languages[lang] = langUrl(lang, engPath)
   }
   return {

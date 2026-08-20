@@ -1,8 +1,12 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllSlugs, hasGenreData } from "@/data/genre-content";
-import { getI18nGenreData, getSlugPageUI } from "@/data/genre-content/i18n";
+import {
+  getI18nGenreData,
+  getSlugPageUI,
+  hasI18nGenreData,
+} from "@/data/genre-content/i18n";
 import { buildAlternates } from "@/lib/musicSeo";
 import s from "@/app/music-generator/[slug]/page.module.css";
 import NavBar from "@/components/NavBar";
@@ -30,13 +34,18 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
+  if (lang === "en" || !hasI18nGenreData(slug, lang)) return {};
+
   const data = getI18nGenreData(slug, lang);
   if (!data) return {};
   const engPath = `/music-generator/${slug}`;
+  const availableLangs = SUPPORTED_LANGS.filter((candidateLang) =>
+    hasI18nGenreData(slug, candidateLang),
+  );
   return {
     title: data.seo.title,
     description: data.seo.description,
-    alternates: buildAlternates(engPath, lang),
+    alternates: buildAlternates(engPath, lang, availableLangs),
   };
 }
 
@@ -48,6 +57,13 @@ export default async function I18nGenreLandingPage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
+
+  // The default English URL is unprefixed. Locale URLs without their own
+  // translated content permanently redirect to that canonical English page.
+  if (lang === "en" || !hasI18nGenreData(slug, lang)) {
+    permanentRedirect(`/music-generator/${slug}`);
+  }
+
   const data = getI18nGenreData(slug, lang);
   if (!data) notFound();
 

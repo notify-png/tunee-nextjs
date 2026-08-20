@@ -431,6 +431,12 @@ export function getAllSlugs(): string[] {
   return Object.keys(registry);
 }
 
+export function getIndexableGenreEntries(): { slug: string; data: GenreData }[] {
+  return Object.entries(registry)
+    .filter(([, data]) => data.published !== false && data.indexable !== false)
+    .map(([slug, data]) => ({ slug, data }));
+}
+
 export function hasGenreData(slug: string): boolean {
   return slug in registry;
 }

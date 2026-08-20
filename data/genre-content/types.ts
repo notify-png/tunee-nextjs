@@ -1,5 +1,8 @@
 export interface GenreData {
   slug: string;
+  published?: boolean;
+  indexable?: boolean;
+  updatedAt?: string;
   displayName: string;
   category: string;
   colors: ColorScheme;

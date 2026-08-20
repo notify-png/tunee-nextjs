@@ -1,5 +1,5 @@
 /* Re-export core API from registry (no circular deps) */
-export { registerLang, getI18nGenreData } from "./registry";
+export { registerLang, getI18nGenreData, hasI18nGenreData } from "./registry";
 export { getSlugPageUI } from "./ui-strings";
 
 /* ── Side-effect imports: populate langRegistries ── */
