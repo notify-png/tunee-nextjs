@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0f0a1a", accent: "#EC4899", accentGlow: "#DB2777", accentRgb: "236,72,153", accentGlowRgb: "219,39,119", bgBaseRgb: "15,10,26" },
   svgType: "moodAbstract",
   seo: {
-    title: "Romantic Music Generator | Tunee AI",
+    title: "Romantic Mood Music Generator | Tunee AI",
     description: "Create romantic music with Tunee AI. Love songs, date night vibes, and wedding music — describe the feeling and generate instantly. Free to start.",
   },
   hero: {

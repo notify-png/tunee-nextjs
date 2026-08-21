@@ -52,7 +52,12 @@ export default function TarotPromptFan({
           <span aria-hidden="true">‹</span>
           <span className="sr-only">Previous</span>
         </button>
-        <div className={s.carouselTrack} ref={scrollRef}>
+        <div
+          className={s.carouselTrack}
+          ref={scrollRef}
+          tabIndex={0}
+          aria-label="Music prompt examples"
+        >
           {prompts.map((p, i) => (
             <div
               key={p.title}

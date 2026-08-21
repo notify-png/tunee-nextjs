@@ -106,6 +106,7 @@ export default function NavBarClient({
   return (
     <div data-variant={variant}>
       <motion.nav
+        aria-label="Primary navigation"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}

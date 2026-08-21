@@ -85,7 +85,7 @@ export const data: GenreData = {
     { name: "Hypnagogic Pop", slug: "hypnagogic-pop" },
     { name: "Slushwave", slug: "slushwave" },
     { name: "Post-Rock", slug: "post-rock" },
-    { name: "Indie Pop", slug: "pop" },
+    { name: "Indie Pop", slug: "indie-pop" },
     { name: "Retrowave", slug: "retrowave" },
     { name: "Ethereal Wave", slug: "dream-pop" },
   ],

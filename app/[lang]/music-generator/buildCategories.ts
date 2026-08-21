@@ -12,14 +12,14 @@ interface PageItem {
 const GENRE_ITEMS = [
   { en: "Pop", slug: "pop" }, { en: "Hip-Hop", slug: "hip-hop" },
   { en: "Rock", slug: "rock" }, { en: "EDM", slug: "edm" },
-  { en: "Country", slug: "country" }, { en: "K-Pop", slug: "kpop" },
+  { en: "Country", slug: "country" }, { en: "K-Pop", slug: "k-pop" },
   { en: "Latin", slug: "latin" }, { en: "R&B", slug: "rnb" },
   { en: "Lofi", slug: "lofi" }, { en: "Jazz", slug: "jazz" },
   { en: "Classical", slug: "classical" }, { en: "Cinematic", slug: "cinematic" },
   { en: "Phonk", slug: "phonk" }, { en: "Afrobeats", slug: "afrobeats" },
   { en: "Amapiano", slug: "amapiano" }, { en: "Synthwave", slug: "synthwave" },
   { en: "Indie Pop", slug: "indie-pop" }, { en: "Ambient", slug: "ambient" },
-  { en: "J-Pop", slug: "jpop" }, { en: "Drill", slug: "drill" },
+  { en: "J-Pop", slug: "j-pop" }, { en: "Drill", slug: "drill" },
   { en: "House", slug: "house" }, { en: "Metal", slug: "metal" },
   { en: "Blues", slug: "blues" }, { en: "Reggae", slug: "reggae" },
   { en: "Folk", slug: "folk" }, { en: "Gospel", slug: "gospel" },
@@ -43,11 +43,11 @@ function prefixedGenrePages(lang: string): PageItem[] {
   }));
 }
 
-function makePrefixed(lang: string, items: { name: string; category: string }[]): PageItem[] {
+function makePrefixed(lang: string, items: { name: string; category: string; slug?: string }[]): PageItem[] {
   return items.map((p) => ({
     name: getPageName(lang, p.name),
-    slug: slugify(p.name),
-    url: `/${lang}/music-generator/${slugify(p.name)}`,
+    slug: p.slug ?? slugify(p.name),
+    url: `/${lang}/music-generator/${p.slug ?? slugify(p.name)}`,
     category: p.category,
   }));
 }
@@ -88,7 +88,7 @@ export function buildCategories(lang: string, t: (typeof translations)["en"]) {
       { name: "Epic", category: "Mood" },
       { name: "Majestic", category: "Mood" },
       { name: "Nostalgic", category: "Mood" },
-      { name: "Romantic", category: "Mood" },
+      { name: "Romantic Mood", slug: "romantic-mood", category: "Mood" },
       { name: "Solemn", category: "Mood" },
       { name: "Triumphant", category: "Mood" },
     ]) },
@@ -118,16 +118,16 @@ export function buildCategories(lang: string, t: (typeof translations)["en"]) {
       { name: "YouTube", category: "Use Case" },
     ]) },
     { key: "inspired", label: t.categoryLabels.inspired, pages: makePrefixed(lang, [
-      { name: "Cyberpunk", category: "Inspired By" },
-      { name: "D&D", category: "Inspired By" },
-      { name: "Final Fantasy", category: "Inspired By" },
-      { name: "Genshin", category: "Inspired By" },
-      { name: "Mario", category: "Inspired By" },
-      { name: "Minecraft", category: "Inspired By" },
-      { name: "Persona", category: "Inspired By" },
-      { name: "Silent Hill", category: "Inspired By" },
-      { name: "Studio Ghibli", category: "Inspired By" },
-      { name: "Zelda", category: "Inspired By" },
+      { name: "Cyberpunk", slug: "cyberpunk-style", category: "Inspired By" },
+      { name: "D&D", slug: "dnd-style", category: "Inspired By" },
+      { name: "Final Fantasy", slug: "final-fantasy-style", category: "Inspired By" },
+      { name: "Genshin", slug: "genshin-style", category: "Inspired By" },
+      { name: "Mario", slug: "mario-style", category: "Inspired By" },
+      { name: "Minecraft", slug: "minecraft-style", category: "Inspired By" },
+      { name: "Persona", slug: "persona-style", category: "Inspired By" },
+      { name: "Silent Hill", slug: "silent-hill-style", category: "Inspired By" },
+      { name: "Studio Ghibli", slug: "studio-ghibli-style", category: "Inspired By" },
+      { name: "Zelda", slug: "zelda-style", category: "Inspired By" },
     ]) },
   ];
 }

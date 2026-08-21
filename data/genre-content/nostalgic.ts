@@ -80,7 +80,7 @@ export const data: GenreData = {
     { name: "Chillwave", slug: "chillwave" },
     { name: "Dreamy", slug: "dreamy" },
     { name: "Chillout", slug: "chillout" },
-    { name: "Romantic", slug: "romantic-mood" },
+    { name: "Romantic Mood", slug: "romantic-mood" },
     { name: "60s", slug: "60s" },
     { name: "70s", slug: "70s" },
     { name: "80s", slug: "80s" },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Barlow_Condensed } from "next/font/google";
 import "../globals.css";
 import { Providers } from "@/components/Providers";
+import { buildSocialMetadata, SITE } from "@/lib/musicSeo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,10 +19,16 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Tunee – AI Music Generator",
+  title: "AI Music Generator: Create Original Songs Online | Tunee",
   description:
-    "Create royalty-free music with Tunee's AI music generator. Choose any style, mood, or genre — no experience required.",
-  metadataBase: new URL("https://www.tunee.ai"),
+    "Create original music from text with Tunee's AI music generator. Choose any genre, mood, or style, refine your track through chat, and start for free.",
+  metadataBase: new URL(SITE),
+  icons: { icon: "/favicon.ico" },
+  ...buildSocialMetadata(
+    "AI Music Generator: Create Original Songs Online | Tunee",
+    "Create original music from text with Tunee's AI music generator. Choose any genre, mood, or style, refine your track through chat, and start for free.",
+    `${SITE}/music-generator`,
+  ),
 };
 
 export default async function LangLayout({
@@ -35,6 +42,9 @@ export default async function LangLayout({
 
   return (
     <html lang={lang} className={`${poppins.variable} ${barlowCondensed.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/images/video-poster.jpg" type="image/jpeg" />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>

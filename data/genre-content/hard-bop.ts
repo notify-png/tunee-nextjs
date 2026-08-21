@@ -87,7 +87,7 @@ export const data: GenreData = {
     { name: "R&B", slug: "rnb" },
     { name: "Latin", slug: "latin" },
     { name: "Bossa Nova", slug: "bossa-nova" },
-    { name: "Blues", slug: "bluegrass" },
+    { name: "Bluegrass", slug: "bluegrass" },
   ],
   faqs: [
     { q: "Can I use generated hard bop tracks commercially?", a: "Yes. All tracks generated through Tunee are cleared for commercial use — film, YouTube, podcasts, apps, and more. No royalty fees or licensing issues." },

@@ -147,7 +147,7 @@ export const categories: Category[] = [
       { label: "Calm", slug: "calm", url: "/music-generator/calm" },
       { label: "Epic", slug: "epic", url: "/music-generator/epic" },
       { label: "Dramatic", slug: "dramatic", url: "/music-generator/dramatic" },
-      { label: "Romantic", slug: "romantic-mood", url: "/music-generator/romantic-mood" },
+      { label: "Romantic Mood", slug: "romantic-mood", url: "/music-generator/romantic-mood" },
       { label: "Nostalgic", slug: "nostalgic", url: "/music-generator/nostalgic" },
       { label: "Dark", slug: "dark", url: "/music-generator/dark" },
       { label: "Dreamy", slug: "dreamy", url: "/music-generator/dreamy" },

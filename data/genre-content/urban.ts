@@ -80,7 +80,7 @@ export const data: GenreData = {
     { name: "R&B", slug: "rnb" },
     { name: "Pop", slug: "pop" },
     { name: "Trap", slug: "phonk" },
-    { name: "Afrobeats", slug: "african" },
+    { name: "Afrobeats", slug: "afrobeats" },
     { name: "Latin", slug: "latin" },
     { name: "K-Pop", slug: "k-pop" },
     { name: "Dancehall", slug: "reggae" },

@@ -7,9 +7,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import SearchableCategoriesI18n from "../[lang]/music-generator/SearchableCategoriesI18n";
-import { publicAssetUrl } from "@/lib/publicAssetUrl";
 import { allCategories, navCategories } from "./navCategories";
-import { buildAlternates } from "@/lib/musicSeo";
+import { buildAlternates, buildSocialMetadata, SITE } from "@/lib/musicSeo";
 
 const SIGN_IN = "https://www.tunee.ai";
 
@@ -66,18 +65,23 @@ const footerLinks = {
   Connect: [
     { label: "Discord", href: "https://discord.com/invite/zxCyCmUWC3" },
     { label: "X / Twitter", href: "https://x.com/tunee_ai" },
-    { label: "YouTube", href: "https://www.youtube.com/@tunee_aiagent" },
-    { label: "TikTok", href: "https://www.tiktok.com/@tunee_ai" },
+    { label: "Tunee on YouTube", href: "https://www.youtube.com/@tunee_aiagent" },
+    { label: "Tunee on TikTok", href: "https://www.tiktok.com/@tunee_ai" },
   ],
 };
 
 const { canonical, languages } = buildAlternates("/music-generator");
+const pageTitle = "AI Music Generator: Create Original Songs Online | Tunee";
+const pageDescription = "Create original music from text with Tunee's AI music generator. Choose any genre, mood, or style, refine your track through chat, and start for free.";
 
 export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical,
     languages,
   },
+  ...buildSocialMetadata(pageTitle, pageDescription, canonical),
 };
 
 const totalPages = allCategories.reduce((s, c) => s + c.pages.length, 0);
@@ -87,11 +91,11 @@ const jsonLdSoftwareApp = {
   "@type": "SoftwareApplication",
   name: "Tunee AI Music Generator",
   description: "AI-powered music generator that creates original tracks from text descriptions. Supports pop, hip-hop, EDM, jazz, classical, and 100+ styles.",
-  url: "https://www.tunee.ai/music-generator",
+  url: `${SITE}/music-generator`,
   applicationCategory: "MultimediaApplication",
   operatingSystem: "Any",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  publisher: { "@type": "Organization", name: "Tunee", url: "https://www.tunee.ai" },
+  publisher: { "@type": "Organization", name: "Tunee", url: SITE },
 };
 
 const jsonLdFaq = {
@@ -104,20 +108,38 @@ const jsonLdFaq = {
   })),
 };
 
+const jsonLdVideo = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "How to create music with Tunee",
+  description: "A product demo showing how Tunee turns a music idea into an original track through chat.",
+  thumbnailUrl: [`${SITE}/images/video-poster.jpg`],
+  contentUrl: `${SITE}/videos/tunee-agent-demo.mp4`,
+  embedUrl: `${SITE}/music-generator`,
+  uploadDate: "2026-06-24T19:05:57+08:00",
+  duration: "PT37S",
+};
+
 export default function MusicGeneratorIndexPage() {
   return (
     <div className="min-h-screen font-body">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftwareApp) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdVideo) }} />
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black">
+        Skip to main content
+      </a>
       <NavBar categories={navCategories} />
 
+      <main id="main-content">
       {/* ── Hero ── */}
       <section className="relative overflow-hidden">
         {/* Background image */}
-        <div className="absolute inset-0 z-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={publicAssetUrl("/images/hero-bg-abstract.jpg")} alt="" className="w-full h-full object-cover opacity-20" />
-        </div>
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('/images/hero-bg-abstract-optimized.jpg')" }}
+          aria-hidden="true"
+        />
         <div className="relative z-10 max-w-[900px] mx-auto w-full px-6 md:px-10 pt-[100px] pb-[80px] text-center">
           <h1 className="mb-5">
             <span
@@ -131,20 +153,18 @@ export default function MusicGeneratorIndexPage() {
             Use our AI music generator to turn ideas into tracks. No prompts. No skills required. Free to start.
           </p>
           <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-8px_rgba(0,0,0,0.12)] relative mb-8">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={publicAssetUrl("/images/video-poster.png")}
-              alt="Tunee demo"
-              className="w-full absolute inset-0 h-full object-cover"
-              id="video-poster"
-            />
             <video
-              src={publicAssetUrl("/videos/tunee-agent-how-to-use.mp4")}
+              src="/videos/tunee-agent-demo.mp4"
+              poster="/images/video-poster.jpg"
               autoPlay
               loop
               muted
               playsInline
-              className="w-full relative z-10"
+              preload="metadata"
+              width={1280}
+              height={644}
+              aria-label="Tunee AI Music Generator product demo"
+              className="w-full"
             />
           </div>
           <a
@@ -176,8 +196,12 @@ export default function MusicGeneratorIndexPage() {
             <div className="overflow-hidden rounded-2xl shadow-[0_12px_40px_-8px_rgba(0,0,0,0.1)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&h=500&fit=crop"
-                alt="AI Music Catalog"
+                src="/images/music-catalog.svg"
+                alt="Tunee music styles organized by genre, mood, and use case"
+                width={700}
+                height={500}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -242,8 +266,12 @@ export default function MusicGeneratorIndexPage() {
             <div className="order-1 md:order-2 overflow-hidden rounded-2xl shadow-[0_12px_40px_-8px_rgba(0,0,0,0.1)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&h=500&fit=crop"
-                alt="Music for all platforms"
+                src="/images/music-platforms.svg"
+                alt="One Tunee track ready for video, podcast, game, and social platforms"
+                width={700}
+                height={500}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -313,12 +341,14 @@ export default function MusicGeneratorIndexPage() {
         </div>
       </section>
 
+      </main>
+
       {/* ── Footer ── */}
       <footer className="bg-[#191919] pt-16 pb-8">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
           <div className="text-center mb-12">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={publicAssetUrl("/logo-white.png")} alt="Tunee" className="h-32 mx-auto mb-4" />
+            <img src="/logo-white.png" alt="Tunee" width={1800} height={600} loading="lazy" decoding="async" className="h-32 w-auto mx-auto mb-4" />
             <p className="text-[15px] text-white/60">Get your music done, with doing nothing more.</p>
           </div>
           <div
@@ -327,7 +357,7 @@ export default function MusicGeneratorIndexPage() {
           >
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
-                <p className="text-[11px] uppercase tracking-[1.5px] mb-4 text-white/40">{title}</p>
+                <p className="text-[11px] uppercase tracking-[1.5px] mb-4 text-white/60">{title}</p>
                 <ul className="space-y-2.5">
                   {links.map((link) => (
                     <li key={link.label}>
@@ -343,7 +373,7 @@ export default function MusicGeneratorIndexPage() {
               </div>
             ))}
           </div>
-          <p className="text-[13px] text-white/40 text-center">
+          <p className="text-[13px] text-white/60 text-center">
             &copy; {new Date().getFullYear()} Tunee. All rights reserved.
           </p>
         </div>

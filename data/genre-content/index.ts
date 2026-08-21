@@ -1,4 +1,5 @@
 import type { GenreData } from "./types";
+import { canonicalMusicSlug } from "@/lib/musicRoutes";
 
 // ── Genre category (34) ──
 import { data as synthwave } from "./synthwave";
@@ -439,4 +440,38 @@ export function getIndexableGenreEntries(): { slug: string; data: GenreData }[] 
 
 export function hasGenreData(slug: string): boolean {
   return slug in registry;
+}
+
+export function getRelatedGenreLinks(
+  currentSlug: string,
+  data: GenreData,
+  limit = 6,
+): { name: string; slug: string }[] {
+  const currentCanonical = canonicalMusicSlug(currentSlug);
+  const seen = new Set<string>([currentCanonical]);
+  const links: { name: string; slug: string }[] = [];
+
+  const add = (name: string, slug: string) => {
+    const canonicalSlug = canonicalMusicSlug(slug);
+    const target = registry[canonicalSlug];
+    if (!target || seen.has(canonicalSlug) || target.published === false || target.indexable === false) return;
+    seen.add(canonicalSlug);
+    links.push({ name, slug: canonicalSlug });
+  };
+
+  data.related.forEach((item) => add(item.name, item.slug));
+
+  for (const [slug, candidate] of Object.entries(registry)) {
+    if (links.length >= limit) break;
+    if (canonicalMusicSlug(slug) !== slug || candidate.category !== data.category) continue;
+    add(candidate.displayName, slug);
+  }
+
+  for (const [slug, candidate] of Object.entries(registry)) {
+    if (links.length >= limit) break;
+    if (canonicalMusicSlug(slug) !== slug) continue;
+    add(candidate.displayName, slug);
+  }
+
+  return links.slice(0, limit);
 }

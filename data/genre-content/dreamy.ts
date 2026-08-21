@@ -84,7 +84,7 @@ export const data: GenreData = {
     { name: "Lo-Fi", slug: "lofi" },
     { name: "Vaporwave", slug: "vaporwave" },
     { name: "Shoegaze", slug: "shoegaze" },
-    { name: "Romantic", slug: "romantic-mood" },
+    { name: "Romantic Mood", slug: "romantic-mood" },
     { name: "Classical", slug: "classical" },
     { name: "Folk", slug: "folk" },
   ],
