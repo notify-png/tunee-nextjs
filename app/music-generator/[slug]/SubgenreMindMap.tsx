@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { canonicalMusicSlug } from "@/lib/musicRoutes";
 import s from "./page.module.css";
 
 interface Subgenre {
@@ -68,7 +69,7 @@ export default function SubgenreMindMap({
             return (
               <Link
                 key={sg.slug}
-                href={`${linkPrefix}/${sg.slug}`}
+                href={`${linkPrefix}/${canonicalMusicSlug(sg.slug)}`}
                 className={s.mindMapCardDesktop}
                 style={{
                   left: `${left}%`,
@@ -87,7 +88,7 @@ export default function SubgenreMindMap({
           <div className={s.mindMapCenter}>{genreName}</div>
           <div className={s.mindMapMobileList}>
             {subgenres.map((sg) => (
-              <Link key={sg.slug} href={`${linkPrefix}/${sg.slug}`} className={s.mindMapCard}>
+              <Link key={sg.slug} href={`${linkPrefix}/${canonicalMusicSlug(sg.slug)}`} className={s.mindMapCard}>
                 <span className={s.mindMapCardTitle}>{sg.name}</span>
                 <span className={s.mindMapCardDesc}>{sg.bpmRange} &middot; {sg.era}</span>
                 <p className={s.cardDesc}>{sg.desc}</p>

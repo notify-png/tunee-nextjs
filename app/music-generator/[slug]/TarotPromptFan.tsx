@@ -45,13 +45,19 @@ export default function TarotPromptFan({
       </div>
       <div className={s.carouselOuter}>
         <button
+          type="button"
           className={`${s.carouselBtn} ${s.carouselBtnLeft}`}
           onClick={() => scroll("left")}
-          aria-label="Previous"
         >
-          ‹
+          <span aria-hidden="true">‹</span>
+          <span className="sr-only">Previous</span>
         </button>
-        <div className={s.carouselTrack} ref={scrollRef}>
+        <div
+          className={s.carouselTrack}
+          ref={scrollRef}
+          tabIndex={0}
+          aria-label="Music prompt examples"
+        >
           {prompts.map((p, i) => (
             <div
               key={p.title}
@@ -73,11 +79,12 @@ export default function TarotPromptFan({
           ))}
         </div>
         <button
+          type="button"
           className={`${s.carouselBtn} ${s.carouselBtnRight}`}
           onClick={() => scroll("right")}
-          aria-label="Next"
         >
-          ›
+          <span aria-hidden="true">›</span>
+          <span className="sr-only">Next</span>
         </button>
       </div>
     </section>

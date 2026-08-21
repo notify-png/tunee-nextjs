@@ -83,7 +83,7 @@ export const data: GenreData = {
     { name: "Jazz", slug: "jazz" },
     { name: "Blues", slug: "blues" },
     { name: "Dreamy", slug: "dreamy" },
-    { name: "Romantic", slug: "romantic-mood" },
+    { name: "Romantic Mood", slug: "romantic-mood" },
     { name: "Lo-Fi", slug: "lofi" },
     { name: "Solemn", slug: "solemn" },
     { name: "Soul", slug: "soul" },

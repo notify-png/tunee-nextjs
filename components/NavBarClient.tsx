@@ -106,6 +106,7 @@ export default function NavBarClient({
   return (
     <div data-variant={variant}>
       <motion.nav
+        aria-label="Primary navigation"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -133,11 +134,13 @@ export default function NavBarClient({
                 onMouseLeave={handleMouseLeave}
               >
                 <button
+                  type="button"
                   className={`font-body text-[13px] px-2 py-1.5 rounded-md whitespace-nowrap transition-colors duration-200 flex items-center gap-0.5 ${
                     hoveredCat === cat.slug
                       ? "text-foreground bg-muted"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
+                  aria-expanded={hoveredCat === cat.slug}
                 >
                   {cat.label}
                   <ChevronDown
@@ -154,6 +157,7 @@ export default function NavBarClient({
             {/* Language Switcher */}
             <div className="relative" ref={langRef}>
               <button
+                type="button"
                 onClick={() => setLangOpen(!langOpen)}
                 className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
                 aria-label="Change language"
@@ -198,6 +202,7 @@ export default function NavBarClient({
             </a>
 
             <button
+              type="button"
               className="lg:hidden p-2 rounded-md text-foreground hover:bg-muted transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
@@ -213,7 +218,7 @@ export default function NavBarClient({
 
         {navCats.map(
           (cat) =>
-            cat.items.length > 0 && (
+            cat.items.length > 0 && hoveredCat === cat.slug && (
               <motion.div
                 key={cat.slug}
                 initial={false}
@@ -222,12 +227,7 @@ export default function NavBarClient({
                   y: hoveredCat === cat.slug ? 0 : -4,
                 }}
                 transition={{ duration: 0.15 }}
-                aria-hidden={hoveredCat !== cat.slug}
-                className={`absolute left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-[0_8px_30px_-8px_hsl(var(--foreground)/0.08)] ${
-                  hoveredCat === cat.slug
-                    ? "pointer-events-auto z-10"
-                    : "pointer-events-none z-0"
-                }`}
+                className="absolute left-0 right-0 z-10 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-[0_8px_30px_-8px_hsl(var(--foreground)/0.08)]"
                 onMouseEnter={() => handleMouseEnter(cat.slug)}
                 onMouseLeave={handleMouseLeave}
               >
@@ -240,7 +240,6 @@ export default function NavBarClient({
                       <Link
                         key={item.slug}
                         href={item.url}
-                        tabIndex={hoveredCat === cat.slug ? 0 : -1}
                         className="font-body text-sm text-foreground/80 hover:text-primary transition-colors duration-150 py-1.5 truncate"
                         onClick={() => setHoveredCat(null)}
                       >
@@ -269,8 +268,10 @@ export default function NavBarClient({
                   Tunee
                 </span>
                 <button
+                  type="button"
                   onClick={() => setMobileOpen(false)}
                   className="p-1.5 rounded-md text-foreground hover:bg-muted"
+                  aria-label="Close navigation menu"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -280,12 +281,14 @@ export default function NavBarClient({
                 {categories.map((cat) => (
                   <div key={cat.slug}>
                     <button
+                      type="button"
                       onClick={() =>
                         setOpenMobileCat(
                           openMobileCat === cat.slug ? null : cat.slug,
                         )
                       }
                       className="w-full flex items-center justify-between font-body text-sm text-foreground py-3 border-b border-border/40"
+                      aria-expanded={openMobileCat === cat.slug}
                     >
                       {cat.label}
                       <ChevronDown

@@ -96,6 +96,7 @@ export default function SearchableCategoriesI18n({ categories, labels }: Props) 
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#999]" />
             <input
               type="text"
+              aria-label={labels.searchPlaceholder}
               placeholder={labels.searchPlaceholder}
               className="w-full pl-11 pr-4 py-3 rounded-full text-[14px] bg-white border border-[#E8E8EA] text-[#191919] placeholder:text-[#999] focus:outline-none focus:border-[#4D46FE]/40 transition-all duration-300"
               value={query}
@@ -121,7 +122,7 @@ export default function SearchableCategoriesI18n({ categories, labels }: Props) 
                 <h3 className="text-[20px] md:text-[24px] font-semibold tracking-wide text-[#191919]">
                   {cat.label}
                 </h3>
-                <span className="text-[13px] text-[#ccc]">{cat.pages.length}</span>
+                <span className="text-[13px] text-[#666]">{cat.pages.length}</span>
                 <div className="flex-1 h-px bg-[#E8E8EA]" />
               </div>
 

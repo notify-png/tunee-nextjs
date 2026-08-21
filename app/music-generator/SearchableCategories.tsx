@@ -85,6 +85,7 @@ export default function SearchableCategories({
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
             <input
               type="text"
+              aria-label="Search music generators"
               placeholder="Search..."
               className="w-full pl-11 pr-4 py-3 rounded-full text-[14px] bg-white/[0.04] border border-white/[0.06] text-white placeholder:text-white/20 focus:outline-none focus:border-violet-500/40 transition-all duration-300"
               value={query}

@@ -1,13 +1,13 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllSlugs, hasGenreData } from "@/data/genre-content";
+import { getAllSlugs, getRelatedGenreLinks } from "@/data/genre-content";
 import {
   getI18nGenreData,
   getSlugPageUI,
   hasI18nGenreData,
 } from "@/data/genre-content/i18n";
-import { buildAlternates } from "@/lib/musicSeo";
+import { buildAlternates, buildSocialMetadata, normalizeMetaDescription } from "@/lib/musicSeo";
 import s from "@/app/music-generator/[slug]/page.module.css";
 import NavBar from "@/components/NavBar";
 import { buildNavCategories } from "../buildCategories";
@@ -42,10 +42,13 @@ export async function generateMetadata({
   const availableLangs = SUPPORTED_LANGS.filter((candidateLang) =>
     hasI18nGenreData(slug, candidateLang),
   );
+  const description = normalizeMetaDescription(data.seo.description);
+  const alternates = buildAlternates(engPath, lang, availableLangs);
   return {
     title: data.seo.title,
-    description: data.seo.description,
-    alternates: buildAlternates(engPath, lang, availableLangs),
+    description,
+    alternates,
+    ...buildSocialMetadata(data.seo.title, description, alternates.canonical),
   };
 }
 
@@ -122,7 +125,7 @@ export default async function I18nGenreLandingPage({
   const r = (t: string) => t.replace(/\{name\}/g, data.displayName);
   const rLower = (t: string) => t.replace(/\{name\}/g, nameLower);
   const ctaUrl = lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}`;
-  const validRelated = data.related.filter((g) => hasGenreData(g.slug));
+  const validRelated = getRelatedGenreLinks(slug, data);
   const prefix = `/${lang}/music-generator`;
 
   const t = translations[lang];
@@ -135,14 +138,17 @@ export default async function I18nGenreLandingPage({
       {jsonLdFaq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />}
       <GenreBg />
       <div className={s.pageContent}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black">
+          Skip to main content
+        </a>
         <NavBar categories={navCategories} variant="genre-dark" />
-        <main>
+        <main id="main-content">
           {/* ── Hero ── */}
           <section className={s.hero}>
             <div className={s.wrap}>
               <div className={s.heroGrid}>
                 <div className={s.heroLeft}>
-                  <nav className={s.breadcrumb}>
+                  <nav className={s.breadcrumb} aria-label="Breadcrumb">
                     <a href="https://www.tunee.ai">{ui.breadcrumbHome}</a>
                     <span className={s.sep}>&rsaquo;</span>
                     <Link href={prefix}>{ui.breadcrumbGenerator}</Link>
@@ -197,7 +203,10 @@ export default async function I18nGenreLandingPage({
                               ))}
                             </div>
                           </div>
-                          <button className={s.chatPlayerBtn} aria-label="Play">&#9654;</button>
+                          <button className={s.chatPlayerBtn} type="button">
+                            <span aria-hidden="true">&#9654;</span>
+                            <span className="sr-only">Play</span>
+                          </button>
                           <div className={s.chatPlayerTags}>
                             {data.chatDemo.tags.map((t_tag) => (
                               <span key={t_tag} className={s.chatBadge}>{t_tag}</span>
@@ -364,7 +373,7 @@ export default async function I18nGenreLandingPage({
             </div>
             <div className={s.footerGrid}>
               <div>
-                <h4 className={s.footerColTitle}>Resource</h4>
+                <p className={s.footerColTitle}>Resource</p>
                 <div className={s.footerLinks}>
                   <a href="https://www.tunee.ai/about-us">About Us</a>
                   <a href="https://www.tunee.ai/customer-stories">Customer Stories</a>
@@ -374,7 +383,7 @@ export default async function I18nGenreLandingPage({
                 </div>
               </div>
               <div>
-                <h4 className={s.footerColTitle}>Features</h4>
+                <p className={s.footerColTitle}>Features</p>
                 <div className={s.footerLinks}>
                   <a href="https://www.tunee.ai/music-agent">AI Music Agent</a>
                   <a href="https://www.tunee.ai/features/music-video-generator">Music Video</a>
@@ -384,14 +393,14 @@ export default async function I18nGenreLandingPage({
                 </div>
               </div>
               <div>
-                <h4 className={s.footerColTitle}>Policy</h4>
+                <p className={s.footerColTitle}>Policy</p>
                 <div className={s.footerLinks}>
                   <a href="https://www.tunee.ai/terms-of-service">Terms of Service</a>
                   <a href="https://www.tunee.ai/privacy-policy">Privacy Policy</a>
                 </div>
               </div>
               <div>
-                <h4 className={s.footerColTitle}>Other</h4>
+                <p className={s.footerColTitle}>Other</p>
                 <div className={s.footerLinks}>
                   <a href="https://www.tunee.ai/feedback">Feedback</a>
                   <a href="https://www.tunee.ai/faq">FAQ</a>
@@ -399,7 +408,7 @@ export default async function I18nGenreLandingPage({
               </div>
               <div>
                 <div className={s.footerSocials}>
-                  <a href="https://www.youtube.com/@tunee_aiagent" className={s.socialIcon} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.youtube.com/@tunee_aiagent" className={s.socialIcon} aria-label="Tunee on YouTube" target="_blank" rel="noopener noreferrer">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z" /></svg>
                   </a>
                   <a href="https://x.com/tunee_ai" className={s.socialIcon} aria-label="X" target="_blank" rel="noopener noreferrer">
@@ -408,7 +417,7 @@ export default async function I18nGenreLandingPage({
                   <a href="https://www.instagram.com/tunee_aiagent" className={s.socialIcon} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
                   </a>
-                  <a href="https://www.tiktok.com/@tunee_ai" className={s.socialIcon} aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.tiktok.com/@tunee_ai" className={s.socialIcon} aria-label="Tunee on TikTok" target="_blank" rel="noopener noreferrer">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.81.12v-3.5a6.37 6.37 0 0 0-.81-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.24 8.24 0 0 0 3.76.97V6.27a4.83 4.83 0 0 1-1-.01z" /></svg>
                   </a>
                   <a href="https://discord.com/invite/zxCyCmUWC3" className={s.socialIcon} aria-label="Discord" target="_blank" rel="noopener noreferrer">

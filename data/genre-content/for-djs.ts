@@ -84,7 +84,7 @@ export const data: GenreData = {
     { name: "Dubstep", slug: "dubstep" },
     { name: "EDM", slug: "edm" },
     { name: "Hip-Hop", slug: "hip-hop" },
-    { name: "Afrobeats", slug: "african" },
+    { name: "Afrobeats", slug: "afrobeats" },
     { name: "Funk", slug: "funk" },
     { name: "R&B", slug: "rnb" },
     { name: "Reggae", slug: "reggae" },

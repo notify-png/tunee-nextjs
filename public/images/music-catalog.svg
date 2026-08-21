@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500" role="img" aria-labelledby="title desc">
+  <title id="title">Tunee music catalog</title>
+  <desc id="desc">Colorful cards representing genres, moods, instruments, and creator use cases.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17152f"/>
+      <stop offset="1" stop-color="#4d46fe"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".08"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="500" rx="28" fill="url(#bg)"/>
+  <circle cx="610" cy="72" r="135" fill="#ff6b35" opacity=".3"/>
+  <circle cx="75" cy="440" r="165" fill="#9c7cff" opacity=".28"/>
+  <g fill="url(#card)" stroke="#fff" stroke-opacity=".22">
+    <rect x="62" y="70" width="176" height="132" rx="20"/>
+    <rect x="262" y="70" width="176" height="132" rx="20"/>
+    <rect x="462" y="70" width="176" height="132" rx="20"/>
+    <rect x="62" y="226" width="176" height="132" rx="20"/>
+    <rect x="262" y="226" width="176" height="132" rx="20"/>
+    <rect x="462" y="226" width="176" height="132" rx="20"/>
+  </g>
+  <g fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">
+    <text x="150" y="145">GENRES</text>
+    <text x="350" y="145">MOODS</text>
+    <text x="550" y="145">ERAS</text>
+    <text x="150" y="301">INSTRUMENTS</text>
+    <text x="350" y="301">CREATORS</text>
+    <text x="550" y="301">USE CASES</text>
+  </g>
+  <g fill="#fff" opacity=".72">
+    <circle cx="150" cy="174" r="6"/><circle cx="350" cy="174" r="6"/><circle cx="550" cy="174" r="6"/>
+    <circle cx="150" cy="330" r="6"/><circle cx="350" cy="330" r="6"/><circle cx="550" cy="330" r="6"/>
+  </g>
+  <path d="M86 410c34-45 68 45 102 0s68 45 102 0 68 45 102 0 68 45 102 0 68 45 102 0" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+</svg>
