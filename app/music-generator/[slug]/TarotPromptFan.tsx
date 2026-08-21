@@ -45,11 +45,12 @@ export default function TarotPromptFan({
       </div>
       <div className={s.carouselOuter}>
         <button
+          type="button"
           className={`${s.carouselBtn} ${s.carouselBtnLeft}`}
           onClick={() => scroll("left")}
-          aria-label="Previous"
         >
-          ‹
+          <span aria-hidden="true">‹</span>
+          <span className="sr-only">Previous</span>
         </button>
         <div className={s.carouselTrack} ref={scrollRef}>
           {prompts.map((p, i) => (
@@ -73,11 +74,12 @@ export default function TarotPromptFan({
           ))}
         </div>
         <button
+          type="button"
           className={`${s.carouselBtn} ${s.carouselBtnRight}`}
           onClick={() => scroll("right")}
-          aria-label="Next"
         >
-          ›
+          <span aria-hidden="true">›</span>
+          <span className="sr-only">Next</span>
         </button>
       </div>
     </section>

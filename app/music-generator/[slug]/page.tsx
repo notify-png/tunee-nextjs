@@ -196,7 +196,10 @@ export default async function GenreLandingPage({
                               ))}
                             </div>
                           </div>
-                          <button className={s.chatPlayerBtn} aria-label="Play">&#9654;</button>
+                          <button className={s.chatPlayerBtn} type="button">
+                            <span aria-hidden="true">&#9654;</span>
+                            <span className="sr-only">Play</span>
+                          </button>
                           <div className={s.chatPlayerTags}>
                             {data.chatDemo.tags.map((t) => (
                               <span key={t} className={s.chatBadge}>{t}</span>
