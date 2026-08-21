@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getIndexableGenreEntries } from "@/data/genre-content";
 import { hasI18nGenreData } from "@/data/genre-content/i18n";
 import { SUPPORTED_LANGS } from "@/app/[lang]/music-generator/translations";
+import { canonicalMusicSlug } from "@/lib/musicRoutes";
 
 const BASE_URL = "https://www.tunee.ai";
 
@@ -26,19 +27,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Use the same content registry as page generation. A locale is included
   // only when it has its own translation rather than an English fallback.
-  const slugEntries: MetadataRoute.Sitemap = getIndexableGenreEntries().flatMap(({ slug, data }) => {
-    const path = `/music-generator/${slug}`;
-    const availableLangs = LANGS.filter(lang => hasI18nGenreData(slug, lang));
-    const alternates = langAlternates(path, availableLangs);
+  const slugEntries: MetadataRoute.Sitemap = getIndexableGenreEntries()
+    .filter(({ slug }) => canonicalMusicSlug(slug) === slug)
+    .flatMap(({ slug, data }) => {
+      const path = `/music-generator/${slug}`;
+      const availableLangs = LANGS.filter(lang => hasI18nGenreData(slug, lang));
+      const alternates = langAlternates(path, availableLangs);
 
-    return availableLangs.map((lang) => ({
+      return availableLangs.map((lang) => ({
         url: langUrl(lang, path),
         ...(data.updatedAt ? { lastModified: data.updatedAt } : {}),
         changeFrequency: "monthly" as const,
         priority: lang === "en" ? 0.7 : 0.6,
         alternates: { languages: alternates },
       }));
-  });
+    });
 
   return [...indexEntries, ...slugEntries];
 }
