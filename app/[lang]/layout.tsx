@@ -4,6 +4,7 @@ import "../globals.css";
 import { Providers } from "@/components/Providers";
 import { buildSocialMetadata, SITE } from "@/lib/musicSeo";
 import { publicAssetUrl } from "@/lib/publicAssetUrl";
+import HtmlLang from "./HtmlLang";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -42,11 +43,12 @@ export default async function LangLayout({
   const { lang } = await params;
 
   return (
-    <html lang={lang} className={`${poppins.variable} ${barlowCondensed.variable}`}>
+    <html lang={lang} suppressHydrationWarning className={`${poppins.variable} ${barlowCondensed.variable}`}>
       <head>
         <link rel="preload" as="image" href={publicAssetUrl("/images/video-poster.jpg")} type="image/jpeg" />
       </head>
       <body>
+        <HtmlLang lang={lang} />
         <Providers>{children}</Providers>
       </body>
     </html>

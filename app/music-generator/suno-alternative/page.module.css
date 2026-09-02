@@ -225,10 +225,22 @@
   letter-spacing: -0.06em;
 }
 
-.hero h1 span {
+.heroFirstLine,
+.heroSecondLine {
   display: block;
+}
+
+.heroSecondLine {
   margin-top: 9px;
   color: var(--purple);
+}
+
+.page:is([lang="zh-CN"], [lang="zh-HK"]) .hero h1 {
+  font-size: clamp(48px, 4.2vw, 68px);
+}
+
+.page:is([lang="zh-CN"], [lang="zh-HK"]) .heroFirstLine {
+  white-space: nowrap;
 }
 
 .heroLead {
@@ -559,6 +571,33 @@
   gap: 14px;
 }
 
+.planLayoutWide {
+  display: block;
+  max-width: 1120px;
+}
+
+.planLayoutWide .planIntro {
+  max-width: 920px;
+  margin-bottom: 44px;
+}
+
+.planLayoutWide .planIntro h2 {
+  font-size: clamp(36px, 3.3vw, 48px);
+  line-height: 1.05;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.page:is([lang="zh-CN"], [lang="zh-HK"]) .planLayoutWide .planIntro {
+  max-width: 1120px;
+}
+
+.planLayoutWide .planIntro > p:last-child {
+  max-width: 760px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
 .planCard {
   padding: 28px 27px;
   border: 1px solid #dedee5;
@@ -592,6 +631,10 @@
   margin: 27px 0 18px;
   font-size: 23px;
   font-weight: 550;
+  white-space: normal;
+}
+
+.page[lang="en"] .planCard h3 {
   white-space: nowrap;
 }
 
@@ -990,6 +1033,10 @@
 
   .planCard h3 {
     white-space: normal;
+  }
+
+  .planLayoutWide .planIntro h2 {
+    font-size: 30px;
   }
 
   .steps article {

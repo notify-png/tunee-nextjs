@@ -5,19 +5,19 @@ import styles from "./page.module.css";
 
 const languages = [
   ["English", "/music-generator/suno-alternative"],
-  ["日本語", "https://www.tunee.ai/ja"],
-  ["Español", "https://www.tunee.ai/es"],
-  ["Português", "https://www.tunee.ai/pt"],
-  ["Français", "https://www.tunee.ai/fr"],
-  ["Deutsch", "https://www.tunee.ai/de"],
-  ["Italiano", "https://www.tunee.ai/it"],
-  ["한국어", "https://www.tunee.ai/ko"],
-  ["Русский", "https://www.tunee.ai/ru"],
-  ["简体中文", "https://www.tunee.ai/zh-CN"],
-  ["繁體中文", "https://www.tunee.ai/zh-HK"],
+  ["日本語", "/ja/music-generator/suno-alternative"],
+  ["Español", "/es/music-generator/suno-alternative"],
+  ["Português", "/pt/music-generator/suno-alternative"],
+  ["Français", "/fr/music-generator/suno-alternative"],
+  ["Deutsch", "/de/music-generator/suno-alternative"],
+  ["Italiano", "/it/music-generator/suno-alternative"],
+  ["한국어", "/ko/music-generator/suno-alternative"],
+  ["Русский", "/ru/music-generator/suno-alternative"],
+  ["简体中文", "/zh-CN/music-generator/suno-alternative"],
+  ["繁體中文", "/zh-HK/music-generator/suno-alternative"],
 ];
 
-export default function StickyTryCta() {
+export default function StickyTryCta({ ctaLabel = "Try Tunee for free" }: { ctaLabel?: string }) {
   const [visible, setVisible] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const languageMenuRef = useRef<HTMLDivElement>(null);
@@ -79,7 +79,7 @@ export default function StickyTryCta() {
       )}
       <div className={`${styles.stickyCta}${visible ? ` ${styles.stickyCtaVisible}` : ""}`}>
         <a className={styles.primaryCta} href="https://www.tunee.ai/">
-          Try Tunee for free <b>→</b>
+          {ctaLabel} <b>→</b>
         </a>
       </div>
     </>

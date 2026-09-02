@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${barlowCondensed.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${barlowCondensed.variable}`}>
       <head>
         <link rel="preload" as="image" href={publicAssetUrl("/images/video-poster.jpg")} type="image/jpeg" />
       </head>
