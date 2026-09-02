@@ -1,25 +1,13 @@
-/** @type {import('next').NextConfig} */
-const routeAliases = [
-  ["acapella", "a-cappella"],
-  ["cyberpunk", "cyberpunk-style"],
-  ["dandd", "dnd-style"],
-  ["final-fantasy", "final-fantasy-style"],
-  ["genshin", "genshin-style"],
-  ["jpop", "j-pop"],
-  ["kpop", "k-pop"],
-  ["mario", "mario-style"],
-  ["minecraft", "minecraft-style"],
-  ["persona", "persona-style"],
-  ["r-and-b", "rnb"],
-  ["silent-hill", "silent-hill-style"],
-  ["studio-ghibli", "studio-ghibli-style"],
-  ["zelda", "zelda-style"],
-];
+import { DUPLICATE_SLUG_REDIRECTS } from "./lib/musicRoutes.aliases.mjs";
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   assetPrefix: "https://tunee-nextjs-main.vercel.app",
+  // Only the re-export duplicates are redirected. DISTINCT_CONTENT_ALIASES is
+  // deliberately absent: those slugs are separate articles that must stay
+  // reachable, and they are in the sitemap.
   async redirects() {
-    return routeAliases.flatMap(([source, destination]) => [
+    return DUPLICATE_SLUG_REDIRECTS.flatMap(([source, destination]) => [
       {
         source: `/music-generator/${source}`,
         destination: `/music-generator/${destination}`,

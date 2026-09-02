@@ -29,7 +29,7 @@ export const genrePages: PageItem[] = [
   { name: "Rock", slug: "rock", url: "/music-generator/rock", category: "Genre" },
   { name: "EDM", slug: "edm", url: "/music-generator/edm", category: "Genre" },
   { name: "Country", slug: "country", url: "/music-generator/country", category: "Genre" },
-  { name: "K-Pop", slug: "k-pop", url: "/music-generator/k-pop", category: "Genre" },
+  { name: "K-Pop", slug: "kpop", url: "/music-generator/kpop", category: "Genre" },
   { name: "Latin", slug: "latin", url: "/music-generator/latin", category: "Genre" },
   { name: "R&B", slug: "rnb", url: "/music-generator/rnb", category: "Genre" },
   { name: "Lofi", slug: "lofi", url: "/music-generator/lofi", category: "Genre" },
@@ -42,7 +42,7 @@ export const genrePages: PageItem[] = [
   { name: "Synthwave", slug: "synthwave", url: "/music-generator/synthwave", category: "Genre" },
   { name: "Indie Pop", slug: "indie-pop", url: "/music-generator/indie-pop", category: "Genre" },
   { name: "Ambient", slug: "ambient", url: "/music-generator/ambient", category: "Genre" },
-  { name: "J-Pop", slug: "j-pop", url: "/music-generator/j-pop", category: "Genre" },
+  { name: "J-Pop", slug: "jpop", url: "/music-generator/jpop", category: "Genre" },
   { name: "Drill", slug: "drill", url: "/music-generator/drill", category: "Genre" },
   { name: "House", slug: "house", url: "/music-generator/house", category: "Genre" },
   { name: "Metal", slug: "metal", url: "/music-generator/metal", category: "Genre" },
@@ -129,16 +129,16 @@ const usecasePages = makePages([
 ]);
 
 const inspiredByPages = makePages([
-  { name: "Cyberpunk", slug: "cyberpunk-style", category: "Inspired By" },
-  { name: "D&D", slug: "dnd-style", category: "Inspired By" },
-  { name: "Final Fantasy", slug: "final-fantasy-style", category: "Inspired By" },
-  { name: "Genshin", slug: "genshin-style", category: "Inspired By" },
-  { name: "Mario", slug: "mario-style", category: "Inspired By" },
-  { name: "Minecraft", slug: "minecraft-style", category: "Inspired By" },
-  { name: "Persona", slug: "persona-style", category: "Inspired By" },
-  { name: "Silent Hill", slug: "silent-hill-style", category: "Inspired By" },
-  { name: "Studio Ghibli", slug: "studio-ghibli-style", category: "Inspired By" },
-  { name: "Zelda", slug: "zelda-style", category: "Inspired By" },
+  { name: "Cyberpunk", slug: "cyberpunk", category: "Inspired By" },
+  { name: "D&D", slug: "dandd", category: "Inspired By" },
+  { name: "Final Fantasy", slug: "final-fantasy", category: "Inspired By" },
+  { name: "Genshin", slug: "genshin", category: "Inspired By" },
+  { name: "Mario", slug: "mario", category: "Inspired By" },
+  { name: "Minecraft", slug: "minecraft", category: "Inspired By" },
+  { name: "Persona", slug: "persona", category: "Inspired By" },
+  { name: "Silent Hill", slug: "silent-hill", category: "Inspired By" },
+  { name: "Studio Ghibli", slug: "studio-ghibli", category: "Inspired By" },
+  { name: "Zelda", slug: "zelda", category: "Inspired By" },
 ]);
 
 export const allCategories = [

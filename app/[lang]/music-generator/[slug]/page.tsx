@@ -1,7 +1,7 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllSlugs, getRelatedGenreLinks } from "@/data/genre-content";
+import { getAllSlugs, getRelatedGenreLinks, canonicalGenreSlug } from "@/data/genre-content";
 import {
   getI18nGenreData,
   getSlugPageUI,
@@ -38,9 +38,10 @@ export async function generateMetadata({
 
   const data = getI18nGenreData(slug, lang);
   if (!data) return {};
-  const engPath = `/music-generator/${slug}`;
+  const indexedSlug = canonicalGenreSlug(slug);
+  const engPath = `/music-generator/${indexedSlug}`;
   const availableLangs = SUPPORTED_LANGS.filter((candidateLang) =>
-    hasI18nGenreData(slug, candidateLang),
+    hasI18nGenreData(indexedSlug, candidateLang),
   );
   const description = normalizeMetaDescription(data.seo.description);
   const alternates = buildAlternates(engPath, lang, availableLangs);
@@ -64,7 +65,7 @@ export default async function I18nGenreLandingPage({
   // The default English URL is unprefixed. Locale URLs without their own
   // translated content permanently redirect to that canonical English page.
   if (lang === "en" || !hasI18nGenreData(slug, lang)) {
-    permanentRedirect(`/music-generator/${slug}`);
+    permanentRedirect(`/music-generator/${canonicalGenreSlug(slug)}`);
   }
 
   const data = getI18nGenreData(slug, lang);
@@ -81,7 +82,7 @@ export default async function I18nGenreLandingPage({
     "--bg-base-rgb": colors.bgBaseRgb,
   } as React.CSSProperties;
 
-  const engPath = `/music-generator/${slug}`;
+  const engPath = `/music-generator/${canonicalGenreSlug(slug)}`;
   const pageCanonical = lang === "en"
     ? `https://www.tunee.ai${engPath}`
     : `https://www.tunee.ai/${lang}${engPath}`;
