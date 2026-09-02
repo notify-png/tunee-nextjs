@@ -5,11 +5,9 @@ import styles from "./page.module.css";
 import StickyTryCta from "./StickyTryCta";
 import {
   CommunitySectionHtml,
-  FeaturesSectionHtml,
   FooterHtml,
   HeaderHtml,
   HowItWorksSectionHtml,
-  UseCasesSectionHtml,
 } from "./sourceSections.generated";
 
 const pageTitle = "Suno Alternative: Unlimited AI Music Downloads | Tunee";
@@ -42,21 +40,21 @@ const comparisonRows = [
 ];
 
 const freeFeatures = [
-  ["Unlimited track downloads", ""],
-  ["Unlimited song generation", "Limited music models · Generation uses credits"],
-  ["Edit lyrics, prompts & song details", ""],
-  ["Mix & voice change", ""],
-  ["2-source & 4-source stem separation", ""],
-  ["1 trial each", "6-source stem separation and Audio-to-MIDI"],
+  { title: "Unlimited track downloads", note: "", emphasized: true },
+  { title: "Unlimited song generation", note: "Limited music models · Generation uses credits", emphasized: true },
+  { title: "Edit lyrics, prompts & song details", note: "", emphasized: true },
+  { title: "Mix & voice change", note: "", emphasized: false },
+  { title: "2-source & 4-source stem separation", note: "", emphasized: false },
+  { title: "1 trial each", note: "6-source stem separation and Audio-to-MIDI", emphasized: true },
 ];
 
 const memberFeatures = [
-  ["Everything in Free", ""],
-  ["Unlock all music models", ""],
-  ["Smart Mastering", ""],
-  ["6-source stem separation", ""],
-  ["Audio-to-MIDI conversion", ""],
-  ["Full commercial rights", "Includes a copyright certificate"],
+  { title: "Everything in Free", note: "", emphasized: true },
+  { title: "Unlock all music models", note: "", emphasized: true },
+  { title: "Smart Mastering", note: "", emphasized: true },
+  { title: "6-source stem separation", note: "", emphasized: false },
+  { title: "Audio-to-MIDI conversion", note: "", emphasized: false },
+  { title: "Full commercial rights", note: "Includes a copyright certificate", emphasized: true },
 ];
 
 const faqs = [
@@ -215,8 +213,8 @@ export default function SunoAlternativeDemo() {
               <em>FREE</em>
               <h3>For creating & exploring</h3>
               <ul>
-                {freeFeatures.map(([title, note]) => (
-                  <li key={title}><strong>{title}</strong>{note && <small>{note}</small>}</li>
+                {freeFeatures.map(({ title, note, emphasized }) => (
+                  <li key={title}>{emphasized ? <strong>{title}</strong> : title}{note && <small>{note}</small>}</li>
                 ))}
               </ul>
             </article>
@@ -224,8 +222,8 @@ export default function SunoAlternativeDemo() {
               <em>MEMBER</em>
               <h3>For publishing & production</h3>
               <ul>
-                {memberFeatures.map(([title, note]) => (
-                  <li key={title}><strong>{title}</strong>{note && <small>{note}</small>}</li>
+                {memberFeatures.map(({ title, note, emphasized }) => (
+                  <li key={title}>{emphasized ? <strong>{title}</strong> : title}{note && <small>{note}</small>}</li>
                 ))}
               </ul>
             </article>
@@ -233,11 +231,9 @@ export default function SunoAlternativeDemo() {
         </div>
       </section>
 
-      <SourceMarkup html={FeaturesSectionHtml} />
       <div className={styles.sourceHowBackground}>
         <SourceMarkup html={HowItWorksSectionHtml} />
       </div>
-      <SourceMarkup html={UseCasesSectionHtml} />
       <SourceMarkup html={CommunitySectionHtml} />
 
       <section className={styles.faq} id="faq">
@@ -266,7 +262,7 @@ export default function SunoAlternativeDemo() {
         <p className={styles.lightEyebrow}>TRY TUNEE MUSIC AGENT</p>
         <h2>Ready to create without worrying about download counts?</h2>
         <p>Start with free daily credits. Download every version you create.</p>
-        <PrimaryCta light />
+        <PrimaryCta />
         <div className={styles.finalBenefits}>
           <span>Unlimited downloads</span><span>Free daily credits</span><span>Full commercial rights</span><span>Advanced editing</span>
         </div>

@@ -22,6 +22,14 @@
   height: auto !important;
 }
 
+.sourceMarkup [data-sentry-component="Header"],
+.sourceMarkup [data-sentry-component="Header"] a,
+.sourceMarkup [data-sentry-component="Header"] button,
+.sourceMarkup [data-sentry-component="Header"] span,
+.sourceMarkup [data-sentry-component="Header"] svg {
+  color: #19191d !important;
+}
+
 .sourceMarkup [data-sentry-component="CommunitySection"] [style*="transform-style"]:nth-child(1) {
   transform: translateX(-440px) scale(0.7) rotateY(50deg) !important;
   opacity: 0.6 !important;
@@ -49,7 +57,53 @@
 
 .sourceHowBackground {
   width: 100%;
-  background: #f4f5f7;
+  background: #fff;
+}
+
+.headerScrolled {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: #19191d !important;
+  box-shadow: 0 1px 0 rgba(25, 25, 29, 0.08), 0 12px 34px rgba(25, 25, 29, 0.08) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.headerScrolled a,
+.headerScrolled button,
+.headerScrolled span,
+.headerScrolled svg {
+  color: #19191d !important;
+}
+
+.languageMenu {
+  position: fixed;
+  z-index: 80;
+  top: 58px;
+  right: max(24px, calc((100vw - 1280px) / 2 + 24px));
+  width: 176px;
+  max-height: min(440px, calc(100vh - 78px));
+  padding: 7px;
+  overflow-y: auto;
+  border: 1px solid #e4e4e9;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 16px 46px rgba(25, 25, 29, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.languageMenu a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: #29292f;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.languageMenu a:hover {
+  background: #f3f2ff;
+  color: var(--purple);
 }
 
 .header {
@@ -114,8 +168,8 @@
 }
 
 .hero {
-  min-height: calc(100svh - 76px);
-  padding: 48px max(24px, 7vw) 24px;
+  min-height: 100svh;
+  padding: 112px max(24px, 7vw) 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -739,15 +793,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
-  background:
-    radial-gradient(circle at 5% 0%, rgba(218, 250, 105, 0.18), transparent 28%),
-    radial-gradient(circle at 94% 100%, rgba(174, 164, 255, 0.25), transparent 34%),
-    #4a3ee9;
+  color: var(--ink);
+  background: #fff;
 }
 
 .lightEyebrow {
-  color: #d1ceff;
+  color: var(--purple);
 }
 
 .finalCta h2 {
@@ -761,7 +812,7 @@
 
 .finalCta > p:not(.lightEyebrow) {
   margin: 24px 0 32px;
-  color: #dedcff;
+  color: #777781;
   font-size: 16px;
 }
 
@@ -781,14 +832,14 @@
   justify-content: center;
   gap: 28px;
   flex-wrap: wrap;
-  color: #e2e0ff;
+  color: #777781;
   font-size: 12px;
 }
 
 .finalBenefits span::before {
   content: "✓";
   margin-right: 8px;
-  color: #fff;
+  color: #2a2a30;
   font-weight: 850;
 }
 
@@ -845,6 +896,10 @@
 }
 
 @media (max-width: 780px) {
+  .languageMenu {
+    right: 14px;
+  }
+
   .header {
     height: 66px;
     padding: 0 18px;
@@ -862,7 +917,7 @@
 
   .hero {
     min-height: 0;
-    padding: 58px 20px 28px;
+    padding: 96px 20px 32px;
   }
 
   .heroMain,
