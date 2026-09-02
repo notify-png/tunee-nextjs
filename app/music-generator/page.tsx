@@ -9,6 +9,7 @@ import {
 import SearchableCategoriesI18n from "../[lang]/music-generator/SearchableCategoriesI18n";
 import { allCategories, navCategories } from "./navCategories";
 import { buildAlternates, buildSocialMetadata, SITE } from "@/lib/musicSeo";
+import { publicAssetUrl } from "@/lib/publicAssetUrl";
 
 const SIGN_IN = "https://www.tunee.ai";
 
@@ -113,8 +114,8 @@ const jsonLdVideo = {
   "@type": "VideoObject",
   name: "How to create music with Tunee",
   description: "A product demo showing how Tunee turns a music idea into an original track through chat.",
-  thumbnailUrl: [`${SITE}/images/video-poster.jpg`],
-  contentUrl: `${SITE}/videos/tunee-agent-demo.mp4`,
+  thumbnailUrl: [publicAssetUrl("/images/video-poster.jpg")],
+  contentUrl: publicAssetUrl("/videos/tunee-agent-demo.mp4"),
   embedUrl: `${SITE}/music-generator`,
   uploadDate: "2026-06-24T19:05:57+08:00",
   duration: "PT37S",
@@ -137,7 +138,7 @@ export default function MusicGeneratorIndexPage() {
         {/* Background image */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/images/hero-bg-abstract-optimized.jpg')" }}
+          style={{ backgroundImage: `url('${publicAssetUrl("/images/hero-bg-abstract-optimized.jpg")}')` }}
           aria-hidden="true"
         />
         <div className="relative z-10 max-w-[900px] mx-auto w-full px-6 md:px-10 pt-[100px] pb-[80px] text-center">
@@ -154,8 +155,8 @@ export default function MusicGeneratorIndexPage() {
           </p>
           <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-8px_rgba(0,0,0,0.12)] relative mb-8">
             <video
-              src="/videos/tunee-agent-demo.mp4"
-              poster="/images/video-poster.jpg"
+              src={publicAssetUrl("/videos/tunee-agent-demo.mp4")}
+              poster={publicAssetUrl("/images/video-poster.jpg")}
               autoPlay
               loop
               muted
@@ -196,7 +197,7 @@ export default function MusicGeneratorIndexPage() {
             <div className="overflow-hidden rounded-2xl shadow-[0_12px_40px_-8px_rgba(0,0,0,0.1)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/music-catalog.svg"
+                src={publicAssetUrl("/images/music-catalog.svg")}
                 alt="Tunee music styles organized by genre, mood, and use case"
                 width={700}
                 height={500}
@@ -266,7 +267,7 @@ export default function MusicGeneratorIndexPage() {
             <div className="order-1 md:order-2 overflow-hidden rounded-2xl shadow-[0_12px_40px_-8px_rgba(0,0,0,0.1)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/music-platforms.svg"
+                src={publicAssetUrl("/images/music-platforms.svg")}
                 alt="One Tunee track ready for video, podcast, game, and social platforms"
                 width={700}
                 height={500}
@@ -348,7 +349,7 @@ export default function MusicGeneratorIndexPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
           <div className="text-center mb-12">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-white.png" alt="Tunee" width={1800} height={600} loading="lazy" decoding="async" className="h-32 w-auto mx-auto mb-4" />
+            <img src={publicAssetUrl("/logo-white.png")} alt="Tunee" width={1800} height={600} loading="lazy" decoding="async" className="h-32 w-auto mx-auto mb-4" />
             <p className="text-[15px] text-white/60">Get your music done, with doing nothing more.</p>
           </div>
           <div

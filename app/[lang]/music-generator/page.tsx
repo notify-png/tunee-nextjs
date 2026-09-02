@@ -11,6 +11,7 @@ import {
 import { translations, SUPPORTED_LANGS } from "./translations";
 import SearchableCategoriesI18n from "./SearchableCategoriesI18n";
 import { buildCategories, buildNavCategories } from "./buildCategories";
+import { publicAssetUrl } from "@/lib/publicAssetUrl";
 
 export function generateStaticParams() {
   return SUPPORTED_LANGS.map((lang) => ({ lang }));
@@ -108,8 +109,8 @@ export default async function I18nMusicGeneratorPage({
     "@type": "VideoObject",
     name: t.heroLine1.replace("\n", " "),
     description: t.heroSub.replace("\n", " "),
-    thumbnailUrl: ["https://www.tunee.ai/images/video-poster.jpg"],
-    contentUrl: "https://www.tunee.ai/videos/tunee-agent-demo.mp4",
+    thumbnailUrl: [publicAssetUrl("/images/video-poster.jpg")],
+    contentUrl: publicAssetUrl("/videos/tunee-agent-demo.mp4"),
     embedUrl: pageUrl,
     uploadDate: "2026-06-24T19:05:57+08:00",
     duration: "PT37S",
@@ -131,7 +132,7 @@ export default async function I18nMusicGeneratorPage({
         {/* Background image */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/images/hero-bg-abstract-optimized.jpg')" }}
+          style={{ backgroundImage: `url('${publicAssetUrl("/images/hero-bg-abstract-optimized.jpg")}')` }}
           aria-hidden="true"
         />
         <div className="relative z-10 max-w-[900px] mx-auto w-full px-6 md:px-10 pt-[100px] pb-[80px] text-center">
@@ -148,8 +149,8 @@ export default async function I18nMusicGeneratorPage({
           </p>
           <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-8px_rgba(0,0,0,0.12)] relative mb-8">
             <video
-              src="/videos/tunee-agent-demo.mp4"
-              poster="/images/video-poster.jpg"
+              src={publicAssetUrl("/videos/tunee-agent-demo.mp4")}
+              poster={publicAssetUrl("/images/video-poster.jpg")}
               autoPlay
               loop
               muted
@@ -190,7 +191,7 @@ export default async function I18nMusicGeneratorPage({
             <div className="overflow-hidden rounded-2xl shadow-[0_12px_40px_-8px_rgba(0,0,0,0.1)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/music-catalog.svg"
+                src={publicAssetUrl("/images/music-catalog.svg")}
                 alt={t.catalogTitle}
                 width={700}
                 height={500}
@@ -256,7 +257,7 @@ export default async function I18nMusicGeneratorPage({
             <div className="order-1 md:order-2 overflow-hidden rounded-2xl shadow-[0_12px_40px_-8px_rgba(0,0,0,0.1)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/music-platforms.svg"
+                src={publicAssetUrl("/images/music-platforms.svg")}
                 alt={t.royaltyTitle}
                 width={700}
                 height={500}
@@ -341,7 +342,7 @@ export default async function I18nMusicGeneratorPage({
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
           <div className="text-center mb-12">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-white.png" alt="Tunee" width={1800} height={600} loading="lazy" decoding="async" className="h-32 w-auto mx-auto mb-4" />
+            <img src={publicAssetUrl("/logo-white.png")} alt="Tunee" width={1800} height={600} loading="lazy" decoding="async" className="h-32 w-auto mx-auto mb-4" />
             <p className="text-[15px] text-white/60">{t.footerTagline}</p>
           </div>
           <div

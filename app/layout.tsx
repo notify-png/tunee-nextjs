@@ -3,6 +3,7 @@ import { Poppins, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { buildSocialMetadata, SITE } from "@/lib/musicSeo";
+import { publicAssetUrl } from "@/lib/publicAssetUrl";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} ${barlowCondensed.variable}`}>
       <head>
-        <link rel="preload" as="image" href="/images/video-poster.jpg" type="image/jpeg" />
+        <link rel="preload" as="image" href={publicAssetUrl("/images/video-poster.jpg")} type="image/jpeg" />
       </head>
       <body>
         <Providers>{children}</Providers>
