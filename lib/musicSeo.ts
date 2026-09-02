@@ -1,5 +1,7 @@
+import { publicAssetUrl } from "@/lib/publicAssetUrl"
+
 export const SITE = "https://www.tunee.ai"
-export const MUSIC_GENERATOR_SOCIAL_IMAGE = `${SITE}/images/music-generator-og.jpg`
+export const MUSIC_GENERATOR_SOCIAL_IMAGE = publicAssetUrl("/images/music-generator-og.jpg")
 const LANGS = ["en","ja","es","pt","fr","de","it","ko","ru","zh-CN","zh-HK"] as const
 
 export function normalizeMetaDescription(value: string, maxLength = 155): string {
