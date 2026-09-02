@@ -1,5 +1,9 @@
 import type { GenreData } from "./types";
 import { canonicalMusicSlug } from "@/lib/musicRoutes";
+import {
+  DISTINCT_CONTENT_ALIASES,
+  DUPLICATE_SLUG_REDIRECTS,
+} from "@/lib/musicRoutes.aliases.mjs";
 
 // ── Genre category (34) ──
 import { data as synthwave } from "./synthwave";
@@ -424,6 +428,31 @@ const registry: Record<string, GenreData> = {
   spanish, korean, chinese,
 };
 
+/* The two alias tables are hand-written, but canonicalGenreSlug() decides from
+   the registry itself whether a pair really serves the same object. When the
+   two disagree, the sitemap ends up advertising a URL that 301s (or listing a
+   genuine duplicate). Fail at import — which means at build — instead. */
+const aliasDrift = [
+  ...[...DUPLICATE_SLUG_REDIRECTS, ...DISTINCT_CONTENT_ALIASES]
+    .flatMap(([from, to]) => [from, to])
+    .filter((slug) => !(slug in registry))
+    .map((slug) => `"${slug}" is not a registered slug`),
+  ...DUPLICATE_SLUG_REDIRECTS
+    .filter(([from, to]) => registry[from] !== registry[to])
+    .map(([from, to]) =>
+      `"${from}" is 301'd to "${to}" but they are not the same content — the redirect would bury a real page`),
+  ...DISTINCT_CONTENT_ALIASES
+    .filter(([from, to]) => registry[from] === registry[to])
+    .map(([from, to]) =>
+      `"${from}" and "${to}" are the same content — both would enter the sitemap as duplicates`),
+];
+
+if (aliasDrift.length > 0) {
+  throw new Error(
+    `lib/musicRoutes.aliases.mjs is out of sync with the genre registry:\n  ${aliasDrift.join("\n  ")}`,
+  );
+}
+
 export function getGenreData(slug: string): GenreData | null {
   return registry[slug] ?? null;
 }
@@ -432,9 +461,26 @@ export function getAllSlugs(): string[] {
   return Object.keys(registry);
 }
 
+/**
+ * The slug that owns the indexable URL for `slug`.
+ *
+ * A slug is a duplicate only when its module re-exports another slug's data, so
+ * the two URLs serve byte-identical pages. Aliases backed by their own article
+ * (acapella, r-and-b) fail the identity check and stay canonical to themselves,
+ * which is why DISTINCT_CONTENT_ALIASES is excluded from the redirects in
+ * next.config.mjs — a sitemap entry must never 301.
+ */
+export function canonicalGenreSlug(slug: string): string {
+  const canonical = canonicalMusicSlug(slug);
+  return registry[canonical] === registry[slug] ? canonical : slug;
+}
+
 export function getIndexableGenreEntries(): { slug: string; data: GenreData }[] {
   return Object.entries(registry)
-    .filter(([, data]) => data.published !== false && data.indexable !== false)
+    .filter(([slug, data]) =>
+      canonicalGenreSlug(slug) === slug &&
+      data.published !== false &&
+      data.indexable !== false)
     .map(([slug, data]) => ({ slug, data }));
 }
 

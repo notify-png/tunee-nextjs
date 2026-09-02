@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getGenreData, getAllSlugs, getRelatedGenreLinks } from "@/data/genre-content";
+import { getGenreData, getAllSlugs, getRelatedGenreLinks, canonicalGenreSlug } from "@/data/genre-content";
 import { hasI18nGenreData } from "@/data/genre-content/i18n";
 import { categories, externalSlugs } from "@/data/landingPages";
 import type { GenreData } from "@/data/genre-content/types";
@@ -35,9 +35,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const data = getGenreData(slug);
   if (!data) return {};
-  const engPath = `/music-generator/${slug}`;
+  // Duplicate alias slugs stay reachable but point canonical + hreflang at the
+  // slug that owns the URL, so only one of the pair competes for the query.
+  const indexedSlug = canonicalGenreSlug(slug);
+  const engPath = `/music-generator/${indexedSlug}`;
   const availableLangs = SUPPORTED_LANGS.filter((lang) =>
-    hasI18nGenreData(slug, lang),
+    hasI18nGenreData(indexedSlug, lang),
   );
   const description = normalizeMetaDescription(data.seo.description);
   const alternates = buildAlternates(engPath, "en", availableLangs);
@@ -80,7 +83,7 @@ export default async function GenreLandingPage({
   const validRelated = getRelatedGenreLinks(slug, data);
 
   const genre = data.displayName;
-  const engPath = `/music-generator/${slug}`;
+  const engPath = `/music-generator/${canonicalGenreSlug(slug)}`;
   const pageCanonical = `https://www.tunee.ai${engPath}`;
 
   const jsonLdSoftwareApp = {
