@@ -24,6 +24,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: langAlternates("/music-generator", LANGS) },
   }));
 
+  const eventEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/music-generator/suno-alternative`,
+      lastModified: "2026-09-02",
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+  ];
+
   // Use the same content registry as page generation. A locale is included
   // only when it has its own translation rather than an English fallback.
   const slugEntries: MetadataRoute.Sitemap = getIndexableGenreEntries().flatMap(({ slug, data }) => {
@@ -40,5 +49,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }));
   });
 
-  return [...indexEntries, ...slugEntries];
+  return [...indexEntries, ...eventEntries, ...slugEntries];
 }
