@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { buildSocialMetadata } from "@/lib/musicSeo";
 import { publicAssetUrl } from "@/lib/publicAssetUrl";
 import styles from "./page.module.css";
+import StickyTryCta from "./StickyTryCta";
+import {
+  CommunitySectionHtml,
+  FeaturesSectionHtml,
+  FooterHtml,
+  HeaderHtml,
+  HowItWorksSectionHtml,
+  UseCasesSectionHtml,
+} from "./sourceSections.generated";
 
 const pageTitle = "Suno Alternative: Unlimited AI Music Downloads | Tunee";
 const pageDescription =
@@ -108,28 +116,21 @@ function PrimaryCta({ light = false }: { light?: boolean }) {
   );
 }
 
+function SourceMarkup({ html }: { html: string }) {
+  return <div className={styles.sourceMarkup} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
 export default function SunoAlternativeDemo() {
   return (
     <main className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftwareApp) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
 
-      <header className={styles.header}>
-        <Link className={styles.wordmark} href="/music-generator" aria-label="Tunee home">
-          tunee
-        </Link>
-        <nav aria-label="Page navigation">
-          <a href="#compare">Tunee vs Suno</a>
-          <a href="#plans">Plans</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-        <PrimaryCta />
-      </header>
+      <SourceMarkup html={HeaderHtml} />
 
-      <section className={styles.hero}>
+      <section className={styles.hero} id="suno-hero">
         <div className={styles.heroMain}>
           <div className={styles.heroCopy}>
-            <p className={styles.policyTag}><span>POLICY UPDATE</span> Suno download limits begin Sep 3, 2026</p>
             <h1>A Suno alternative.<span>Download without limits.</span></h1>
             <p className={styles.heroLead}>
               Create original songs through conversation with Tunee’s AI Music Agent—then download every version
@@ -137,7 +138,12 @@ export default function SunoAlternativeDemo() {
             </p>
             <div className={styles.heroActions}>
               <PrimaryCta />
-              <a className={styles.secondaryCta} href="#compare">Compare download access ↓</a>
+              <a
+                className={styles.secondaryCta}
+                href="https://www.tunee.ai/music-generator/suno-alternative#compare"
+              >
+                Compare download access ↓
+              </a>
             </div>
             <p className={styles.microcopy}>No credit card required · Generation uses credits</p>
           </div>
@@ -186,12 +192,11 @@ export default function SunoAlternativeDemo() {
           ))}
           <p className={styles.comparisonNote}>
             <b>Important exception:</b> Suno Premier subscribers can download without limits when using Suno Studio.
-            Suno facts reflect its policy announced for September 3, 2026 and may change.
+            Suno facts reflect its{" "}
+            <a href={sunoSource} target="_blank" rel="noreferrer">policy</a> announced for September 3, 2026 and may
+            change.
           </p>
         </div>
-        <a className={styles.sourceLink} href={sunoSource} target="_blank" rel="noreferrer">
-          Read Suno’s official announcement ↗
-        </a>
       </section>
 
       <section className={styles.plans} id="plans">
@@ -228,46 +233,36 @@ export default function SunoAlternativeDemo() {
         </div>
       </section>
 
-      <section className={styles.workflow} id="how">
-        <div className={styles.centerIntro}>
-          <p className={styles.eyebrow}>MORE THAN A DOWNLOAD POLICY</p>
-          <h2>From an idea to a track you can keep.</h2>
-          <p>Tunee is a conversational music workspace for creating, refining, and finishing your sound.</p>
-        </div>
-        <div className={styles.steps}>
-          <article><span>01</span><h3>Chat to create</h3><p>Describe your idea, mood, reference, or use case in everyday language.</p></article>
-          <article><span>02</span><h3>Refine your track</h3><p>Edit lyrics and song details, mix, change voices, or separate stems.</p></article>
-          <article><span>03</span><h3>Download every version</h3><p>Review outside the app, listen offline, and keep a complete creative archive.</p></article>
-        </div>
-      </section>
-
-      <section className={styles.useCases}>
-        <div className={styles.centerIntro}>
-          <p className={styles.eyebrow}>WHY UNLIMITED DOWNLOADS MATTER</p>
-          <h2>Keep your creative process moving.</h2>
-        </div>
-        <div className={styles.caseGrid}>
-          <article><span>↓</span><h3>Compare every version</h3><p>Listen away from the editor and choose the strongest take.</p></article>
-          <article><span>◉</span><h3>Build your archive</h3><p>Keep a local copy of the songs and ideas you created.</p></article>
-          <article><span>▶</span><h3>Create for video</h3><p>Test different tracks against YouTube, ads, and social edits.</p></article>
-          <article><span>☾</span><h3>Listen offline</h3><p>Take your work anywhere, even when you are not connected.</p></article>
-        </div>
-      </section>
+      <SourceMarkup html={FeaturesSectionHtml} />
+      <div className={styles.sourceHowBackground}>
+        <SourceMarkup html={HowItWorksSectionHtml} />
+      </div>
+      <SourceMarkup html={UseCasesSectionHtml} />
+      <SourceMarkup html={CommunitySectionHtml} />
 
       <section className={styles.faq} id="faq">
         <p className={styles.eyebrow}>QUESTIONS</p>
         <h2>Good to know.</h2>
         <div className={styles.faqList}>
-          {faqs.map(([question, answer]) => (
+          {faqs.map(([question, answer], index) => (
             <details key={question}>
               <summary>{question}<span>+</span></summary>
-              <p>{answer}</p>
+              {index === faqs.length - 1 ? (
+                <p>
+                  The comparison uses Suno&apos;s{" "}
+                  <a href={sunoSource} target="_blank" rel="noreferrer">
+                    official August 10, 2026 announcement
+                  </a>{" "}
+                  describing download rules beginning September 3, 2026. Suno&apos;s terms may change, so check its
+                  official notice for the latest details.
+                </p>
+              ) : <p>{answer}</p>}
             </details>
           ))}
         </div>
       </section>
 
-      <section className={styles.finalCta} id="create">
+      <section className={styles.finalCta} id="suno-final-cta">
         <p className={styles.lightEyebrow}>TRY TUNEE MUSIC AGENT</p>
         <h2>Ready to create without worrying about download counts?</h2>
         <p>Start with free daily credits. Download every version you create.</p>
@@ -277,11 +272,8 @@ export default function SunoAlternativeDemo() {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <span className={styles.footerMark}>tunee</span>
-        <p>Create, refine, and download with Tunee.</p>
-        <span>© 2026 Tunee</span>
-      </footer>
+      <SourceMarkup html={FooterHtml} />
+      <StickyTryCta />
     </main>
   );
 }
