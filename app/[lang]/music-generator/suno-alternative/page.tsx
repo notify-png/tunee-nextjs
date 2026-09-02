@@ -32,12 +32,15 @@ export async function generateMetadata({
   const copy = sunoAlternativeTranslations[lang];
   const canonical = `https://www.tunee.ai/${lang}${basePath}`;
   const languages = Object.fromEntries(
-    allLocales.map((locale) => [
-      locale,
-      locale === "en"
-        ? `https://www.tunee.ai${basePath}`
-        : `https://www.tunee.ai/${locale}${basePath}`,
-    ]),
+    [
+      ["x-default", `https://www.tunee.ai${basePath}`],
+      ...allLocales.map((locale) => [
+        locale,
+        locale === "en"
+          ? `https://www.tunee.ai${basePath}`
+          : `https://www.tunee.ai/${locale}${basePath}`,
+      ]),
+    ],
   );
 
   return {
