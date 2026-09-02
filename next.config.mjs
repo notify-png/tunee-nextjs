@@ -17,6 +17,7 @@ const routeAliases = [
 ];
 
 const nextConfig = {
+  assetPrefix: "https://tunee-nextjs-main.vercel.app",
   async redirects() {
     return routeAliases.flatMap(([source, destination]) => [
       {
