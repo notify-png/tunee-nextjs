@@ -8,14 +8,14 @@ import {
   hasI18nGenreData,
 } from "@/data/genre-content/i18n";
 import { buildAlternates, buildSocialMetadata, normalizeMetaDescription } from "@/lib/musicSeo";
-import s from "@/app/music-generator/[slug]/page.module.css";
+import s from "@/app/(en)/music-generator/[slug]/page.module.css";
 import NavBar from "@/components/NavBar";
 import { buildNavCategories } from "../buildCategories";
 import { translations } from "../translations";
-import GenreBg from "@/app/music-generator/[slug]/GenreBg";
-import FaqAccordion from "@/app/music-generator/[slug]/FaqAccordion";
-import UseCaseTabs from "@/app/music-generator/[slug]/UseCaseTabs";
-import TarotPromptFan from "@/app/music-generator/[slug]/TarotPromptFan";
+import GenreBg from "@/app/(en)/music-generator/[slug]/GenreBg";
+import FaqAccordion from "@/app/(en)/music-generator/[slug]/FaqAccordion";
+import UseCaseTabs from "@/app/(en)/music-generator/[slug]/UseCaseTabs";
+import TarotPromptFan from "@/app/(en)/music-generator/[slug]/TarotPromptFan";
 import { SUPPORTED_LANGS } from "../translations";
 
 export const dynamicParams = false;

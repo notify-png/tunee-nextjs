@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Barlow_Condensed } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Providers } from "@/components/Providers";
 import { buildSocialMetadata, SITE } from "@/lib/musicSeo";
 import { publicAssetUrl } from "@/lib/publicAssetUrl";

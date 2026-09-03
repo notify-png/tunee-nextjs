@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import SearchableCategoriesI18n from "../[lang]/music-generator/SearchableCategoriesI18n";
+import SearchableCategoriesI18n from "../../[lang]/music-generator/SearchableCategoriesI18n";
 import { allCategories, navCategories } from "./navCategories";
 import { buildAlternates, buildSocialMetadata, SITE } from "@/lib/musicSeo";
 import { publicAssetUrl } from "@/lib/publicAssetUrl";
