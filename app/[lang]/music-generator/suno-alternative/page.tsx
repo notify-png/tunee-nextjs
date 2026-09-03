@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { buildSocialMetadata } from "@/lib/musicSeo";
-import { SunoAlternativePage } from "@/app/music-generator/suno-alternative/SunoAlternativePage";
+import { SunoAlternativePage } from "@/app/(en)/music-generator/suno-alternative/SunoAlternativePage";
 import {
   sunoAlternativeTranslations,
   type SunoLocale,
-} from "@/app/music-generator/suno-alternative/translations";
+} from "@/app/(en)/music-generator/suno-alternative/translations";
 
 const localizedLocales = ["ja", "es", "pt", "fr", "de", "it", "ko", "ru", "zh-CN", "zh-HK"] as const;
 const allLocales: SunoLocale[] = ["en", ...localizedLocales];
