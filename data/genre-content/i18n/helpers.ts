@@ -45,7 +45,9 @@ export interface LangConfig {
   }>;
 }
 
-/* ── The 100 landing-page slugs ── */
+/* ── Landing-page slugs：决定哪些 slug 进多语言流程 ──
+   不在此表的 slug，所有语言版本都回落到英文页（lang="en"），
+   在非英语 SERP 里几乎拿不到展示。新增页面别忘了登记。 */
 export const LANDING_SLUGS = [
   "pop","hip-hop","rock","edm","country","kpop","latin","rnb","lofi","jazz",
   "classical","cinematic","phonk","afrobeats","amapiano","synthwave","indie-pop",
@@ -60,6 +62,13 @@ export const LANDING_SLUGS = [
   "sleep","streaming","study","tiktok","video","wedding","workout","youtube",
   "cyberpunk","dandd","final-fantasy","genshin","mario","minecraft","persona",
   "silent-hill","studio-ghibli","zelda",
+  // 2026-10 批次：补齐高流量但未进多语言流程的 slug
+  "orchestral",
+  "professional","choir","duet","chinese-traditional","mexican","ai-music-agent","acapella","chant","anime","boss-battle-music","african","mix","trailer-music","japanese","dance","vocal","memphis","slow","8-bit",
+  "gamelan","psytrance","hardcore","medieval","spanish","sonata","trap","gregorian-chant","balkan","future-bass","for-meditation-creators","brass","brazilian","indonesian","horror","symphony","fantasy-music","witch-house","tropical","glitch","opera","overture","salsa","tibetan","shoegaze","symphonic-metal","middle-eastern","irish","film-score","string","techno","swing","gothic","bossa-nova","cumbia","psychedelic","epic-orchestral-music","for-tiktok-creators",
+  "grime","menu-music","bach","music-creation","mariachi","city-pop","string-quartet","reggaeton","metalcore","nordic-folk","bluegrass","for-djs","retrowave","emotional","allegro","rpg-music","japanese-traditional","for-teachers","upbeat","percussion","ballroom","for-small-businesses","industrial","chillwave","bebop","smooth-jazz","chiptune","spiritual","vintage-production","future-funk","vlog","indie","rap","baroque","renaissance","lute","grunge","jrpg-music","analog","disco","electro","waltz","hypnagogic-pop","for-content-creators","alternative","world-music","polynesian","minimalist-classical","korean",
+  "nature","c-pop","for-dancers","quartet","mallsoft","prelude","highlife","for-songwriters","commercial-music","neoclassical","adagio","for-advertisers","for-producers","zen","for-video-editors","slushwave","punk","experimental","concerto","scottish","nocturne","andean","space","singer-songwriter","for-students","dungeon-music","largo","eccojams","k-rnb","appalachian","dreampunk","contemporary-classical","documentary-music","lo-fi-production","arpeggio-production","chamber-music","mandopop","hard-bop","for-app-developers","for-singers","koto","for-wedding-creators",
+  "warm","hawaiian","electronic","for-musicians","romantic-mood","for-indie-game-developers","dream-pop","for-composers","modern","ui-sound","fast","jazz-funk","polished-production","atmospheric-production","ethnic","intimate","reverb-production","beat","viral","for-marketers","open-world-music","sci-fi-horror-music","acoustic-production","for-podcasters","urban","cuban","for-filmmakers","for-game-developers","soul","minimal-production","for-social-media-managers","for-youtubers","raw-production","eastern-european","exploration-music","for-video-creators","glo-fi","for-streamers","chinese","english","instrumental-language","k-hip-hop",
 ];
 
 /* ── Factory: create translated GenreData from config ── */
