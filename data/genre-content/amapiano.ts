@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "drumCircle",
   seo: {
     title: "Amapiano Music Generator | Tunee AI",
-    description: "Create Amapiano music instantly with Tunee's AI Music Generator. Chat to compose original log drum grooves, deep basslines, and jazzy keys. No skills needed. Free to start.",
+    description: "Create Amapiano with Tunee's AI Music Generator. Chat to compose log drum grooves, deep basslines and jazzy keys. Free to start.",
   },
   hero: {
     title: "Amapiano\nMusic Generator",

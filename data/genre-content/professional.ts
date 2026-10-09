@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Professional Music Generator | Tunee AI",
-    description: "Create professional-grade music instantly with Tunee's AI Music Generator. Chat to compose broadcast-quality tracks — corporate, advertising, presentation, and commercial music with polished production. No skills needed. Free to start.",
+    description: "Create professional-grade music with Tunee's AI Music Generator. Corporate, advertising, presentation and commercial tracks. Free to start.",
   },
   hero: {
     title: "Professional\nMusic Generator",

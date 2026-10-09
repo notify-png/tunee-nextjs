@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "classicalScore",
   seo: {
     title: "Chant Music Generator | Tunee AI",
-    description: "Create sacred chanting music with Tunee's AI Music Generator. Gregorian, Buddhist, Hindu, and Sufi chant styles — describe the tradition and generate instantly.",
+    description: "Create sacred chant music with Tunee's AI Music Generator. Gregorian, Buddhist, Hindu and Sufi styles — describe the tradition. Free to start.",
   },
   hero: {
     title: "Chant\nMusic Generator",

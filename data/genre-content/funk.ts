@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "drumCircle",
   seo: {
     title: "Funk Music Generator | Tunee AI",
-    description: "Create funk music instantly with Tunee's AI Music Generator. Chat to compose original funk tracks — deep grooves, slap bass, wah-wah guitar, and tight horn sections. No skills needed. Free to start.",
+    description: "Create funk music with Tunee's AI Music Generator. Chat to compose deep grooves, slap bass, wah-wah guitar and horn sections. Free to start.",
   },
   hero: {
     title: "Funk\nMusic Generator",

@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "hipHopBeat",
   seo: {
     title: "Phonk Music Generator | Tunee AI",
-    description: "Create phonk music instantly with Tunee's AI Music Generator. Chat to compose original phonk tracks — distorted 808s, cowbell patterns, Memphis samples, and dark atmosphere. No skills needed. Free to start.",
+    description: "Create phonk with Tunee's AI Music Generator. Chat to compose distorted 808s, cowbell patterns, Memphis samples and dark atmosphere. Free to start.",
   },
   hero: {
     title: "Phonk\nMusic Generator",

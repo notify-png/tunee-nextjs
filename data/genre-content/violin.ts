@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "stringWave",
   seo: {
     title: "Violin Music Generator | Tunee AI",
-    description: "Create violin music instantly with Tunee's AI Music Generator. Chat to compose original violin tracks — from classical concertos to folk fiddle to cinematic scoring. Free to start.",
+    description: "Create violin music with Tunee's AI Music Generator. Chat to compose classical concertos, folk fiddle and cinematic scoring. Free to start.",
   },
   hero: {
     title: "Violin\nMusic Generator",

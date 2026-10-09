@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Hindustani Music Generator | Tunee AI",
-    description: "Create Hindustani classical music instantly with Tunee's AI Music Generator. Chat to compose original raga-based pieces — sitar, tabla, bansuri, khayal, dhrupad, and ghazal tracks. No skills needed. Free to start.",
+    description: "Create Hindustani classical music with Tunee's AI Music Generator. Raga-based pieces with sitar, tabla, bansuri and khayal. Free to start.",
   },
   hero: {
     title: "Hindustani\nMusic Generator",

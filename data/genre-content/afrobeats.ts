@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Afrobeats Music Generator | Tunee AI",
-    description: "Create Afrobeats music with Tunee's AI Music Generator. Generate authentic West African pop — infectious rhythms, log drums, and dancehall-inflected grooves. Free to start.",
+    description: "Create Afrobeats with Tunee's AI Music Generator. West African pop — infectious rhythms, log drums and dancehall grooves. Free to start.",
   },
   hero: {
     title: "Afrobeats\nMusic Generator",
