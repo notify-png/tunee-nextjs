@@ -318,6 +318,18 @@ export const config: LangConfig = {
     `텍스트 한 줄이면 프로 수준의 ${name} 트랙을 몇 초 만에 생성할 수 있습니다. 악기 연주나 음악 이론 지식은 전혀 필요 없습니다.`,
   badges: ["고음질", "상업적 이용 가능", "무료 시작"],
 
+  /* ── 人群页（creator-type）专用句式 ──
+     常规模板假设 name 是曲风名词，人群名填进去是病句（见 helpers.ts 的 audience 注释）。
+     只覆盖 SERP 与首屏看到的四个字段。 */
+  audience: {
+    seoTitle: (name) => `${name} AI 음악 생성기 | Tunee`,
+    seoDesc: (name) =>
+      `${name} 음악을 AI로 간편하게 만들어 보세요. 텍스트만 입력하면 고품질 트랙이 완성됩니다. 지금 무료로 시작하세요.`,
+    heroTitle: (name) => `${name} 음악을 AI로 만들어 보세요`,
+    heroSub: (name) =>
+      `텍스트 한 줄이면 ${name} 프로 수준의 트랙을 몇 초 만에 생성할 수 있습니다. 악기 연주나 음악 이론 지식은 전혀 필요 없습니다.`,
+  },
+
   dnaTitle: (name) => `${name} 사운드 분석`,
   dnaSub: (name) =>
     `${name}을 구성하는 리듬, 멜로디, 사운드의 특징을 AI가 분석하여 여러분의 음악에 반영합니다.`,

@@ -1,4 +1,4 @@
-import type { LangConfig } from "../helpers";
+import { lowerFirst, type LangConfig } from "../helpers";
 import { slugData } from "./slug-data";
 
 export const config: LangConfig = {
@@ -352,6 +352,18 @@ export const config: LangConfig = {
   heroSub: (name) =>
     `Введите текстовое описание — и ИИ сгенерирует профессиональный трек в стиле «${name}» за считанные секунды. Никаких музыкальных знаний не требуется.`,
   badges: ["Высокое качество", "Для коммерции", "Бесплатный старт"],
+
+  /* ── 人群页（creator-type）专用句式 ──
+     常规模板假设 name 是曲风名词，人群名填进去是病句（见 helpers.ts 的 audience 注释）。
+     只覆盖 SERP 与首屏看到的四个字段。 */
+  audience: {
+    seoTitle: (name) => `AI-генератор музыки ${lowerFirst(name)} | Tunee`,
+    seoDesc: (name) =>
+      `Создавайте музыку ${lowerFirst(name)} с помощью ИИ. Просто введите текст — и получите профессиональную композицию за секунды. Попробуйте бесплатно.`,
+    heroTitle: (name) => `Создавайте музыку ${lowerFirst(name)} с помощью ИИ`,
+    heroSub: (name) =>
+      `Введите текстовое описание — и ИИ сгенерирует профессиональный трек ${lowerFirst(name)} за считанные секунды. Никаких музыкальных знаний не требуется.`,
+  },
 
   dnaTitle: (name) => `Анатомия звучания стиля «${name}»`,
   dnaSub: (name) =>

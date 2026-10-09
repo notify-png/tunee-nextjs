@@ -1,4 +1,4 @@
-import type { LangConfig } from "../helpers";
+import { lowerFirst, type LangConfig } from "../helpers";
 import { slugData } from "./slug-data";
 
 export const config: LangConfig = {
@@ -322,6 +322,18 @@ export const config: LangConfig = {
   badges: ["300+ Prompts", "25.000+ erstellte Tracks", "Kommerziell nutzbar"],
 
   /* ── DNA section ── */
+  /* ── 人群页（creator-type）专用句式 ──
+     常规模板假设 name 是曲风名词，人群名填进去是病句（见 helpers.ts 的 audience 注释）。
+     只覆盖 SERP 与首屏看到的四个字段。 */
+  audience: {
+    seoTitle: (n) => `Musikgenerator ${lowerFirst(n)} | Tunee AI`,
+    seoDesc: (n) =>
+      `Erstelle Musik ${lowerFirst(n)} mit Tunees KI-Musikgenerator. Komponiere per Chat einzigartige Tracks — keine Vorkenntnisse nötig. Kostenlos starten.`,
+    heroTitle: (n) => `Musikgenerator\n${lowerFirst(n)}`,
+    heroSub: (n) =>
+      `Beschreibe den Sound, den du dir vorstellst, und lass den Music Agent daraus einen professionellen Track ${lowerFirst(n)} machen. Kein Fachwissen nötig.`,
+  },
+
   dnaTitle: (n) => `${n}-DNA`,
   dnaSub: (n) =>
     `Die vier Bausteine, die den ${n}-Sound ausmachen — Ursprung, Struktur, Instrumente und Harmonik.`,

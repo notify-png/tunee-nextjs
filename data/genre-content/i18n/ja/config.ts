@@ -318,6 +318,18 @@ export const config: LangConfig = {
     `テキストを入力するだけで、プロ品質の${name}トラックを数秒で生成。楽器の知識や音楽理論は一切不要です。`,
   badges: ["高音質", "商用利用OK", "無料で開始"],
 
+  /* ── 人群页（creator-type）专用句式 ──
+     常规模板假设 name 是曲风名词，人群名填进去是病句（见 helpers.ts 的 audience 注释）。
+     只覆盖 SERP 与首屏看到的四个字段。 */
+  audience: {
+    seoTitle: (name) => `${name}AIミュージックジェネレーター | Tunee`,
+    seoDesc: (name) =>
+      `${name}の楽曲をAIで簡単に作成。テキストを入力するだけで、高品質なトラックが完成します。無料で今すぐお試しください。`,
+    heroTitle: (name) => `${name}の楽曲をAIで作ろう`,
+    heroSub: (name) =>
+      `テキストを入力するだけで、${name}のプロ品質トラックを数秒で生成。楽器の知識や音楽理論は一切不要です。`,
+  },
+
   dnaTitle: (name) => `${name}のサウンドを分析`,
   dnaSub: (name) =>
     `${name}を構成するリズム・メロディ・サウンドの特徴をAIが分析し、あなたの楽曲に反映します。`,
