@@ -333,6 +333,9 @@ export const config: LangConfig = {
     heroTitle: (name) => `Créez de la musique ${lowerFirst(name)} avec l'IA`,
     heroSub: (name) =>
       `Décrivez votre idée, laissez Tunee composer un morceau unique ${lowerFirst(name)}. Aucune compétence musicale requise.`,
+    /* 常规模板是「Prompts ${name} pour démarrer」，人群名本身带 pour，
+       拼出来是「Prompts Pour DJs pour démarrer」。 */
+    promptTitle: (name) => `Prompts prêts à l'emploi ${lowerFirst(name)}`,
   },
 
   dnaTitle: (name) =>

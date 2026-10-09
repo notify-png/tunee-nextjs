@@ -335,6 +335,14 @@ export const config: LangConfig = {
     heroTitle: (n) => `Musikgenerator\n${lowerFirst(n)}`,
     heroSub: (n) =>
       `Beschreibe den Sound, den du dir vorstellst, und lass den Music Agent daraus einen professionellen Track ${lowerFirst(n)} machen. Kein Fachwissen nötig.`,
+    /* 德语的连字符构词要求前面是名词，而人群名是介词短语——
+       「Für DJs-DNA」是错的。改成让介词短语修饰 Musik。 */
+    dnaTitle: (n) => `Die DNA der Musik ${lowerFirst(n)}`,
+    subgenreTitle: (n) => `Das Spektrum der Musik ${lowerFirst(n)}`,
+    comparisonTitle: (n) => `Musik ${lowerFirst(n)} im Vergleich`,
+    promptTitle: (n) => `Fertige Prompts ${lowerFirst(n)}`,
+    useCaseTitle: (n) => `Musik ${lowerFirst(n)} im Einsatz`,
+    finalCtaTitle: (n) => `Bereit für deine eigene\nMusik ${lowerFirst(n)}?`,
   },
 
   dnaTitle: (n) => `${n}-DNA`,

@@ -331,6 +331,8 @@ export const config: LangConfig = {
     heroTitle: (name) => `Crie música ${lowerFirst(name)} com IA`,
     heroSub: (name) =>
       `Descreva o que você imagina e gere faixas profissionais ${lowerFirst(name)} em segundos. Nenhum conhecimento musical necessário.`,
+    /* 常规模板是「Prompts prontos para ${name}」，人群名本身带 para。 */
+    promptTitle: (name) => `Prompts prontos ${lowerFirst(name)}`,
   },
 
   dnaTitle: (name) => `O DNA do som ${name}`,

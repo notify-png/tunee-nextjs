@@ -51,6 +51,18 @@ export interface LangConfig {
     seoDesc: (name: string) => string;
     heroTitle: (name: string) => string;
     heroSub: (name: string) => string;
+
+    /* 页内小标题。只有把 name 当名词用的语言才需要覆盖——
+       ru 的属格位（«Для диджеев» 读作「风格 为了DJ们」）、de 的连字符构词
+       （Für DJs-DNA，连字符前必须是名词）、es 的 de + Para 两个介词连用。
+       ja「DJ向けのサウンドを分析」、ko「DJ용 사운드 분석」、it、zh 本来就通顺，
+       不填即回落常规模板。 */
+    dnaTitle?: (name: string) => string;
+    subgenreTitle?: (name: string) => string;
+    comparisonTitle?: (name: string) => string;
+    promptTitle?: (name: string) => string;
+    useCaseTitle?: (name: string) => string;
+    finalCtaTitle?: (name: string) => string;
   };
 
   /** Per-slug faithful translations of genre-specific content */
@@ -127,14 +139,14 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
         userMessage: config.chatUser(name),
         aiReply: config.chatAi(name),
       },
-      dnaTitle: config.dnaTitle(name),
+      dnaTitle: (au?.dnaTitle ?? config.dnaTitle)(name),
       dnaSub: config.dnaSub(name),
       dna: en.dna.map((d, i) => ({
         ...d,
         title: config.dnaSectionTitles[i] ?? d.title,
         desc: sd?.dnaDescs?.[i] ?? config.dnaDescs?.[i]?.(name) ?? d.desc,
       })),
-      subgenreTitle: config.subgenreTitle(name),
+      subgenreTitle: (au?.subgenreTitle ?? config.subgenreTitle)(name),
       subgenreSub: config.subgenreSub(name),
       subgenres: en.subgenres.map((sg, i) => ({
         ...sg,
@@ -149,7 +161,7 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
         desc: sd?.subgenreDescs?.[i]
           ?? (config.subgenreDesc ? config.subgenreDesc(config.names[sg.slug] || sg.name, name) : sg.desc),
       })),
-      comparisonTitle: config.comparisonTitle(name),
+      comparisonTitle: (au?.comparisonTitle ?? config.comparisonTitle)(name),
       comparisonSub: config.comparisonSub(name),
       comparison: {
         headers: [config.compFeatureLabel, ...en.comparison.headers.slice(1)],
@@ -160,14 +172,14 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
             ])
           : en.comparison.rows,
       },
-      promptTitle: config.promptTitle(name),
+      promptTitle: (au?.promptTitle ?? config.promptTitle)(name),
       promptSub: config.promptSub(name),
       prompts: en.prompts.map((p, i) => ({
         ...p,
         title: sd?.promptTitles?.[i] ?? p.title,
         text: sd?.promptTexts?.[i] ?? config.promptDescs?.[i]?.(name) ?? p.text,
       })),
-      useCaseTitle: config.useCaseTitle(name),
+      useCaseTitle: (au?.useCaseTitle ?? config.useCaseTitle)(name),
       useCaseSub: config.useCaseSub(name),
       useCases: en.useCases.map((uc, i) => ({
         icon: uc.icon,
@@ -183,7 +195,7 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
         a: f.a(name),
       })),
       finalCta: {
-        title: config.finalCtaTitle(name),
+        title: (au?.finalCtaTitle ?? config.finalCtaTitle)(name),
         subtitle: config.finalCtaSub(name),
         buttonText: config.finalCtaButton,
       },

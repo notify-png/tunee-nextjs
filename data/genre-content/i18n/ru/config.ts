@@ -366,6 +366,14 @@ export const config: LangConfig = {
     heroTitle: (name) => `Создавайте музыку ${lowerFirst(name)} с помощью ИИ`,
     heroSub: (name) =>
       `Введите текстовое описание — и ИИ сгенерирует профессиональный трек ${lowerFirst(name)} за считанные секунды. Никаких музыкальных знаний не требуется.`,
+    /* 常规模板把 name 放在「стиля «X»」这个属格位上，人群名填进去读作
+       「风格 为了DJ们」。改成直接修饰 музыку/трек，介词短语就落在对的位置。 */
+    dnaTitle: (name) => `Анатомия звучания музыки ${lowerFirst(name)}`,
+    subgenreTitle: (name) => `Направления музыки ${lowerFirst(name)}`,
+    comparisonTitle: (name) => `Сравнение ИИ-инструментов ${lowerFirst(name)}`,
+    promptTitle: (name) => `Примеры промптов ${lowerFirst(name)}`,
+    useCaseTitle: (name) => `Где использовать музыку ${lowerFirst(name)}`,
+    finalCtaTitle: (name) => `Создайте трек ${lowerFirst(name)} прямо сейчас`,
   },
 
   dnaTitle: (name) => `Анатомия звучания стиля «${name}»`,

@@ -336,6 +336,12 @@ export const config: LangConfig = {
     heroTitle: (name) => `Genera Música con IA ${lowerFirst(name)}`,
     heroSub: (name) =>
       `Crea pistas únicas ${lowerFirst(name)} al instante. Solo describe lo que quieres y la IA de Tunee compone la música por ti.`,
+    /* 「El ADN de Para DJs」是 de + para 两个介词连用。补一个 la música
+       当中心词，介词短语就有东西可修饰了。 */
+    dnaTitle: (name) => `El ADN de la música ${lowerFirst(name)}`,
+    subgenreTitle: (name) => `Subgéneros de música ${lowerFirst(name)}`,
+    comparisonTitle: (name) => `Tunee vs Otros Generadores de Música ${lowerFirst(name)}`,
+    promptTitle: (name) => `Prompts Populares ${lowerFirst(name)}`,
   },
 
   dnaTitle: (name) => `El ADN de ${name}`,
