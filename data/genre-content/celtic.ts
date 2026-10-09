@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "celtic",
   displayName: "Celtic",
   category: "genre",
-  colors: { bgBase: "#0A100A", accent: "#34D399", accentGlow: "#059669", accentRgb: "52,211,153", accentGlowRgb: "5,150,105", bgBaseRgb: "10,16,10" },
+  colors: { bgBase: "#0A100A", bgBaseRgb: "10,16,10" },
   svgType: "folkTree",
   seo: {
     title: "Celtic Music Generator | Tunee AI",

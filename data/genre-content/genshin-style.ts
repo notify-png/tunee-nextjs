@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "genshin-style",
   displayName: "Genshin Style",
   category: "inspired",
-  colors: { bgBase: "#0a0a14", accent: "#C084FC", accentGlow: "#A855F7", accentRgb: "192,132,252", accentGlowRgb: "168,85,247", bgBaseRgb: "10,10,20" },
+  colors: { bgBase: "#0a0a14", bgBaseRgb: "10,10,20" },
   svgType: "inspiredStar",
   seo: {
     title: "Genshin Style Music Generator | Tunee AI",

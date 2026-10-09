@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "chillout",
   displayName: "Chillout",
   category: "mood",
-  colors: { bgBase: "#0f0a1a", accent: "#EC4899", accentGlow: "#DB2777", accentRgb: "236,72,153", accentGlowRgb: "219,39,119", bgBaseRgb: "15,10,26" },
+  colors: { bgBase: "#0f0a1a", bgBaseRgb: "15,10,26" },
   svgType: "moodAbstract",
   seo: {
     title: "Chillout Music Generator | Tunee AI",

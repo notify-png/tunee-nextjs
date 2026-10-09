@@ -1,3 +1,19 @@
+/**
+ * 子流派关系图——**写好了但从未接入**，git 历史里 page.tsx 一次都没 import 过它。
+ *
+ * 留着是因为它代表一个有价值的想法：GenreData 的 subgenres[].slug 共 5,096 条
+ * 唯一引用，其中 3,635 条指向真实存在的页，接上就是 3,635 条主题相关的内链。
+ * 子页现在用纯 <div> 渲染 subgenre，那个 slug 字段整个没人消费。
+ *
+ * 接回去之前必须先处理：剩下 1,461 条（28.7%）指向不存在的内容文件，
+ * 例如 koto.ts 的 classical-koto / gagaku-koto / modern-koto 一条都没有对应页。
+ * 这个组件把 slug 渲染成 <Link>，而站点是 dynamicParams = false，
+ * 所以一接回来就是上千条 404 内链。
+ *
+ * 没人消费 = 没有任何机制校验这个字段，所以死链是悄悄积累的。
+ * 新页那一侧已经加了护栏：tunee-seo-pipeline 的 `node src/cli.mjs verify`
+ * 会检测 subgenre slug 是否存在，不让存量继续变大。
+ */
 "use client";
 
 import Link from "next/link";

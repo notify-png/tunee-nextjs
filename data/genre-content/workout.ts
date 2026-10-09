@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "workout",
   displayName: "Workout",
   category: "use-case",
-  colors: { bgBase: "#080a14", accent: "#6366F1", accentGlow: "#4F46E5", accentRgb: "99,102,241", accentGlowRgb: "79,70,229", bgBaseRgb: "8,10,20" },
+  colors: { bgBase: "#080a14", bgBaseRgb: "8,10,20" },
   svgType: "useCaseGrid",
   seo: {
     title: "Workout Music Generator | Tunee AI",

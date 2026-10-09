@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "bossa-nova",
   displayName: "Bossa Nova",
   category: "style",
-  colors: { bgBase: "#1A0A08", accent: "#FF7043", accentGlow: "#F44336", accentRgb: "255,112,67", accentGlowRgb: "244,67,54", bgBaseRgb: "26,10,8" },
+  colors: { bgBase: "#1A0A08", bgBaseRgb: "26,10,8" },
   svgType: "worldPattern",
   seo: {
     title: "Bossa Nova Music Generator | Tunee AI",

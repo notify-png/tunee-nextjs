@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "vaporwave",
   displayName: "Vaporwave",
   category: "genre",
-  colors: { bgBase: "#0D0818", accent: "#C084FC", accentGlow: "#A855F7", accentRgb: "192,132,252", accentGlowRgb: "168,85,247", bgBaseRgb: "13,8,24" },
+  colors: { bgBase: "#0D0818", bgBaseRgb: "13,8,24" },
   svgType: "retroGrid",
   seo: {
     title: "Vaporwave Music Generator | Tunee AI",

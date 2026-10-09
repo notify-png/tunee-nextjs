@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "rnb",
   displayName: "R&B",
   category: "genre",
-  colors: { bgBase: "#0F0A14", accent: "#E879F9", accentGlow: "#A855F7", accentRgb: "232,121,249", accentGlowRgb: "168,85,247", bgBaseRgb: "15,10,20" },
+  colors: { bgBase: "#0F0A14", bgBaseRgb: "15,10,20" },
   svgType: "moodAbstract",
   seo: {
     title: "R&B Music Generator | Tunee AI",

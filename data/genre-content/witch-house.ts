@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "witch-house",
   displayName: "Witch House",
   category: "genre",
-  colors: { bgBase: "#0a0a1a", accent: "#8B5CF6", accentGlow: "#7C3AED", accentRgb: "139,92,246", accentGlowRgb: "124,58,237", bgBaseRgb: "10,10,26" },
+  colors: { bgBase: "#0a0a1a", bgBaseRgb: "10,10,26" },
   svgType: "moodAbstract",
   seo: {
     title: "Witch House Music Generator | Tunee AI",

@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "amapiano",
   displayName: "Amapiano",
   category: "genre",
-  colors: { bgBase: "#0D0A14", accent: "#F59E0B", accentGlow: "#D97706", accentRgb: "245,158,11", accentGlowRgb: "217,119,6", bgBaseRgb: "13,10,20" },
+  colors: { bgBase: "#0D0A14", bgBaseRgb: "13,10,20" },
   svgType: "drumCircle",
   seo: {
     title: "Amapiano Music Generator | Tunee AI",

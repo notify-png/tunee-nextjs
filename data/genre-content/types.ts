@@ -53,12 +53,14 @@ export interface GenreData {
   finalCta: { title: string; subtitle: string; buttonText: string };
 }
 
+/** 页面背景色。
+ *
+ *  只有这两个值真的进 DOM。强调色（accent / accent-glow）在两个 page.tsx 里
+ *  硬编码成品牌橙紫，page.module.css 的渐变也直接写死同一对颜色——
+ *  曾经每页一个 accent 的设计在样式层被统一掉了，数据层那四个字段
+ *  293 个文件填了 30 种颜色，一个都到不了页面。2026-10-09 删除。 */
 export interface ColorScheme {
   bgBase: string;
-  accent: string;
-  accentGlow: string;
-  accentRgb: string;
-  accentGlowRgb: string;
   bgBaseRgb: string;
 }
 

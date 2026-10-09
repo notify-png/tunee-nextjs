@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "blues",
   displayName: "Blues",
   category: "genre",
-  colors: { bgBase: "#08101A", accent: "#60A5FA", accentGlow: "#3B82F6", accentRgb: "96,165,250", accentGlowRgb: "59,130,246", bgBaseRgb: "8,16,26" },
+  colors: { bgBase: "#08101A", bgBaseRgb: "8,16,26" },
   svgType: "stringWave",
   seo: {
     title: "Blues Music Generator | Tunee AI",

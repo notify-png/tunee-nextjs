@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "metalcore",
   displayName: "Metalcore",
   category: "style",
-  colors: { bgBase: "#100808", accent: "#DC2626", accentGlow: "#991B1B", accentRgb: "220,38,38", accentGlowRgb: "153,27,27", bgBaseRgb: "16,8,8" },
+  colors: { bgBase: "#100808", bgBaseRgb: "16,8,8" },
   svgType: "rockWave",
   seo: {
     title: "Metalcore Music Generator | Tunee AI",

@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "indie-pop",
   displayName: "Indie Pop",
   category: "genre",
-  colors: { bgBase: "#0A0814", accent: "#FB923C", accentGlow: "#F97316", accentRgb: "251,146,60", accentGlowRgb: "249,115,22", bgBaseRgb: "10,8,20" },
+  colors: { bgBase: "#0A0814", bgBaseRgb: "10,8,20" },
   svgType: "folkTree",
   seo: {
     title: "Indie Pop Music Generator | Tunee AI",

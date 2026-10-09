@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "bebop",
   displayName: "Bebop",
   category: "style",
-  colors: { bgBase: "#0A0E1A", accent: "#D4A855", accentGlow: "#8B6914", accentRgb: "212,168,85", accentGlowRgb: "139,105,20", bgBaseRgb: "10,14,26" },
+  colors: { bgBase: "#0A0E1A", bgBaseRgb: "10,14,26" },
   svgType: "jazzSmoke",
   seo: {
     title: "Bebop Music Generator | Tunee AI",

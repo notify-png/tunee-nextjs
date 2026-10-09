@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "fast",
   displayName: "Fast",
   category: "tempo",
-  colors: { bgBase: "#0a080f", accent: "#A855F7", accentGlow: "#9333EA", accentRgb: "168,85,247", accentGlowRgb: "147,51,234", bgBaseRgb: "10,8,15" },
+  colors: { bgBase: "#0a080f", bgBaseRgb: "10,8,15" },
   svgType: "moodAbstract",
   seo: {
     title: "Fast Music Generator | Tunee AI",

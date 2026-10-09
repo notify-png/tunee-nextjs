@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "afrobeats",
   displayName: "Afrobeats",
   category: "external",
-  colors: { bgBase: "#0a0a1a", accent: "#8B5CF6", accentGlow: "#7C3AED", accentRgb: "139,92,246", accentGlowRgb: "124,58,237", bgBaseRgb: "10,10,26" },
+  colors: { bgBase: "#0a0a1a", bgBaseRgb: "10,10,26" },
   svgType: "worldPattern",
   seo: {
     title: "Afrobeats Music Generator | Tunee AI",

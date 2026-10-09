@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "opera",
   displayName: "Opera",
   category: "style",
-  colors: { bgBase: "#080D14", accent: "#5BA8C8", accentGlow: "#3B82F6", accentRgb: "91,168,200", accentGlowRgb: "59,130,246", bgBaseRgb: "8,13,20" },
+  colors: { bgBase: "#080D14", bgBaseRgb: "8,13,20" },
   svgType: "classicalScore",
   seo: {
     title: "Opera Music Generator | Tunee AI",

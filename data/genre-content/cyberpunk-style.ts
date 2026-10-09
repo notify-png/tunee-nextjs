@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "cyberpunk-style",
   displayName: "Cyberpunk Style",
   category: "inspired",
-  colors: { bgBase: "#0a0a14", accent: "#C084FC", accentGlow: "#A855F7", accentRgb: "192,132,252", accentGlowRgb: "168,85,247", bgBaseRgb: "10,10,20" },
+  colors: { bgBase: "#0a0a14", bgBaseRgb: "10,10,20" },
   svgType: "inspiredStar",
   seo: {
     title: "Cyberpunk Style Music Generator | Tunee AI",

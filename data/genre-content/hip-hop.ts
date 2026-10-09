@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "hip-hop",
   displayName: "Hip-Hop",
   category: "genre",
-  colors: { bgBase: "#0D0A15", accent: "#FFD700", accentGlow: "#FF8C00", accentRgb: "255,215,0", accentGlowRgb: "255,140,0", bgBaseRgb: "13,10,21" },
+  colors: { bgBase: "#0D0A15", bgBaseRgb: "13,10,21" },
   svgType: "hipHopBeat",
   seo: {
     title: "Hip-Hop Music Generator | Tunee AI",

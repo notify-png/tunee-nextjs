@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "singer-songwriter",
   displayName: "Singer-Songwriter",
   category: "external",
-  colors: { bgBase: "#0a0a1a", accent: "#8B5CF6", accentGlow: "#7C3AED", accentRgb: "139,92,246", accentGlowRgb: "124,58,237", bgBaseRgb: "10,10,26" },
+  colors: { bgBase: "#0a0a1a", bgBaseRgb: "10,10,26" },
   svgType: "folkTree",
   seo: {
     title: "Singer-Songwriter Music Generator | Tunee AI",

@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "soul",
   displayName: "Soul",
   category: "genre",
-  colors: { bgBase: "#120A08", accent: "#FBBF24", accentGlow: "#D97706", accentRgb: "251,191,36", accentGlowRgb: "217,119,6", bgBaseRgb: "18,10,8" },
+  colors: { bgBase: "#120A08", bgBaseRgb: "18,10,8" },
   svgType: "moodAbstract",
   seo: {
     title: "Soul Music Generator | Tunee AI",

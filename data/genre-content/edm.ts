@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "edm",
   displayName: "EDM",
   category: "genre",
-  colors: { bgBase: "#050A12", accent: "#22D3EE", accentGlow: "#06B6D4", accentRgb: "34,211,238", accentGlowRgb: "6,182,212", bgBaseRgb: "5,10,18" },
+  colors: { bgBase: "#050A12", bgBaseRgb: "5,10,18" },
   svgType: "electroPulse",
   seo: {
     title: "EDM Music Generator | Tunee AI",

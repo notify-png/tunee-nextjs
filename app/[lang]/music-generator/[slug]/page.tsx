@@ -73,6 +73,10 @@ export default async function I18nGenreLandingPage({
 
   const ui = getSlugPageUI(lang);
   const { colors } = data;
+  /* 强调色统一用品牌橙紫，不跟页面走——page.module.css 的渐变也直接写死了
+     同一对颜色，所以这里改成按页取色不会生效，得连 CSS 一起改。
+     GenreData 原本有 accent / accentGlow / accentRgb / accentGlowRgb 四个字段，
+     293 个文件填了 30 种颜色但一个都到不了页面，2026-10-09 已删。 */
   const cssVars = {
     "--bg-base": colors.bgBase,
     "--accent": "#FF6B35",

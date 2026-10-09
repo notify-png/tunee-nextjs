@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "chillwave",
   displayName: "Chillwave",
   category: "style",
-  colors: { bgBase: "#0E1118", accent: "#A78BFA", accentGlow: "#6366F1", accentRgb: "167,139,250", accentGlowRgb: "99,102,241", bgBaseRgb: "14,17,24" },
+  colors: { bgBase: "#0E1118", bgBaseRgb: "14,17,24" },
   svgType: "lofiRain",
   seo: {
     title: "Chillwave Music Generator | Tunee AI",

@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "epic-orchestral-music",
   displayName: "Epic Orchestral",
   category: "context",
-  colors: { bgBase: "#0a0814", accent: "#818CF8", accentGlow: "#6366F1", accentRgb: "129,140,248", accentGlowRgb: "99,102,241", bgBaseRgb: "10,8,20" },
+  colors: { bgBase: "#0a0814", bgBaseRgb: "10,8,20" },
   svgType: "useCaseGrid",
   seo: {
     title: "Epic Orchestral Music Generator | Tunee AI",

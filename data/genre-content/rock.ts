@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "rock",
   displayName: "Rock",
   category: "genre",
-  colors: { bgBase: "#120808", accent: "#E84545", accentGlow: "#FF6B6B", accentRgb: "232,69,69", accentGlowRgb: "255,107,107", bgBaseRgb: "18,8,8" },
+  colors: { bgBase: "#120808", bgBaseRgb: "18,8,8" },
   svgType: "rockWave",
   seo: {
     title: "Rock Music Generator | Tunee AI",

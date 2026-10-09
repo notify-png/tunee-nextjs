@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "synthwave",
   displayName: "Synthwave",
   category: "genre",
-  colors: { bgBase: "#0D0221", accent: "#FF6EC7", accentGlow: "#7B68EE", accentRgb: "255,110,199", accentGlowRgb: "123,104,238", bgBaseRgb: "13,2,33" },
+  colors: { bgBase: "#0D0221", bgBaseRgb: "13,2,33" },
   svgType: "retroGrid",
   seo: {
     title: "Synthwave Music Generator | Tunee AI",

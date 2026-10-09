@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "hyperpop",
   displayName: "Hyperpop",
   category: "genre",
-  colors: { bgBase: "#0D0515", accent: "#E879F9", accentGlow: "#F0ABFC", accentRgb: "232,121,249", accentGlowRgb: "240,171,252", bgBaseRgb: "13,5,21" },
+  colors: { bgBase: "#0D0515", bgBaseRgb: "13,5,21" },
   svgType: "electroPulse",
   seo: {
     title: "Hyperpop Music Generator | Tunee AI",

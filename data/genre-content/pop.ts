@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "pop",
   displayName: "Pop",
   category: "genre",
-  colors: { bgBase: "#0C0818", accent: "#F472B6", accentGlow: "#EC4899", accentRgb: "244,114,182", accentGlowRgb: "236,72,153", bgBaseRgb: "12,8,24" },
+  colors: { bgBase: "#0C0818", bgBaseRgb: "12,8,24" },
   svgType: "moodAbstract",
   seo: {
     title: "Pop Music Generator | Tunee AI",

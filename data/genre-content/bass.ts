@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "bass",
   displayName: "Bass",
   category: "instrument",
-  colors: { bgBase: "#0a0f1a", accent: "#3B82F6", accentGlow: "#2563EB", accentRgb: "59,130,246", accentGlowRgb: "37,99,235", bgBaseRgb: "10,15,26" },
+  colors: { bgBase: "#0a0f1a", bgBaseRgb: "10,15,26" },
   svgType: "drumCircle",
   seo: {
     title: "Bass Music Generator | Tunee AI",

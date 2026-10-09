@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "70s",
   displayName: "70s",
   category: "era",
-  colors: { bgBase: "#0f0a08", accent: "#F59E0B", accentGlow: "#D97706", accentRgb: "245,158,11", accentGlowRgb: "217,119,6", bgBaseRgb: "15,10,8" },
+  colors: { bgBase: "#0f0a08", bgBaseRgb: "15,10,8" },
   svgType: "eraTimeline",
   seo: {
     title: "70s Music Generator | Tunee AI",

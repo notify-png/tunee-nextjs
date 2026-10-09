@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "funk",
   displayName: "Funk",
   category: "genre",
-  colors: { bgBase: "#140A10", accent: "#FB923C", accentGlow: "#EA580C", accentRgb: "251,146,60", accentGlowRgb: "234,88,12", bgBaseRgb: "20,10,16" },
+  colors: { bgBase: "#140A10", bgBaseRgb: "20,10,16" },
   svgType: "drumCircle",
   seo: {
     title: "Funk Music Generator | Tunee AI",

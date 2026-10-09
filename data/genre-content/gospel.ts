@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "gospel",
   displayName: "Gospel",
   category: "style",
-  colors: { bgBase: "#0a0a1a", accent: "#A78BFA", accentGlow: "#7C3AED", accentRgb: "167,139,250", accentGlowRgb: "124,58,237", bgBaseRgb: "10,10,26" },
+  colors: { bgBase: "#0a0a1a", bgBaseRgb: "10,10,26" },
   svgType: "moodAbstract",
   seo: {
     title: "Gospel Music Generator | Tunee AI",

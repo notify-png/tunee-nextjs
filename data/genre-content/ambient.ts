@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "ambient",
   displayName: "Ambient",
   category: "genre",
-  colors: { bgBase: "#080E14", accent: "#67E8F9", accentGlow: "#22D3EE", accentRgb: "103,232,249", accentGlowRgb: "34,211,238", bgBaseRgb: "8,14,20" },
+  colors: { bgBase: "#080E14", bgBaseRgb: "8,14,20" },
   svgType: "ambient",
   seo: {
     title: "Ambient Music Generator | Tunee AI",

@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "for-video-editors",
   displayName: "For Video Editors",
   category: "creator-type",
-  colors: { bgBase: "#0a0f14", accent: "#38BDF8", accentGlow: "#0EA5E9", accentRgb: "56,189,248", accentGlowRgb: "14,165,233", bgBaseRgb: "10,15,20" },
+  colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
     title: "For Video Editors Music Generator | Tunee AI",

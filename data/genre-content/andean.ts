@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "andean",
   displayName: "Andean",
   category: "style",
-  colors: { bgBase: "#1A0A08", accent: "#FF7043", accentGlow: "#F44336", accentRgb: "255,112,67", accentGlowRgb: "244,67,54", bgBaseRgb: "26,10,8" },
+  colors: { bgBase: "#1A0A08", bgBaseRgb: "26,10,8" },
   svgType: "worldPattern",
   seo: {
     title: "Andean Music Generator | Tunee AI",

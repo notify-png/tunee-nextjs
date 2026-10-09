@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "drill",
   displayName: "Drill",
   category: "genre",
-  colors: { bgBase: "#080810", accent: "#94A3B8", accentGlow: "#64748B", accentRgb: "148,163,184", accentGlowRgb: "100,116,139", bgBaseRgb: "8,8,16" },
+  colors: { bgBase: "#080810", bgBaseRgb: "8,8,16" },
   svgType: "hipHopBeat",
   seo: {
     title: "Drill Music Generator | Tunee AI",

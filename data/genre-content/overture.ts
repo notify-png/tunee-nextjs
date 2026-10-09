@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "overture",
   displayName: "Overture",
   category: "form",
-  colors: { bgBase: "#100a0a", accent: "#F87171", accentGlow: "#EF4444", accentRgb: "248,113,113", accentGlowRgb: "239,68,68", bgBaseRgb: "16,10,10" },
+  colors: { bgBase: "#100a0a", bgBaseRgb: "16,10,10" },
   svgType: "classicalScore",
   seo: {
     title: "Overture Music Generator | Tunee AI",

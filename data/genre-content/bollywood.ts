@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "bollywood",
   displayName: "Bollywood",
   category: "genre",
-  colors: { bgBase: "#100810", accent: "#E879F9", accentGlow: "#C026D3", accentRgb: "232,121,249", accentGlowRgb: "192,38,211", bgBaseRgb: "16,8,16" },
+  colors: { bgBase: "#100810", bgBaseRgb: "16,8,16" },
   svgType: "worldPattern",
   seo: {
     title: "Bollywood Music Generator | Tunee AI",

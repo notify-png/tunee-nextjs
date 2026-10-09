@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "minimal-production",
   displayName: "Minimal Production",
   category: "production",
-  colors: { bgBase: "#08100a", accent: "#10B981", accentGlow: "#059669", accentRgb: "16,185,129", accentGlowRgb: "5,150,105", bgBaseRgb: "8,16,10" },
+  colors: { bgBase: "#08100a", bgBaseRgb: "8,16,10" },
   svgType: "productionKnob",
   seo: {
     title: "Minimal Production Music Generator | Tunee AI",

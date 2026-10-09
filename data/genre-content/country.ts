@@ -4,7 +4,7 @@ export const data: GenreData = {
   slug: "country",
   displayName: "Country",
   category: "genre",
-  colors: { bgBase: "#141008", accent: "#D97706", accentGlow: "#B45309", accentRgb: "217,119,6", accentGlowRgb: "180,83,9", bgBaseRgb: "20,16,8" },
+  colors: { bgBase: "#141008", bgBaseRgb: "20,16,8" },
   svgType: "folkTree",
   seo: {
     title: "Country Music Generator | Tunee AI",
