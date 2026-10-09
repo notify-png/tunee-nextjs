@@ -310,8 +310,11 @@ export const config: LangConfig = {
   },
 
   seoTitle: (name) => `Gerador de Música ${name} com IA | Tunee`,
+  /* 长度压在 150 以内：normalizeMetaDescription 上限 155，截断后还会补一个句号，
+     看起来像写完了。这个模板要容纳最长 31 字符的译名，所以空载必须留足余量。
+     改之前先跑一遍 291 个 slug 的代入长度，别只看模板本身。 */
   seoDesc: (name) =>
-    `Crie músicas ${name} com inteligência artificial. Basta digitar o que você quer e o Tunee gera faixas ${name} de alta qualidade em segundos. Comece grátis.`,
+    `Crie músicas ${name} com IA. Digite o que você quer e o Tunee gera faixas de alta qualidade em segundos. Comece grátis.`,
 
   heroTitle: (name) => `Crie música ${name} com IA`,
   heroSub: (name) =>
@@ -324,7 +327,7 @@ export const config: LangConfig = {
   audience: {
     seoTitle: (name) => `Gerador de Música com IA ${lowerFirst(name)} | Tunee`,
     seoDesc: (name) =>
-      `Crie músicas ${lowerFirst(name)} com inteligência artificial. Basta digitar o que você quer e o Tunee gera faixas de alta qualidade em segundos.`,
+      `Músicas ${lowerFirst(name)} com IA. Digite o que você quer e o Tunee gera faixas de alta qualidade em segundos. Comece grátis.`,
     heroTitle: (name) => `Crie música ${lowerFirst(name)} com IA`,
     heroSub: (name) =>
       `Descreva o que você imagina e gere faixas profissionais ${lowerFirst(name)} em segundos. Nenhum conhecimento musical necessário.`,
