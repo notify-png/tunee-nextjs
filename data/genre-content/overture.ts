@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "classicalScore",
   seo: {
     title: "Overture Music Generator | Tunee AI",
-    description: "Create overture music with Tunee's AI Music Generator. Compose grand orchestral openings, opera preludes, and dramatic introductory pieces that set the stage. Free to start.",
+    description: "Create overture music with Tunee's AI Music Generator. Grand orchestral openings, opera preludes and dramatic introductions. Free to start.",
   },
   hero: {
     title: "Overture\nMusic Generator",

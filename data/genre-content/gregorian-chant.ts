@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "classicalScore",
   seo: {
     title: "Gregorian Chant Music Generator | Tunee AI",
-    description: "Create Gregorian chant music instantly with Tunee's AI Music Generator. Chat to compose original monophonic sacred vocal works — modal melodies, Latin text setting, and meditative drone. Free to start.",
+    description: "Create Gregorian chant with Tunee's AI Music Generator. Monophonic sacred vocal works — modal melodies, Latin text, meditative drone. Free to start.",
   },
   hero: {
     title: "Gregorian Chant\nMusic Generator",

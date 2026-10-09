@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Gospel Music Generator | Tunee AI",
-    description: "Create gospel music instantly with Tunee's AI Music Generator. Chat to compose original gospel tracks with choir harmonies, call-and-response, organ, and piano. Free to start.",
+    description: "Create gospel music with Tunee's AI Music Generator. Chat to compose choir harmonies, call-and-response, organ and piano. Free to start.",
   },
   hero: {
     title: "Gospel\nMusic Generator",

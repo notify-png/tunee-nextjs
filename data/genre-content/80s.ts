@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "eraTimeline",
   seo: {
     title: "80s Music Generator | Tunee AI",
-    description: "Create 1980s-style music with Tunee AI. Synth-pop, new wave, hair metal, and early electronic — describe the sound and generate instantly. Free to start.",
+    description: "Create 1980s music with Tunee AI. Synth-pop, new wave, hair metal and early electronic — describe the sound. Free to start.",
   },
   hero: {
     title: "80s\nMusic Generator",

@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "Glitch Music Generator | Tunee AI",
-    description: "Create glitch music with Tunee's AI Music Generator. Digital errors, skipping CDs, corrupted files as art — Autechre, Oval, Fennesz styles. Generate instantly.",
+    description: "Create glitch music with Tunee's AI Music Generator. Digital errors, skipping CDs and corrupted files as art — Autechre, Oval styles.",
   },
   hero: {
     title: "Glitch\nMusic Generator",

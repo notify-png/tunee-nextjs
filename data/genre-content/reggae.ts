@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Reggae Music Generator | Tunee AI",
-    description: "Create reggae music instantly with Tunee's AI Music Generator. Chat to compose original roots reggae, dancehall, dub, ska, and more. No skills needed. Free to start.",
+    description: "Create reggae music with Tunee's AI Music Generator. Chat to compose roots reggae, dancehall, dub, ska, and more. Free to start.",
   },
   hero: {
     title: "Reggae\nMusic Generator",

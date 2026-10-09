@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "rockWave",
   seo: {
     title: "Hardcore Music Generator | Tunee AI",
-    description: "Create hardcore music with Tunee's AI Music Generator. Chat to compose original hardcore punk and hardcore electronic tracks — blistering speed, raw aggression, and relentless energy. Free to start.",
+    description: "Create hardcore music with Tunee's AI Music Generator. Chat to compose blistering speed, raw aggression, and relentless energy. Free to start.",
   },
   hero: {
     title: "Hardcore\nMusic Generator",

@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Witch House Music Generator | Tunee AI",
-    description: "Create witch house music instantly with Tunee's AI Music Generator. Chat to compose original dark, occult-tinged electronic tracks with chopped vocals and slowed beats. Free to start.",
+    description: "Create witch house with Tunee's AI Music Generator. Dark, occult-tinged electronic tracks with chopped vocals and slowed beats. Free to start.",
   },
   hero: {
     title: "Witch House\nMusic Generator",

@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Vocal Music Generator | Tunee AI",
-    description: "Create vocal-focused music with Tunee's AI Music Generator. Craft harmonies, choirs, vocal runs, and a cappella arrangements — just describe your vision. Free to start.",
+    description: "Create vocal-focused music with Tunee's AI. Harmonies, choirs, vocal runs and a cappella arrangements — just describe it. Free to start.",
   },
   hero: {
     title: "Vocal\nMusic Generator",

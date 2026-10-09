@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Slow Music Generator | Tunee AI",
-    description: "Create slow-tempo music with Tunee AI. Ballads, adagios, and gentle compositions at 40-80 BPM — describe the pace and generate instantly. Free to start.",
+    description: "Create slow-tempo music with Tunee AI. Ballads, adagios and gentle compositions at 40-80 BPM — describe the pace. Free to start.",
   },
   hero: {
     title: "Slow\nMusic Generator",

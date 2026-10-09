@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "useCaseGrid",
   seo: {
     title: "Fantasy Music Generator | Tunee AI",
-    description: "Create fantasy music with Tunee's AI Music Generator. Compose medieval tavern melodies, elven themes, dragon encounters, and epic quest soundtracks. Free to start.",
+    description: "Create fantasy music with Tunee's AI. Medieval tavern melodies, elven themes, dragon encounters and quest soundtracks. Free to start.",
   },
   hero: {
     title: "Fantasy\nMusic Generator",

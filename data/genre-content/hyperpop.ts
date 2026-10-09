@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "Hyperpop Music Generator | Tunee AI",
-    description: "Create hyperpop music instantly with Tunee's AI Music Generator. Chat to compose original maximalist pop with distorted vocals, glitchy beats, and genre-breaking production. No skills needed. Free to start.",
+    description: "Create hyperpop with Tunee's AI Music Generator. Maximalist pop with distorted vocals, glitchy beats and genre-breaking production. Free to start.",
   },
   hero: {
     title: "Hyperpop\nMusic Generator",

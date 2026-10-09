@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "African Music Generator | Tunee AI",
-    description: "Create African music instantly with Tunee's AI Music Generator. Chat to compose original Afrobeats, Highlife, Soukous, and more with authentic rhythms and instruments. Free to start.",
+    description: "Create African music with Tunee's AI Music Generator. Chat to compose Afrobeats, Highlife and Soukous with authentic rhythms. Free to start.",
   },
   hero: {
     title: "African\nMusic Generator",

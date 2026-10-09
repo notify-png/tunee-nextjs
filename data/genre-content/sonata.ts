@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "classicalScore",
   seo: {
     title: "Sonata Music Generator | Tunee AI",
-    description: "Create sonata music with Tunee's AI Music Generator. Compose multi-movement instrumental works — piano sonatas, violin sonatas, and modern sonata forms. Free to start.",
+    description: "Create sonata music with Tunee's AI Music Generator. Multi-movement works — piano sonatas, violin sonatas and modern forms. Free to start.",
   },
   hero: {
     title: "Sonata\nMusic Generator",

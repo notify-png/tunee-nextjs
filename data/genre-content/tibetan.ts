@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Tibetan Music Generator | Tunee AI",
-    description: "Create Tibetan music instantly with Tunee's AI Music Generator. Chat to compose original tracks with singing bowls, dungchen horns, Buddhist chanting, and ritual percussion. Free to start.",
+    description: "Create Tibetan music with Tunee's AI Music Generator. Singing bowls, dungchen horns, Buddhist chanting and ritual percussion. Free to start.",
   },
   hero: {
     title: "Tibetan\nMusic Generator",

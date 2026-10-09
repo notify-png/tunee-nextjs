@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "useCaseGrid",
   seo: {
     title: "Trailer Music Generator | Tunee AI",
-    description: "Create trailer music with Tunee's AI Music Generator. Compose epic cinematic builds, dramatic impacts, and emotional peaks for movie, game, and product trailers. Free to start.",
+    description: "Create trailer music with Tunee's AI. Epic cinematic builds, dramatic impacts and emotional peaks for movie and game trailers. Free to start.",
   },
   hero: {
     title: "Trailer\nMusic Generator",

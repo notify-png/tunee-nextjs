@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Instrumental Music Generator | Tunee AI",
-    description: "Create instrumental music instantly with Tunee's AI Music Generator. Chat to compose original vocal-free tracks for any genre — BGM, film scoring, study, meditation, and content creation. Free to start.",
+    description: "Create instrumental music with Tunee's AI Music Generator. Vocal-free tracks for BGM, film scoring, study and content. Free to start.",
   },
   hero: {
     title: "Instrumental\nMusic Generator",

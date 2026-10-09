@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Spanish Music Generator | Tunee AI",
-    description: "Create Spanish-language music with Tunee's AI Music Generator. Craft reggaeton, Latin pop, flamenco, and bachata — just describe your vision. Free to start.",
+    description: "Create Spanish-language music with Tunee's AI. Reggaeton, Latin pop, flamenco and bachata — just describe your vision. Free to start.",
   },
   hero: {
     title: "Spanish\nMusic Generator",

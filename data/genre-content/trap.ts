@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "hipHopBeat",
   seo: {
     title: "Trap Music Generator | Tunee AI",
-    description: "Create trap music instantly with Tunee's AI Music Generator. Chat to produce original trap tracks — 808 bass, hi-hat rolls, dark melodies, and hard-hitting drops. No production skills needed. Free to start.",
+    description: "Create trap music with Tunee's AI Music Generator. 808 bass, hi-hat rolls, dark melodies and hard-hitting drops. Free to start.",
   },
   hero: {
     title: "Trap\nMusic Generator",

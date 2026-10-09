@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "Dubstep Music Generator | Tunee AI",
-    description: "Create dubstep music instantly with Tunee's AI Music Generator. Chat to produce original dubstep tracks — heavy drops, wobble bass, and riddim. No production skills needed. Free to start.",
+    description: "Create dubstep music with Tunee's AI Music Generator. Chat to produce original dubstep tracks — heavy drops, wobble bass, and riddim. Free to start.",
   },
   hero: {
     title: "Dubstep\nMusic Generator",

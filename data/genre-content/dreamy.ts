@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Dreamy Music Generator | Tunee AI",
-    description: "Create dreamy, ethereal music with Tunee AI. Floating soundscapes, reverb-washed melodies, and surreal vibes — describe the dream and generate. Free to start.",
+    description: "Create dreamy, ethereal music with Tunee AI. Floating soundscapes, reverb-washed melodies and surreal vibes. Free to start.",
   },
   hero: {
     title: "Dreamy\nMusic Generator",

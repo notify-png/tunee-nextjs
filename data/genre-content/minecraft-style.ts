@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "inspiredStar",
   seo: {
     title: "Minecraft Style Music Generator | Tunee AI",
-    description: "Create Minecraft-inspired music with Tunee's AI Music Generator. Ambient piano, peaceful soundscapes, and meditative C418-style atmospheres — just describe the biome.",
+    description: "Create Minecraft-inspired music with Tunee's AI. Ambient piano, peaceful soundscapes and C418-style atmospheres. Free to start.",
   },
   hero: {
     title: "Minecraft Style\nMusic Generator",

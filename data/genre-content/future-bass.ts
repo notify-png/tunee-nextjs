@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "Future Bass Music Generator | Tunee AI",
-    description: "Create future bass music instantly with Tunee's AI Music Generator. Chat to compose original future bass tracks — supersaws, vocal chops, emotional drops, and lush harmonies. No skills needed. Free to start.",
+    description: "Create future bass music with Tunee's AI Music Generator. Chat to compose supersaws, vocal chops, emotional drops, and lush harmonies. Free to start.",
   },
   hero: {
     title: "Future Bass\nMusic Generator",

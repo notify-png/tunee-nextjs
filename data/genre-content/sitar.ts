@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "stringWave",
   seo: {
     title: "Sitar Music Generator | Tunee AI",
-    description: "Create sitar music instantly with Tunee's AI Music Generator. Chat to compose original tracks featuring sitar across Indian classical, raga, fusion, and world styles. Ravi Shankar to modern crossover. Free to start.",
+    description: "Create sitar music with Tunee's AI Music Generator. Indian classical, raga and fusion styles — Ravi Shankar to modern crossover. Free to start.",
   },
   hero: {
     title: "Sitar\nMusic Generator",

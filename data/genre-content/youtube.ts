@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "useCaseGrid",
   seo: {
     title: "YouTube Music Generator | Tunee AI",
-    description: "Create royalty-free music for YouTube videos with Tunee's AI. No copyright claims, full monetization — vlogs, tutorials, reviews, and more. Free to start.",
+    description: "Royalty-free music for YouTube with Tunee's AI. No copyright claims, full monetization — vlogs, tutorials, reviews. Free to start.",
   },
   hero: {
     title: "YouTube\nMusic Generator",

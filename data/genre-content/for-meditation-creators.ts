@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "creatorDesk",
   seo: {
     title: "For Meditation Creators Music Generator | Tunee AI",
-    description: "Create meditation music, guided session soundscapes, and healing audio with Tunee's AI Music Generator. Calm, therapeutic, and endlessly customizable. Free to start.",
+    description: "Create meditation music and guided session soundscapes with Tunee's AI. Calm, therapeutic and endlessly customizable. Free to start.",
   },
   hero: {
     title: "For Meditation Creators\nMusic Generator",

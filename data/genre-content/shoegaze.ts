@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "ambient",
   seo: {
     title: "Shoegaze Music Generator | Tunee AI",
-    description: "Create shoegaze music instantly with Tunee's AI Music Generator. Chat to compose original shoegaze tracks — layered guitars, heavy reverb, ethereal vocals, and walls of sound. No production skills needed. Free to start.",
+    description: "Create shoegaze with Tunee's AI Music Generator. Layered guitars, heavy reverb, ethereal vocals and walls of sound. Free to start.",
   },
   hero: {
     title: "Shoegaze\nMusic Generator",

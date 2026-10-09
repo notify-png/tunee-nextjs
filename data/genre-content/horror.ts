@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Horror Music Generator | Tunee AI",
-    description: "Create horror music with Tunee's AI Music Generator. Chat to compose original horror soundscapes — dissonant strings, creeping tension, and terrifying jump scares. No skills needed. Free to start.",
+    description: "Create horror music with Tunee's AI Music Generator. Dissonant strings, creeping tension and terrifying jump scares. Free to start.",
   },
   hero: {
     title: "Horror\nMusic Generator",

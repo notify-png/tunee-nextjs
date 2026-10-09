@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "Synth Music Generator | Tunee AI",
-    description: "Create synth music instantly with Tunee's AI Music Generator. Chat to compose original synthesizer tracks — from analog warmth to digital precision to modular experiments. Free to start.",
+    description: "Create synth music with Tunee's AI Music Generator. Chat to compose from analog warmth to digital precision to modular experiments. Free to start.",
   },
   hero: {
     title: "Synth\nMusic Generator",

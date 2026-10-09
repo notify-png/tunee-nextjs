@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "eraTimeline",
   seo: {
     title: "Medieval Music Generator | Tunee AI",
-    description: "Create medieval music instantly with Tunee's AI Music Generator. Chat to compose original medieval tracks — Gregorian chant, troubadour melodies, monophonic and polyphonic textures, and ancient instrument timbres. No skills needed. Free to start.",
+    description: "Create medieval music with Tunee's AI Music Generator. Gregorian chant, troubadour melodies and ancient instrument timbres. Free to start.",
   },
   hero: {
     title: "Medieval\nMusic Generator",

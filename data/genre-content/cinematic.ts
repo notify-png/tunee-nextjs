@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Cinematic Music Generator | Tunee AI",
-    description: "Create cinematic music instantly with Tunee's AI Music Generator. Chat to compose original epic orchestral, trailer, underscore, and hybrid cinematic tracks. No skills needed. Free to start.",
+    description: "Create cinematic music with Tunee's AI Music Generator. Epic orchestral, trailer, underscore and hybrid cinematic tracks. Free to start.",
   },
   hero: {
     title: "Cinematic\nMusic Generator",

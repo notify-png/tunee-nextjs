@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Flamenco Music Generator | Tunee AI",
-    description: "Create flamenco music instantly with Tunee's AI Music Generator. Chat to compose original flamenco tracks with guitar, palmas, cajón, and passionate vocals. Free to start.",
+    description: "Create flamenco music with Tunee's AI Music Generator. Guitar, palmas, cajon and passionate vocals. Free to start.",
   },
   hero: {
     title: "Flamenco\nMusic Generator",

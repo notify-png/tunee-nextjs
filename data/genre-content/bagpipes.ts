@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "windBreath",
   seo: {
     title: "Bagpipes Music Generator | Tunee AI",
-    description: "Create bagpipe music instantly with Tunee's AI Music Generator. Chat to compose original tracks featuring Great Highland bagpipes, uilleann pipes, Galician gaita, and more. Free to start.",
+    description: "Create bagpipe music with Tunee's AI Music Generator. Great Highland bagpipes, uilleann pipes, Galician gaita and more. Free to start.",
   },
   hero: {
     title: "Bagpipes\nMusic Generator",

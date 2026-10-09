@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "hipHopBeat",
   seo: {
     title: "Memphis Rap Music Generator | Tunee AI",
-    description: "Create Memphis rap music instantly with Tunee's AI Music Generator. Chat to compose original Memphis tracks — dark lo-fi beats, crunk patterns, Three 6 Mafia-inspired production, and gritty Southern underground energy. No skills needed. Free to start.",
+    description: "Create Memphis rap with Tunee's AI Music Generator. Dark lo-fi beats, crunk patterns and gritty Southern underground energy. Free to start.",
   },
   hero: {
     title: "Memphis\nMusic Generator",

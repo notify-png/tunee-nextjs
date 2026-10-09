@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Salsa Music Generator | Tunee AI",
-    description: "Create salsa music instantly with Tunee's AI Music Generator. Chat to compose original salsa tracks with clave rhythm, horn sections, montuno piano, and conga grooves. Free to start.",
+    description: "Create salsa music with Tunee's AI Music Generator. Clave rhythm, horn sections, montuno piano and conga grooves. Free to start.",
   },
   hero: {
     title: "Salsa\nMusic Generator",

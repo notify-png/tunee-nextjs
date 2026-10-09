@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "inspiredStar",
   seo: {
     title: "8-Bit Music Generator | Tunee AI",
-    description: "Create authentic 8-bit chiptune music with Tunee's AI Music Generator. Craft NES, Game Boy, and retro game soundtracks — just describe your vision. Free to start.",
+    description: "Create 8-bit chiptune music with Tunee's AI Music Generator. NES, Game Boy and retro game soundtracks — just describe it. Free to start.",
   },
   hero: {
     title: "8-Bit\nMusic Generator",

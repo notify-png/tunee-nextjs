@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "R&B Music Generator | Tunee AI",
-    description: "Create R&B music instantly with Tunee's AI Music Generator. Chat to compose original R&B tracks — smooth ballads, neo-soul, contemporary grooves, and more. No skills needed. Free to start.",
+    description: "Create R&B music with Tunee's AI Music Generator. Chat to compose smooth ballads, neo-soul and contemporary grooves. Free to start.",
   },
   hero: {
     title: "R&B\nMusic Generator",

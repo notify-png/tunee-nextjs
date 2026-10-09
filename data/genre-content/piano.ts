@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "pianoKeys",
   seo: {
     title: "Piano Music Generator | Tunee AI",
-    description: "Create piano music instantly with Tunee's AI Music Generator. Chat to compose original piano tracks — from classical sonatas to jazz improvisation to ambient textures. Free to start.",
+    description: "Create piano music with Tunee's AI Music Generator. Chat to compose from classical sonatas to jazz improvisation to ambient textures. Free to start.",
   },
   hero: {
     title: "Piano\nMusic Generator",

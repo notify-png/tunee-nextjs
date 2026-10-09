@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "stringWave",
   seo: {
     title: "Ukulele Music Generator | Tunee AI",
-    description: "Create ukulele music instantly with Tunee's AI Music Generator. Chat to compose original ukulele tracks — from Hawaiian classics to indie pop to cheerful folk. Free to start.",
+    description: "Create ukulele music with Tunee's AI Music Generator. Chat to compose from Hawaiian classics to indie pop to cheerful folk. Free to start.",
   },
   hero: {
     title: "Ukulele\nMusic Generator",

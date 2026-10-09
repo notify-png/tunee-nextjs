@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Balkan Music Generator | Tunee AI",
-    description: "Create Balkan music with Tunee's AI Music Generator. Brass bands, odd time signatures, and Romani-influenced melodies. Chat to compose original Balkan tracks. Free to start.",
+    description: "Create Balkan music with Tunee's AI Music Generator. Brass bands, odd time signatures and Romani-influenced melodies. Free to start.",
   },
   hero: {
     title: "Balkan\nMusic Generator",

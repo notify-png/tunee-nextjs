@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "Psytrance Music Generator | Tunee AI",
-    description: "Create psytrance music instantly with Tunee's AI Music Generator. Chat to compose original psytrance tracks — rolling basslines, acid squelches, 138-150 BPM energy, Goa trance vibes, and hypnotic builds. No skills needed. Free to start.",
+    description: "Create psytrance with Tunee's AI Music Generator. Rolling basslines, acid squelches and Goa trance vibes at 138-150 BPM. Free to start.",
   },
   hero: {
     title: "Psytrance\nMusic Generator",

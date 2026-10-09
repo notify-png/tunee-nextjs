@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "Mix Music Generator | Tunee AI",
-    description: "Create mix and mashup music instantly with Tunee's AI Music Generator. Chat to compose original blend tracks — genre-crossing transitions, DJ-style builds, seamless fusions, and eclectic combinations. No skills needed. Free to start.",
+    description: "Create mixes and mashups with Tunee's AI Music Generator. Genre-crossing transitions, DJ-style builds and seamless fusions. Free to start.",
   },
   hero: {
     title: "Mix\nMusic Generator",

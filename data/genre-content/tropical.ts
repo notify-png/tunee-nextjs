@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Tropical Music Generator | Tunee AI",
-    description: "Create tropical music instantly with Tunee's AI Music Generator. Chat to produce original tropical tracks — steel drums, island rhythms, dancehall grooves, and sun-soaked vibes. No skills needed. Free to start.",
+    description: "Create tropical music with Tunee's AI Music Generator. Steel drums, island rhythms, dancehall grooves and sun-soaked vibes. Free to start.",
   },
   hero: {
     title: "Tropical\nMusic Generator",

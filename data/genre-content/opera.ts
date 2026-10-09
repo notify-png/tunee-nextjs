@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "classicalScore",
   seo: {
     title: "Opera Music Generator | Tunee AI",
-    description: "Create opera music instantly with Tunee's AI Music Generator. Chat to compose original arias, recitatives, overtures, and full dramatic vocal works — no skills needed. Free to start.",
+    description: "Create opera music with Tunee's AI Music Generator. Chat to compose arias, recitatives, overtures and full dramatic works. Free to start.",
   },
   hero: {
     title: "Opera\nMusic Generator",

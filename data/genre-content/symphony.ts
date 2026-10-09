@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "classicalScore",
   seo: {
     title: "Symphony Music Generator | Tunee AI",
-    description: "Create symphonic music instantly with Tunee's AI Music Generator. Chat to compose original multi-movement symphonies, from Classical-era elegance to modern orchestral power. No skills needed. Free to start.",
+    description: "Create symphonic music with Tunee's AI Music Generator. Multi-movement symphonies from Classical elegance to modern power. Free to start.",
   },
   hero: {
     title: "Symphony\nMusic Generator",

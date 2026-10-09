@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Gamelan Music Generator | Tunee AI",
-    description: "Create gamelan music with Tunee's AI Music Generator. Bronze metallophones, gongs, drums, and interlocking patterns. Slendro and pelog scales from Indonesia. Free to start.",
+    description: "Create gamelan music with Tunee's AI Music Generator. Bronze metallophones, gongs and interlocking patterns in slendro and pelog. Free to start.",
   },
   hero: {
     title: "Gamelan\nMusic Generator",

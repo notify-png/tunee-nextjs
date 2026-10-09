@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "EDM Music Generator | Tunee AI",
-    description: "Create EDM tracks instantly with Tunee's AI Music Generator. Chat to produce original electronic dance music — festival anthems, deep house, trance, and more. No production skills needed. Free to start.",
+    description: "Create EDM with Tunee's AI Music Generator. Chat to produce festival anthems, deep house, trance and more. Free to start.",
   },
   hero: {
     title: "EDM\nMusic Generator",
