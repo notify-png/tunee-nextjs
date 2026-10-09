@@ -318,6 +318,18 @@ export const config: LangConfig = {
     `輸入文字描述，幾秒內即可生成專業級${name}曲目。唔需要任何樂器知識或樂理基礎。`,
   badges: ["高音質", "商用授權", "免費開始"],
 
+  /* ── 人群页（creator-type）专用句式 ──
+     常规模板假设 name 是曲风名词，人群名填进去是病句（见 helpers.ts 的 audience 注释）。
+     只覆盖 SERP 与首屏看到的四个字段。 */
+  audience: {
+    seoTitle: (name) => `${name} AI 音樂生成器 | Tunee`,
+    seoDesc: (name) =>
+      `${name}的 AI 音樂生成器。只需輸入文字描述，即可生成高質素曲目。免費試用，即刻開始。`,
+    heroTitle: (name) => `用 AI 創作${name}音樂`,
+    heroSub: (name) =>
+      `輸入文字描述，幾秒內即可生成${name}的專業級曲目。唔需要任何樂器知識或樂理基礎。`,
+  },
+
   dnaTitle: (name) => `拆解${name}嘅音樂元素`,
   dnaSub: (name) =>
     `AI 分析${name}嘅節奏、旋律同音色特徵，幫你嘅作品準確還原風格。`,

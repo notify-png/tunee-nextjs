@@ -36,6 +36,23 @@ export interface LangConfig {
   finalCtaTitle: (name: string) => string;
   finalCtaSub: (name: string) => string;
   finalCtaButton: string;
+  /** 人群类页（category === "creator-type"）专用的标题句式。
+
+      常规模板的语法前提是 name 为**曲风名词**——zh 是 `${name}风格AI音乐生成器`、
+      ja 是 `${name}系AI…`、ru 是 `${name} музыка`。人群名填进去就碎：
+      2026-10 线上实测 for-djs 的中文标题是「DJ专用风格AI音乐生成器」、
+      日文「DJ向け系AI…」、俄文「Для диджеев музыка」，都是病句。
+
+      只覆盖这四个字段，因为它们决定 SERP 上看到的那两行与首屏第一眼；
+      页内小标题（dnaTitle / subgenreTitle 等）仍走常规模板，句式略怪但不影响点击。
+      不填则回落常规模板——回落的结果就是现状，不会更糟。 */
+  audience?: {
+    seoTitle: (name: string) => string;
+    seoDesc: (name: string) => string;
+    heroTitle: (name: string) => string;
+    heroSub: (name: string) => string;
+  };
+
   /** Per-slug faithful translations of genre-specific content */
   slugData?: Record<string, {
     subgenreNames?: string[];
@@ -72,6 +89,10 @@ export const LANDING_SLUGS = [
   "warm","hawaiian","electronic","for-musicians","romantic-mood","for-indie-game-developers","dream-pop","for-composers","modern","ui-sound","fast","jazz-funk","polished-production","atmospheric-production","ethnic","intimate","reverb-production","beat","viral","for-marketers","open-world-music","sci-fi-horror-music","acoustic-production","for-podcasters","urban","cuban","for-filmmakers","for-game-developers","soul","minimal-production","for-social-media-managers","for-youtubers","raw-production","eastern-european","exploration-music","for-video-creators","glo-fi","for-streamers","chinese","english","instrumental-language","k-hip-hop",
 ];
 
+/** 首字母小写。西方语言的人群译名是「Für DJs」「Para DJs」这类前置介词短语，
+    句首保持大写，嵌进句中则要小写——德语的 für、意语的 per 在句中不大写。 */
+export const lowerFirst = (value: string) => value.charAt(0).toLowerCase() + value.slice(1);
+
 /* ── Factory: create translated GenreData from config ── */
 export function buildTranslations(config: LangConfig): Record<string, GenreData> {
   const result: Record<string, GenreData> = {};
@@ -82,6 +103,8 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
 
     const name = config.names[slug] || en.displayName;
     const sd = config.slugData?.[slug];
+    // 人群页有专用句式就用，没有就回落常规模板
+    const au = en.category === "creator-type" ? config.audience : undefined;
     const subgenreSlugCounts = new Map();
     for (const sg of en.subgenres) {
       subgenreSlugCounts.set(sg.slug, (subgenreSlugCounts.get(sg.slug) ?? 0) + 1);
@@ -91,12 +114,12 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
       ...en,
       displayName: name,
       seo: {
-        title: config.seoTitle(name),
-        description: config.seoDesc(name),
+        title: (au?.seoTitle ?? config.seoTitle)(name),
+        description: (au?.seoDesc ?? config.seoDesc)(name),
       },
       hero: {
-        title: config.heroTitle(name),
-        subtitle: config.heroSub(name),
+        title: (au?.heroTitle ?? config.heroTitle)(name),
+        subtitle: (au?.heroSub ?? config.heroSub)(name),
         badges: config.badges,
       },
       chatDemo: {
