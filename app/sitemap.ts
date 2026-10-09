@@ -5,6 +5,17 @@ import { SUPPORTED_LANGS } from "@/app/[lang]/music-generator/translations";
 
 const BASE_URL = "https://www.tunee.ai";
 
+/**
+ * 翻译内容的最后实质更新日期。
+ *
+ * 多语言页的文案由 i18n/ 下的 names 与模板决定，与英文源文件的 updatedAt 无关，
+ * 所以英文页用 data.updatedAt、多语言页用这里。翻译有实质更新时改这个日期。
+ *
+ * 不要改成构建时间：每次构建都变的 lastmod 与实际内容变化不符，Google 会直接
+ * 忽略整站的 lastmod，比没有更糟。
+ */
+const I18N_LAST_UPDATED = "2026-10-08";
+
 const LANGS = SUPPORTED_LANGS;
 
 const langUrl = (lang: string, path: string) =>
@@ -43,7 +54,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       return availableLangs.map((lang) => ({
         url: langUrl(lang, path),
-        ...(data.updatedAt ? { lastModified: data.updatedAt } : {}),
+        ...(lang === "en"
+          ? data.updatedAt
+            ? { lastModified: data.updatedAt }
+            : {}
+          : {
+              lastModified:
+                data.updatedAt && data.updatedAt > I18N_LAST_UPDATED
+                  ? data.updatedAt
+                  : I18N_LAST_UPDATED,
+            }),
         changeFrequency: "monthly" as const,
         priority: lang === "en" ? 0.7 : 0.6,
         alternates: { languages: alternates },
