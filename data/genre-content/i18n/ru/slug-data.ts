@@ -9,6 +9,7 @@ import { slugDataB8 } from "./slug-data-b8";
 import { slugDataB9 } from "./slug-data-b9";
 import { slugDataB10 } from "./slug-data-b10";
 import { slugDataB11 } from "./slug-data-b11";
+import { slugDataB12 } from "./slug-data-b12";
 
 export const slugData = {
   ...slugDataB1,
@@ -22,5 +23,6 @@ export const slugData = {
   ...slugDataB9,
   ...slugDataB10,
   ...slugDataB11,
+  ...slugDataB12,
 };
 

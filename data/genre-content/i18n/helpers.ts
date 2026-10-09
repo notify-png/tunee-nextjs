@@ -38,6 +38,7 @@ export interface LangConfig {
   finalCtaButton: string;
   /** Per-slug faithful translations of genre-specific content */
   slugData?: Record<string, {
+    subgenreNames?: string[];
     dnaDescs?: string[];
     subgenreDescs?: string[];
     promptTitles?: string[];
@@ -81,6 +82,10 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
 
     const name = config.names[slug] || en.displayName;
     const sd = config.slugData?.[slug];
+    const subgenreSlugCounts = new Map();
+    for (const sg of en.subgenres) {
+      subgenreSlugCounts.set(sg.slug, (subgenreSlugCounts.get(sg.slug) ?? 0) + 1);
+    }
 
     result[slug] = {
       ...en,
@@ -110,7 +115,14 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
       subgenreSub: config.subgenreSub(name),
       subgenres: en.subgenres.map((sg, i) => ({
         ...sg,
-        name: config.names[sg.slug] || sg.name,
+        // config.names 按 slug 索引，而 slug 是「链到哪个页」、name 是「显示什么」。
+        // 同一页里多个子流派链到同一个页是合理的（acapella 有 5 个子流派都指向
+        // a-cappella），但那时用 names[slug] 会让它们塌缩成同一个名字——翻译前
+        // 各自显示英文原名反而是对的。所以 slug 在本页重复时回落到 sg.name。
+        name:
+          sd?.subgenreNames?.[i] ??
+          (subgenreSlugCounts.get(sg.slug) === 1 ? config.names[sg.slug] : undefined) ??
+          sg.name,
         desc: sd?.subgenreDescs?.[i]
           ?? (config.subgenreDesc ? config.subgenreDesc(config.names[sg.slug] || sg.name, name) : sg.desc),
       })),
