@@ -87,6 +87,10 @@ export const LANDING_SLUGS = [
   "grime","menu-music","bach","music-creation","mariachi","city-pop","string-quartet","reggaeton","metalcore","nordic-folk","bluegrass","for-djs","retrowave","emotional","allegro","rpg-music","japanese-traditional","for-teachers","upbeat","percussion","ballroom","for-small-businesses","industrial","chillwave","bebop","smooth-jazz","chiptune","spiritual","vintage-production","future-funk","vlog","indie","rap","baroque","renaissance","lute","grunge","jrpg-music","analog","disco","electro","waltz","hypnagogic-pop","for-content-creators","alternative","world-music","polynesian","minimalist-classical","korean",
   "nature","c-pop","for-dancers","quartet","mallsoft","prelude","highlife","for-songwriters","commercial-music","neoclassical","adagio","for-advertisers","for-producers","zen","for-video-editors","slushwave","punk","experimental","concerto","scottish","nocturne","andean","space","singer-songwriter","for-students","dungeon-music","largo","eccojams","k-rnb","appalachian","dreampunk","contemporary-classical","documentary-music","lo-fi-production","arpeggio-production","chamber-music","mandopop","hard-bop","for-app-developers","for-singers","koto","for-wedding-creators",
   "warm","hawaiian","electronic","for-musicians","romantic-mood","for-indie-game-developers","dream-pop","for-composers","modern","ui-sound","fast","jazz-funk","polished-production","atmospheric-production","ethnic","intimate","reverb-production","beat","viral","for-marketers","open-world-music","sci-fi-horror-music","acoustic-production","for-podcasters","urban","cuban","for-filmmakers","for-game-developers","soul","minimal-production","for-social-media-managers","for-youtubers","raw-production","eastern-european","exploration-music","for-video-creators","glo-fi","for-streamers","chinese","english","instrumental-language","k-hip-hop",
+  // 2026-10-09：与 acapella / rnb 是两篇独立手写文章，aliases.mjs 声明两边都要可索引
+  // （DISTINCT_CONTENT_ALIASES）。但它们一直不在这张表里，所有语言都回落英文——
+  // 声明与实现对不上。译名复用孪生页的，内容本来就是同一个流派。
+  "a-cappella", "r-and-b",
 ];
 
 /** 首字母小写。西方语言的人群译名是「Für DJs」「Para DJs」这类前置介词短语，

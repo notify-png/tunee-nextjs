@@ -12,6 +12,7 @@ export const config: LangConfig = {
     "kpop": "K-Pop",
     "latin": "Латин",
     "rnb": "R&B",
+    "r-and-b": "R&B",
     "lofi": "Лоу-фай",
     "jazz": "Джаз",
     "classical": "Классика",
