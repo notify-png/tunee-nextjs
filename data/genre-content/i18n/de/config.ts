@@ -312,8 +312,11 @@ export const config: LangConfig = {
 
   /* ── SEO ── */
   seoTitle: (n) => `${n}-Musikgenerator | Tunee AI`,
+  /* 长度压在 150 以内：normalizeMetaDescription 上限 155，截断后还会补一个句号，
+     看起来像写完了。这个模板要容纳最长 31 字符的译名，所以空载必须留足余量。
+     改之前先跑一遍 291 个 slug 的代入长度，别只看模板本身。 */
   seoDesc: (n) =>
-    `Erstelle ${n}-Musik sofort mit Tunees KI-Musikgenerator. Komponiere per Chat einzigartige ${n}-Tracks — keine Vorkenntnisse nötig. Kostenlos starten.`,
+    `Erstelle ${n}-Musik mit Tunees KI-Generator. Beschreibe deine Idee per Chat — keine Vorkenntnisse nötig. Kostenlos starten.`,
 
   /* ── Hero ── */
   heroTitle: (n) => `${n}\nMusikgenerator`,
@@ -328,7 +331,7 @@ export const config: LangConfig = {
   audience: {
     seoTitle: (n) => `Musikgenerator ${lowerFirst(n)} | Tunee AI`,
     seoDesc: (n) =>
-      `Erstelle Musik ${lowerFirst(n)} mit Tunees KI-Musikgenerator. Komponiere per Chat einzigartige Tracks — keine Vorkenntnisse nötig. Kostenlos starten.`,
+      `Musik ${lowerFirst(n)} mit Tunees KI-Generator. Beschreibe deine Idee per Chat — keine Vorkenntnisse nötig. Kostenlos starten.`,
     heroTitle: (n) => `Musikgenerator\n${lowerFirst(n)}`,
     heroSub: (n) =>
       `Beschreibe den Sound, den du dir vorstellst, und lass den Music Agent daraus einen professionellen Track ${lowerFirst(n)} machen. Kein Fachwissen nötig.`,
