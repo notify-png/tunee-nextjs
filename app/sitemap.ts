@@ -14,7 +14,7 @@ const BASE_URL = "https://www.tunee.ai";
  * 不要改成构建时间：每次构建都变的 lastmod 与实际内容变化不符，Google 会直接
  * 忽略整站的 lastmod，比没有更糟。
  */
-const I18N_LAST_UPDATED = "2026-10-08";
+const I18N_LAST_UPDATED = "2026-10-09";
 
 const LANGS = SUPPORTED_LANGS;
 
