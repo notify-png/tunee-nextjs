@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Bollywood Music Generator | Tunee AI",
-    description: "Create Bollywood music instantly with Tunee's AI Music Generator. Chat to compose original filmi songs, dance tracks, and romantic ballads with authentic Indian orchestration. No skills needed. Free to start.",
+    description: "Create Bollywood music with Tunee's AI Music Generator. Chat to compose filmi songs, dance tracks and romantic ballads. Free to start.",
   },
   hero: {
     title: "Bollywood\nMusic Generator",

@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "electroPulse",
   seo: {
     title: "AI Music Agent Music Generator | Tunee AI",
-    description: "Meet Tunee's AI Music Agent — your conversational music creation partner. Describe any genre, mood, or style and get original tracks instantly. Free to start.",
+    description: "Meet Tunee's AI Music Agent — your conversational music partner. Describe any genre, mood or style and get original tracks. Free to start.",
   },
   hero: {
     title: "AI Music Agent\nMusic Generator",

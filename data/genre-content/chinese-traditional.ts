@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Chinese Traditional Music Generator | Tunee AI",
-    description: "Create Chinese traditional music instantly with Tunee's AI Music Generator. Chat to compose original tracks with guzheng, erhu, pipa, and dizi. Free to start.",
+    description: "Create Chinese traditional music with Tunee's AI Music Generator. Compose with guzheng, erhu, pipa and dizi. Free to start.",
   },
   hero: {
     title: "Chinese Traditional\nMusic Generator",

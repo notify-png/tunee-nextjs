@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "stringWave",
   seo: {
     title: "Guitar Music Generator | Tunee AI",
-    description: "Create guitar music instantly with Tunee's AI Music Generator. Chat to compose original guitar tracks — from electric shredding to fingerpicked ballads. No skills needed. Free to start.",
+    description: "Create guitar music with Tunee's AI Music Generator. Chat to compose electric shredding, fingerpicked ballads and more. Free to start.",
   },
   hero: {
     title: "Guitar\nMusic Generator",

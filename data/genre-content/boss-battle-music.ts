@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "useCaseGrid",
   seo: {
     title: "Boss Battle Music Generator | Tunee AI",
-    description: "Create intense boss battle music with Tunee's AI Music Generator. Chat to compose epic, adrenaline-pumping boss fight tracks with heavy percussion, aggressive riffs, and dramatic orchestral layers. Free to start.",
+    description: "Create boss battle music with Tunee's AI Music Generator. Epic fight tracks — heavy percussion, aggressive riffs, orchestral layers. Free to start.",
   },
   hero: {
     title: "Boss Battle\nMusic Generator",

@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "moodAbstract",
   seo: {
     title: "A Cappella Music Generator | Tunee AI",
-    description: "Create stunning a cappella arrangements with Tunee's AI Music Generator. Generate vocal harmonies, beatbox rhythms, and ensemble pieces — no instruments needed. Free to start.",
+    description: "Create a cappella arrangements with Tunee's AI Music Generator. Vocal harmonies, beatbox rhythms and ensemble pieces. Free to start.",
   },
   hero: {
     title: "A Cappella\nMusic Generator",

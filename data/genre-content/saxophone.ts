@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "windBreath",
   seo: {
     title: "Saxophone Music Generator | Tunee AI",
-    description: "Create saxophone music instantly with Tunee's AI Music Generator. Chat to compose original sax tracks — from jazz improvisation to smooth R&B to classical repertoire. Free to start.",
+    description: "Create saxophone music with Tunee's AI Music Generator. Chat to compose jazz improvisation, smooth R&B and classical sax. Free to start.",
   },
   hero: {
     title: "Saxophone\nMusic Generator",

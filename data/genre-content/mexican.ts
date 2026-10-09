@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "worldPattern",
   seo: {
     title: "Mexican Music Generator | Tunee AI",
-    description: "Create Mexican music instantly with Tunee's AI Music Generator. Chat to compose original Mexican tracks — banda, norteño, corrido, ranchera, and cumbia. Trumpets, accordion, guitarrón, and vibrant rhythms. No skills needed. Free to start.",
+    description: "Create Mexican music with Tunee's AI Music Generator. Banda, norteño, corrido and ranchera with trumpets, accordion and guitarrón. Free to start.",
   },
   hero: {
     title: "Mexican\nMusic Generator",

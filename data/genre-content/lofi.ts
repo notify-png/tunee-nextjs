@@ -8,7 +8,7 @@ export const data: GenreData = {
   svgType: "lofiRain",
   seo: {
     title: "Lofi Music Generator | Tunee AI",
-    description: "Create lofi music instantly with Tunee's AI Music Generator. Chat to compose original lofi beats — chill hip-hop, jazzy loops, study vibes, and more. No skills needed. Free to start.",
+    description: "Create lofi music with Tunee's AI Music Generator. Chat to compose chill hip-hop beats, jazzy loops and study vibes. Free to start.",
   },
   hero: {
     title: "Lofi\nMusic Generator",
