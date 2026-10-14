@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     "Create original music from text with Tunee's AI music generator. Choose any genre, mood, or style, refine your track through chat, and start for free.",
   metadataBase: new URL(SITE),
   icons: { icon: "/favicon.ico" },
+  // 允许搜索结果与 Google 探索用大图预览；不声明时只给缩略图。index / follow 不写即默认允许
+  robots: { "max-image-preview": "large" },
   ...buildSocialMetadata(
     "AI Music Generator: Create Original Songs Online | Tunee",
     "Create original music from text with Tunee's AI music generator. Choose any genre, mood, or style, refine your track through chat, and start for free.",
