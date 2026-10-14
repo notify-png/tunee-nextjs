@@ -1,7 +1,9 @@
 import { publicAssetUrl } from "@/lib/publicAssetUrl"
 
 export const SITE = "https://www.tunee.ai"
-export const MUSIC_GENERATOR_SOCIAL_IMAGE = publicAssetUrl("/images/music-generator-og.jpg")
+// 主站同款品牌图（client/src/assets/images/tunee-share.webp 转 JPG，1200×630）。
+// 原 music-generator-og.jpg 是一张裁切不全的旧版首页截图；换文件名让社交平台重新抓取
+export const MUSIC_GENERATOR_SOCIAL_IMAGE = publicAssetUrl("/images/tunee-share.jpg")
 const LANGS = ["en","ja","es","pt","fr","de","it","ko","ru","zh-CN","zh-HK"] as const
 
 export function normalizeMetaDescription(value: string, maxLength = 155): string {
