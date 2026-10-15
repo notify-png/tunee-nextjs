@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0a0f1a", bgBaseRgb: "10,15,26" },
   svgType: "stringWave",
   seo: {
-    title: "Guitar Music Generator | Tunee AI",
+    title: "AI Guitar Music Generator & Song Maker | Tunee AI",
     description: "Create guitar music with Tunee's AI Music Generator. Chat to compose electric shredding, fingerpicked ballads and more. Free to start.",
   },
   hero: {

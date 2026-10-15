@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0a0a1a", bgBaseRgb: "10,10,26" },
   svgType: "classicalScore",
   seo: {
-    title: "Orchestral Music Generator | Tunee AI",
+    title: "AI Orchestra Maker – Orchestral Music Generator | Tunee AI",
     description: "Create orchestral music instantly with Tunee's AI Music Generator. Chat to compose original full orchestra, chamber, and ensemble works for film, games, and concert use. No skills needed. Free to start.",
   },
   hero: {

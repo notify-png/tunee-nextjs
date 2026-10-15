@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0a0a1a", bgBaseRgb: "10,10,26" },
   svgType: "classicalScore",
   seo: {
-    title: "Choir Music Generator | Tunee AI",
+    title: "AI Choir Generator & Choir Maker | Tunee AI",
     description: "Create choral music with Tunee's AI Music Generator. SATB, gospel, opera chorus, and more — describe the ensemble and generate instantly.",
   },
   hero: {

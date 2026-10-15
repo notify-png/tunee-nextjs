@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0E1118", bgBaseRgb: "14,17,24" },
   svgType: "lofiRain",
   seo: {
-    title: "Lofi Music Generator | Tunee AI",
+    title: "Lofi Generator – AI Lofi Music Maker | Tunee AI",
     description: "Create lofi music with Tunee's AI Music Generator. Chat to compose chill hip-hop beats, jazzy loops and study vibes. Free to start.",
   },
   hero: {
