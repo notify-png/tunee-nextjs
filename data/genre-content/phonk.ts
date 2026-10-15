@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0D0A15", bgBaseRgb: "13,10,21" },
   svgType: "hipHopBeat",
   seo: {
-    title: "Phonk Music Generator | Tunee AI",
+    title: "Phonk Maker & AI Phonk Generator | Tunee AI",
     description: "Create phonk with Tunee's AI Music Generator. Chat to compose distorted 808s, cowbell patterns, Memphis samples and dark atmosphere. Free to start.",
   },
   hero: {

@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0D0A14", bgBaseRgb: "13,10,20" },
   svgType: "drumCircle",
   seo: {
-    title: "Amapiano Music Generator | Tunee AI",
+    title: "Amapiano Beat Maker – AI Amapiano Generator | Tunee AI",
     description: "Create Amapiano with Tunee's AI Music Generator. Chat to compose log drum grooves, deep basslines and jazzy keys. Free to start.",
   },
   hero: {

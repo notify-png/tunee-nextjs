@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#0a0f1a", bgBaseRgb: "10,15,26" },
   svgType: "drumCircle",
   seo: {
-    title: "Drums Music Generator | Tunee AI",
+    title: "AI Drum Generator & Drum Beat Maker | Tunee AI",
     description: "Create drum tracks with Tunee's AI Music Generator. Chat to compose rock grooves, jazz swing and electronic beats. Free to start.",
   },
   hero: {

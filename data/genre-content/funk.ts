@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#140A10", bgBaseRgb: "20,10,16" },
   svgType: "drumCircle",
   seo: {
-    title: "Funk Music Generator | Tunee AI",
+    title: "Funk Maker – AI Funk Music Generator | Tunee AI",
     description: "Create funk music with Tunee's AI Music Generator. Chat to compose deep grooves, slap bass, wah-wah guitar and horn sections. Free to start.",
   },
   hero: {
