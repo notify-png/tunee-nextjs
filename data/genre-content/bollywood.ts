@@ -7,7 +7,7 @@ export const data: GenreData = {
   colors: { bgBase: "#100810", bgBaseRgb: "16,8,16" },
   svgType: "worldPattern",
   seo: {
-    title: "Bollywood Music Generator | Tunee AI",
+    title: "AI Hindi Song Generator – Bollywood Music Maker | Tunee AI",
     description: "Create Bollywood music with Tunee's AI Music Generator. Chat to compose filmi songs, dance tracks and romantic ballads. Free to start.",
   },
   hero: {

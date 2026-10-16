@@ -7,8 +7,8 @@ export const data: GenreData = {
   colors: { bgBase: "#1A0A08", bgBaseRgb: "26,10,8" },
   svgType: "worldPattern",
   seo: {
-    title: "Arabic Music Generator | Tunee AI",
-    description: "Create Arabic music instantly with Tunee's AI Music Generator. Chat to compose original Arabic pop, Khaleeji, Rai, classical maqam, and Sufi tracks with authentic instrumentation. No skills needed. Free to start.",
+    title: "AI Arabic Song Generator – Arabic Music Maker | Tunee AI",
+    description: "Create Arabic songs with Tunee's AI Music Generator. Chat to compose Arabic pop, Khaleeji, Rai and Sufi tracks built on maqam melodies. Free to start.",
   },
   hero: {
     title: "Arabic\nMusic Generator",
