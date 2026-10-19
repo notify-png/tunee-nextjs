@@ -117,13 +117,13 @@ export default function NavBarClient({
         }`}
       >
         <div className="max-w-[1200px] mx-auto h-14 flex items-center justify-between px-8">
-          <Link
+          <a
             href="https://www.tunee.ai"
             target="_blank"
             className="font-body text-2xl font-semibold text-foreground tracking-wide shrink-0"
           >
             Tunee
-          </Link>
+          </a>
 
           <div className="hidden lg:flex items-center gap-0.5">
             {navCats.map((cat) => (
