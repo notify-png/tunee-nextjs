@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Barlow_Condensed } from "next/font/google";
 import "../globals.css";
 import { Providers } from "@/components/Providers";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { buildSocialMetadata, SITE } from "@/lib/musicSeo";
 import { publicAssetUrl } from "@/lib/publicAssetUrl";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>{children}</Providers>
+        <GoogleAnalytics />
       </body>
     </html>
   );
