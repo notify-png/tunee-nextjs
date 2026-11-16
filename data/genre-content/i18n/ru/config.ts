@@ -315,7 +315,6 @@ export const config: LangConfig = {
     "instrumental-language": "Инструментальная",
     "k-hip-hop": "K-хип-хоп",
     // L2 批次 1 的子流派名
-    "advertising": "Реклама",
     "broadcast": "Вещание",
     "presentation": "Презентация",
     "explainer": "Объясняющее видео",
