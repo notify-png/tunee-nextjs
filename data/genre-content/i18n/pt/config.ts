@@ -229,7 +229,7 @@ export const config: LangConfig = {
     "mallsoft": "Mallsoft",
     "prelude": "Prelúdio",
     "highlife": "Highlife",
-    "for-songwriters": "Para Compositores",
+    "for-songwriters": "Para Autores de Canções",
     "commercial-music": "Música Comercial",
     "neoclassical": "Neoclássica",
     "adagio": "Adagio",
