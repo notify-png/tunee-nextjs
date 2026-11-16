@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run check:row-labels",
-    "build": "next build",
+    "build": "npm run check:row-labels && next build",
     "start": "next start",
     "lint": "next lint",
     "check:row-labels": "node scripts/check-row-labels.mjs"
