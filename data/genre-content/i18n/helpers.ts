@@ -1,5 +1,6 @@
 import type { GenreData } from "../types";
 import { getGenreData } from "../index";
+import { ROW_LABELS } from "./row-labels";
 
 /* ── Language config type ── */
 export interface LangConfig {
@@ -21,16 +22,6 @@ export interface LangConfig {
   comparisonTitle: (name: string) => string;
   comparisonSub: (name: string) => string;
   compFeatureLabel: string;
-  /**
-   * 对比表第一列的译名，**按英文原文查**，查不到的保留英文。
-   *
-   * 不要改回按下标的数组：行标签是各页自己写的自由文本，全站 489 种、
-   * 其中 332 种只出现过一次，根本不存在一套固定的六行。按位置替换必然
-   * 张冠李戴——2026-11-16 实测 293 个有对比表的页**没有一个六行全对**，
-   * 1,739 行里 1,385 行（79.6%）被换成了不相干的词，例如
-   * 「Typical Use（典型用途）」被显示成「Duración（时长）」。
-   */
-  compRowLabels?: Record<string, string>;
   promptTitle: (name: string) => string;
   promptSub: (name: string) => string;
   /** Optional: 8 unique translated prompt card descriptions */
@@ -118,7 +109,11 @@ export const LANDING_SLUGS = [
 export const lowerFirst = (value: string) => value.charAt(0).toLowerCase() + value.slice(1);
 
 /* ── Factory: create translated GenreData from config ── */
-export function buildTranslations(config: LangConfig): Record<string, GenreData> {
+export function buildTranslations(
+  config: LangConfig,
+  /** 语言码，用来在 ROW_LABELS 里取对比表行标签的译名 */
+  lang: string,
+): Record<string, GenreData> {
   const result: Record<string, GenreData> = {};
 
   for (const slug of LANDING_SLUGS) {
@@ -185,7 +180,9 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
       comparison: {
         headers: [config.compFeatureLabel, ...en.comparison.headers.slice(1)],
         rows: en.comparison.rows.map((row) => [
-          config.compRowLabels?.[row[0]] ?? row[0],
+          // 查不到就露出英文原文。check:row-labels 会在构建前拦下漏配的标签，
+          // 所以线上不该出现这种回落；留着是为了让漏配时页面还能渲染。
+          ROW_LABELS[row[0]]?.[lang] ?? row[0],
           ...row.slice(1),
         ]),
       },
