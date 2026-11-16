@@ -21,8 +21,16 @@ export interface LangConfig {
   comparisonTitle: (name: string) => string;
   comparisonSub: (name: string) => string;
   compFeatureLabel: string;
-  /** Optional: translated comparison row labels (first column) */
-  compRowLabels?: string[];
+  /**
+   * 对比表第一列的译名，**按英文原文查**，查不到的保留英文。
+   *
+   * 不要改回按下标的数组：行标签是各页自己写的自由文本，全站 489 种、
+   * 其中 332 种只出现过一次，根本不存在一套固定的六行。按位置替换必然
+   * 张冠李戴——2026-11-16 实测 293 个有对比表的页**没有一个六行全对**，
+   * 1,739 行里 1,385 行（79.6%）被换成了不相干的词，例如
+   * 「Typical Use（典型用途）」被显示成「Duración（时长）」。
+   */
+  compRowLabels?: Record<string, string>;
   promptTitle: (name: string) => string;
   promptSub: (name: string) => string;
   /** Optional: 8 unique translated prompt card descriptions */
@@ -121,11 +129,6 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
     const sd = config.slugData?.[slug];
     // 人群页有专用句式就用，没有就回落常规模板
     const au = en.category === "creator-type" ? config.audience : undefined;
-    const subgenreSlugCounts = new Map();
-    for (const sg of en.subgenres) {
-      subgenreSlugCounts.set(sg.slug, (subgenreSlugCounts.get(sg.slug) ?? 0) + 1);
-    }
-
     result[slug] = {
       ...en,
       displayName: name,
@@ -152,29 +155,39 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
       })),
       subgenreTitle: (au?.subgenreTitle ?? config.subgenreTitle)(name),
       subgenreSub: config.subgenreSub(name),
-      subgenres: en.subgenres.map((sg, i) => ({
-        ...sg,
-        // config.names 按 slug 索引，而 slug 是「链到哪个页」、name 是「显示什么」。
-        // 同一页里多个子流派链到同一个页是合理的（acapella 有 5 个子流派都指向
-        // a-cappella），但那时用 names[slug] 会让它们塌缩成同一个名字——翻译前
-        // 各自显示英文原名反而是对的。所以 slug 在本页重复时回落到 sg.name。
-        name:
+      subgenres: en.subgenres.map((sg, i) => {
+        // config.names 按 slug 索引，而 slug 是「链到哪个页」、name 是「显示什么」，
+        // 两者常常不是一回事：alternative 页的 { name: "Shoegaze", slug: "dream-pop" }
+        // 用 names[slug] 会把卡片标题显示成「Dream Pop」的译名；for-djs 页的
+        // { name: "Techno", slug: "trance" } 会显示成「Trance」配 Techno 的描述。
+        // 2026-11-16 实测：438 个指向真实页的子流派里，338 个是这种情况。
+        //
+        // 所以只在「这个子流派的名字就是目标页的英文名」时才用译名，否则保留
+        // 英文原名。英文名看得懂，错名看不出错。
+        // （这同时覆盖了同一页多个子流派指向同一个 slug 的情况——acapella 有
+        // 5 个子流派都指向 a-cappella，它们的名字各不相同，不会再塌缩成一个。）
+        const sgName =
           sd?.subgenreNames?.[i] ??
-          (subgenreSlugCounts.get(sg.slug) === 1 ? config.names[sg.slug] : undefined) ??
-          sg.name,
-        desc: sd?.subgenreDescs?.[i]
-          ?? (config.subgenreDesc ? config.subgenreDesc(config.names[sg.slug] || sg.name, name) : sg.desc),
-      })),
+          (getGenreData(sg.slug)?.displayName === sg.name
+            ? config.names[sg.slug]
+            : undefined) ??
+          sg.name;
+        return {
+          ...sg,
+          name: sgName,
+          desc:
+            sd?.subgenreDescs?.[i] ??
+            (config.subgenreDesc ? config.subgenreDesc(sgName, name) : sg.desc),
+        };
+      }),
       comparisonTitle: (au?.comparisonTitle ?? config.comparisonTitle)(name),
       comparisonSub: config.comparisonSub(name),
       comparison: {
         headers: [config.compFeatureLabel, ...en.comparison.headers.slice(1)],
-        rows: config.compRowLabels
-          ? en.comparison.rows.map((row, i) => [
-              config.compRowLabels![i] ?? row[0],
-              ...row.slice(1),
-            ])
-          : en.comparison.rows,
+        rows: en.comparison.rows.map((row) => [
+          config.compRowLabels?.[row[0]] ?? row[0],
+          ...row.slice(1),
+        ]),
       },
       promptTitle: (au?.promptTitle ?? config.promptTitle)(name),
       promptSub: config.promptSub(name),
