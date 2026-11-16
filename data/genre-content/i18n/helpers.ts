@@ -1,6 +1,6 @@
 import type { GenreData } from "../types";
 import { getGenreData } from "../index";
-import { ROW_LABELS } from "./row-labels";
+import { ROW_LABELS, type RowLabelLang } from "./row-labels";
 
 /* ── Language config type ── */
 export interface LangConfig {
@@ -111,8 +111,12 @@ export const lowerFirst = (value: string) => value.charAt(0).toLowerCase() + val
 /* ── Factory: create translated GenreData from config ── */
 export function buildTranslations(
   config: LangConfig,
-  /** 语言码，用来在 ROW_LABELS 里取对比表行标签的译名 */
-  lang: string,
+  /**
+   * 语言码。用联合类型而不是 string：写错一个字母（"zh-hk"、"jp"）时，
+   * ROW_LABELS 查不到就会静默回落英文，整个语言的对比表全部露英文，
+   * 而 tsc 和 check:row-labels 都不会报——后者只核表，不核谁来取。
+   */
+  lang: RowLabelLang,
 ): Record<string, GenreData> {
   const result: Record<string, GenreData> = {};
 
@@ -200,9 +204,17 @@ export function buildTranslations(
         title: config.useCases[i]?.title ?? uc.title,
         desc: config.useCases[i]?.desc(name) ?? uc.desc,
       })),
+      // 和上面 subgenres 同一个判据，理由见那里：names 按 slug 索引，而 slug 是
+      // 「点进去看哪个页」、name 才是「显示什么」。原来这里直接用 names[r.slug]，
+      // 后果比 subgenres 更明显——同一页里多张卡片指向同一个 slug 是常事
+      // （alternative 页有 Indie / Britpop / Emo 三张都指向 alternative），
+      // 于是译文版里塌缩成三张「另类」，React 还会因 key 重复告警。
       related: en.related.map((r) => ({
         ...r,
-        name: config.names[r.slug] || r.name,
+        name:
+          (getGenreData(r.slug)?.displayName === r.name
+            ? config.names[r.slug]
+            : undefined) ?? r.name,
       })),
       faqs: config.faqs.map((f) => ({
         q: f.q(name),

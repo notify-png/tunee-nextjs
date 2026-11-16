@@ -14,7 +14,7 @@
  */
 export const ROW_LABELS: Record<string, Record<string, string>> = {
   "BPM Range": { ja: "BPMの幅", es: "Rango de BPM", pt: "Faixa de BPM", fr: "Plage de BPM", de: "BPM-Bereich", it: "Intervallo di BPM", ko: "BPM 범위", ru: "Диапазон BPM", "zh-CN": "BPM 范围", "zh-HK": "BPM 範圍" },
-  "Notable Artists": { ja: "代表的なアーティスト", es: "Artistas destacados", pt: "Artistas notáveis", fr: "Artistes marquants", de: "Bekannte Künstler", it: "Artisti di riferimento", ko: "대표 아티스트", ru: "Заметные исполнители", "zh-CN": "代表艺人", "zh-HK": "代表歌手" },
+  "Notable Artists": { ja: "代表的なアーティスト", es: "Artistas destacados", pt: "Artistas notáveis", fr: "Artistes marquants", de: "Bekannte Künstler", it: "Artisti di riferimento", ko: "대표 아티스트", ru: "Заметные исполнители", "zh-CN": "代表音乐人", "zh-HK": "代表音樂人" },
   "Typical Use": { ja: "主な使いどころ", es: "Uso habitual", pt: "Uso típico", fr: "Usage courant", de: "Typische Verwendung", it: "Uso tipico", ko: "주요 용도", ru: "Типичное применение", "zh-CN": "常见用途", "zh-HK": "常見用途" },
   "Key Instruments": { ja: "主な楽器", es: "Instrumentos clave", pt: "Instrumentos principais", fr: "Instruments clés", de: "Wichtige Instrumente", it: "Strumenti principali", ko: "주요 악기", ru: "Ключевые инструменты", "zh-CN": "主要乐器", "zh-HK": "主要樂器" },
   "Mood": { ja: "雰囲気", es: "Estado de ánimo", pt: "Clima", fr: "Ambiance", de: "Stimmung", it: "Atmosfera", ko: "분위기", ru: "Настроение", "zh-CN": "情绪", "zh-HK": "情緒" },
@@ -47,7 +47,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Notable Composers": { ja: "代表的な作曲家", es: "Compositores destacados", pt: "Compositores notáveis", fr: "Compositeurs marquants", de: "Bekannte Komponisten", it: "Compositori di riferimento", ko: "대표 작곡가", ru: "Заметные композиторы", "zh-CN": "代表作曲家", "zh-HK": "代表作曲家" },
   "Purpose": { ja: "用途", es: "Finalidad", pt: "Finalidade", fr: "Usage", de: "Einsatzzweck", it: "Finalità", ko: "용도", ru: "Назначение", "zh-CN": "用途", "zh-HK": "用途" },
   "Song Length": { ja: "曲の長さ", es: "Duración del tema", pt: "Duração da música", fr: "Durée du morceau", de: "Songlänge", it: "Durata del brano", ko: "곡 길이", ru: "Длительность трека", "zh-CN": "曲目时长", "zh-HK": "樂曲長度" },
-  "Strings": { ja: "弦楽器", es: "Cuerdas", pt: "Cordas", fr: "Cordes", de: "Streicher", it: "Archi", ko: "현악기", ru: "Струнные", "zh-CN": "弦乐", "zh-HK": "弦樂" },
+  "Strings": { ja: "弦", es: "Cuerdas", pt: "Cordas", fr: "Cordes", de: "Saiten", it: "Corde", ko: "현", ru: "Струны", "zh-CN": "琴弦", "zh-HK": "琴弦" },
   "Uniqueness": { ja: "独自性", es: "Originalidad", pt: "Originalidade", fr: "Originalité", de: "Einzigartigkeit", it: "Originalità", ko: "독창성", ru: "Уникальность", "zh-CN": "独特性", "zh-HK": "獨特性" },
   "Key Sound": { ja: "主なサウンド", es: "Sonido clave", pt: "Som principal", fr: "Son clé", de: "Prägender Sound", it: "Suono caratteristico", ko: "주요 사운드", ru: "Ключевой звук", "zh-CN": "标志性音色", "zh-HK": "標誌性音色" },
   "Song Structure": { ja: "曲の構成", es: "Estructura del tema", pt: "Estrutura da música", fr: "Structure du morceau", de: "Songaufbau", it: "Struttura del brano", ko: "곡 구성", ru: "Структура трека", "zh-CN": "曲式结构", "zh-HK": "曲式結構" },
@@ -55,7 +55,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Atmosphere": { ja: "空気感", es: "Atmósfera", pt: "Atmosfera", fr: "Atmosphère", de: "Atmosphäre", it: "Atmosfera", ko: "분위기감", ru: "Атмосфера", "zh-CN": "氛围", "zh-HK": "氛圍" },
   "Character": { ja: "性格", es: "Carácter", pt: "Caráter", fr: "Caractère", de: "Charakter", it: "Carattere", ko: "성격", ru: "Характер", "zh-CN": "性格", "zh-HK": "性格" },
   "Instruments": { ja: "楽器", es: "Instrumentos", pt: "Instrumentos", fr: "Instruments", de: "Instrumente", it: "Strumenti", ko: "악기", ru: "Инструменты", "zh-CN": "乐器", "zh-HK": "樂器" },
-  "Key Artists": { ja: "主要アーティスト", es: "Artistas clave", pt: "Artistas principais", fr: "Artistes clés", de: "Wichtige Künstler", it: "Artisti principali", ko: "주요 아티스트", ru: "Ключевые исполнители", "zh-CN": "主要艺人", "zh-HK": "主要歌手" },
+  "Key Artists": { ja: "主要アーティスト", es: "Artistas clave", pt: "Artistas principais", fr: "Artistes clés", de: "Wichtige Künstler", it: "Artisti principali", ko: "주요 아티스트", ru: "Ключевые исполнители", "zh-CN": "主要音乐人", "zh-HK": "主要音樂人" },
   "Scale System": { ja: "音階体系", es: "Sistema de escalas", pt: "Sistema de escalas", fr: "Système de gammes", de: "Tonleitersystem", it: "Sistema di scale", ko: "음계 체계", ru: "Ладовая система", "zh-CN": "音阶体系", "zh-HK": "音階體系" },
   "Tempo": { ja: "テンポ", es: "Tempo", pt: "Andamento", fr: "Tempo", de: "Tempo", it: "Tempo", ko: "템포", ru: "Темп", "zh-CN": "速度", "zh-HK": "速度" },
   "Typical Length": { ja: "標準的な長さ", es: "Duración habitual", pt: "Duração típica", fr: "Durée habituelle", de: "Übliche Länge", it: "Durata tipica", ko: "일반적인 길이", ru: "Обычная длительность", "zh-CN": "常见时长", "zh-HK": "常見時長" },
@@ -94,7 +94,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Movements": { ja: "楽章", es: "Movimientos", pt: "Movimentos", fr: "Mouvements", de: "Sätze", it: "Movimenti", ko: "악장", ru: "Части", "zh-CN": "乐章", "zh-HK": "樂章" },
   "Originality": { ja: "独創性", es: "Originalidad", pt: "Originalidade", fr: "Originalité", de: "Originalität", it: "Originalità", ko: "독창성", ru: "Оригинальность", "zh-CN": "原创性", "zh-HK": "原創性" },
   "Parts": { ja: "パート数", es: "Voces", pt: "Vozes", fr: "Parties", de: "Stimmen", it: "Parti", ko: "성부", ru: "Партии", "zh-CN": "声部", "zh-HK": "聲部" },
-  "Polyphony": { ja: "ポリフォニー", es: "Polifonía", pt: "Polifonia", fr: "Polyphonie", de: "Polyphonie", it: "Polifonia", ko: "폴리포니", ru: "Полифония", "zh-CN": "复调", "zh-HK": "複調" },
+  "Polyphony": { ja: "ポリフォニー", es: "Polifonía", pt: "Polifonia", fr: "Polyphonie", de: "Polyphonie", it: "Polifonia", ko: "폴리포니", ru: "Полифония", "zh-CN": "复音数", "zh-HK": "複音數" },
   "Portability": { ja: "持ち運びやすさ", es: "Portabilidad", pt: "Portabilidade", fr: "Portabilité", de: "Transportierbarkeit", it: "Trasportabilità", ko: "휴대성", ru: "Портативность", "zh-CN": "便携性", "zh-HK": "便攜性" },
   "Quality": { ja: "品質", es: "Calidad", pt: "Qualidade", fr: "Qualité", de: "Qualität", it: "Qualità", ko: "품질", ru: "Качество", "zh-CN": "质量", "zh-HK": "質素" },
   "Repertoire": { ja: "レパートリー", es: "Repertorio", pt: "Repertório", fr: "Répertoire", de: "Repertoire", it: "Repertorio", ko: "레퍼토리", ru: "Репертуар", "zh-CN": "曲目库", "zh-HK": "曲目庫" },
@@ -163,7 +163,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Source Clarity": { ja: "音源の明瞭さ", es: "Claridad de la fuente", pt: "Clareza da fonte", fr: "Clarté de la source", de: "Klarheit der Quelle", it: "Chiarezza della sorgente", ko: "음원 선명도", ru: "Чистота источника", "zh-CN": "源素材清晰度", "zh-HK": "源素材清晰度" },
   "Sustain": { ja: "サステイン", es: "Sustain", pt: "Sustentação", fr: "Sustain", de: "Sustain", it: "Sustain", ko: "서스테인", ru: "Сустейн", "zh-CN": "延音", "zh-HK": "延音" },
   "Tonal Character": { ja: "音色の性格", es: "Carácter tonal", pt: "Caráter tonal", fr: "Caractère tonal", de: "Klangcharakter", it: "Carattere timbrico", ko: "음색 성격", ru: "Характер тембра", "zh-CN": "音色性格", "zh-HK": "音色性格" },
-  "Tone": { ja: "トーン", es: "Tono", pt: "Tom", fr: "Ton", de: "Tonfall", it: "Tono", ko: "톤", ru: "Тон", "zh-CN": "调性气质", "zh-HK": "調性氣質" },
+  "Tone": { ja: "トーン", es: "Tono", pt: "Tom", fr: "Ton", de: "Klang", it: "Tono", ko: "톤", ru: "Тон", "zh-CN": "音色气质", "zh-HK": "音色氣質" },
   "Tone Character": { ja: "音色の性格", es: "Carácter del timbre", pt: "Caráter do timbre", fr: "Caractère du timbre", de: "Charakter der Klangfarbe", it: "Carattere del timbro", ko: "음색 성격", ru: "Характер тембра", "zh-CN": "音色特质", "zh-HK": "音色特質" },
   "Track Length": { ja: "トラックの長さ", es: "Duración del tema", pt: "Duração da faixa", fr: "Durée du titre", de: "Tracklänge", it: "Durata della traccia", ko: "트랙 길이", ru: "Длительность трека", "zh-CN": "单曲时长", "zh-HK": "單曲時長" },
   "Tuning System": { ja: "音律", es: "Sistema de afinación", pt: "Sistema de afinação", fr: "Système d'accord", de: "Stimmungssystem", it: "Sistema di accordatura", ko: "조율 체계", ru: "Система строя", "zh-CN": "律制", "zh-HK": "律制" },
@@ -197,7 +197,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Bassline": { ja: "ベースライン", es: "Línea de bajo", pt: "Linha de baixo", fr: "Ligne de basse", de: "Basslinie", it: "Linea di basso", ko: "베이스 라인", ru: "Басовая линия", "zh-CN": "低音线条", "zh-HK": "低音線條" },
   "Brand Alignment": { ja: "ブランドとの適合", es: "Alineación con la marca", pt: "Alinhamento com a marca", fr: "Alignement avec la marque", de: "Markenpassung", it: "Allineamento col brand", ko: "브랜드 정합성", ru: "Соответствие бренду", "zh-CN": "品牌契合度", "zh-HK": "品牌契合度" },
   "Brand Building": { ja: "ブランド育成", es: "Construcción de marca", pt: "Construção de marca", fr: "Construction de marque", de: "Markenaufbau", it: "Costruzione del brand", ko: "브랜드 구축", ru: "Построение бренда", "zh-CN": "品牌建设", "zh-HK": "品牌建設" },
-  "Brand Customization": { ja: "ブランド向けカスタマイズ", es: "Personalización de marca", pt: "Personalização de marca", fr: "Personnalisation de marque", de: "Markenanpassung", it: "Personalizzazione del brand", ko: "브랜드 맞춤화", ru: "Настройка под бренд", "zh-CN": "品牌定制", "zh-HK": "品牌定制" },
+  "Brand Customization": { ja: "ブランド向けカスタマイズ", es: "Personalización de marca", pt: "Personalização de marca", fr: "Personnalisation de marque", de: "Markenanpassung", it: "Personalizzazione del brand", ko: "브랜드 맞춤화", ru: "Настройка под бренд", "zh-CN": "品牌定制", "zh-HK": "品牌訂製" },
   "Brand Differentiation": { ja: "ブランドの差別化", es: "Diferenciación de marca", pt: "Diferenciação de marca", fr: "Différenciation de marque", de: "Markendifferenzierung", it: "Differenziazione del brand", ko: "브랜드 차별화", ru: "Отличие бренда", "zh-CN": "品牌差异化", "zh-HK": "品牌差異化" },
   "Brand Function": { ja: "ブランド上の役割", es: "Función de marca", pt: "Função de marca", fr: "Fonction de marque", de: "Markenfunktion", it: "Funzione di brand", ko: "브랜드 기능", ru: "Роль для бренда", "zh-CN": "品牌作用", "zh-HK": "品牌作用" },
   "Brand Match": { ja: "ブランドとの相性", es: "Ajuste con la marca", pt: "Compatibilidade com a marca", fr: "Correspondance avec la marque", de: "Markenpassung", it: "Affinità col brand", ko: "브랜드 적합도", ru: "Соответствие бренду", "zh-CN": "品牌契合", "zh-HK": "品牌契合" },
@@ -209,8 +209,8 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Campaign Variants": { ja: "キャンペーン別バリエーション", es: "Variantes por campaña", pt: "Variações por campanha", fr: "Déclinaisons par campagne", de: "Kampagnen-Varianten", it: "Varianti per campagna", ko: "캠페인별 변형", ru: "Варианты под кампанию", "zh-CN": "活动版本数", "zh-HK": "活動版本數" },
   "Channel Branding": { ja: "チャンネルのブランディング", es: "Branding del canal", pt: "Branding do canal", fr: "Identité de la chaîne", de: "Kanal-Branding", it: "Branding del canale", ko: "채널 브랜딩", ru: "Брендинг канала", "zh-CN": "频道品牌化", "zh-HK": "頻道品牌化" },
   "Channel Coverage": { ja: "チャンネル網羅", es: "Cobertura de canales", pt: "Cobertura de canais", fr: "Couverture des canaux", de: "Kanalabdeckung", it: "Copertura dei canali", ko: "채널 커버리지", ru: "Охват каналов", "zh-CN": "渠道覆盖", "zh-HK": "渠道覆蓋" },
-  "Channel Limit": { ja: "同時発音数", es: "Límite de canales", pt: "Limite de canais", fr: "Nombre de canaux", de: "Kanalbegrenzung", it: "Limite di canali", ko: "채널 제한", ru: "Число каналов", "zh-CN": "声道上限", "zh-HK": "聲道上限" },
-  "Channels": { ja: "チャンネル数", es: "Canales", pt: "Canais", fr: "Canaux", de: "Kanäle", it: "Canali", ko: "채널 수", ru: "Каналы", "zh-CN": "声道数", "zh-HK": "聲道數" },
+  "Channel Limit": { ja: "同時発音数", es: "Límite de canales", pt: "Limite de canais", fr: "Nombre de canaux", de: "Kanalbegrenzung", it: "Limite di canali", ko: "채널 제한", ru: "Число каналов", "zh-CN": "同时发声上限", "zh-HK": "同時發聲上限" },
+  "Channels": { ja: "チャンネル数", es: "Canales", pt: "Canais", fr: "Canaux", de: "Kanäle", it: "Canali", ko: "채널 수", ru: "Каналы", "zh-CN": "发声通道数", "zh-HK": "發聲通道數" },
   "Choir": { ja: "合唱", es: "Coro", pt: "Coro", fr: "Chœur", de: "Chor", it: "Coro", ko: "합창", ru: "Хор", "zh-CN": "合唱", "zh-HK": "合唱" },
   "Choreography Match": { ja: "振付との同期", es: "Ajuste a la coreografía", pt: "Sincronia com a coreografia", fr: "Adéquation à la chorégraphie", de: "Passung zur Choreografie", it: "Aderenza alla coreografia", ko: "안무 싱크", ru: "Соответствие хореографии", "zh-CN": "与编舞的契合", "zh-HK": "與編舞的契合" },
   "Classroom Control": { ja: "教室での扱いやすさ", es: "Control en el aula", pt: "Controle em sala de aula", fr: "Maîtrise en classe", de: "Kontrolle im Klassenzimmer", it: "Controllo in aula", ko: "교실 내 통제", ru: "Управление в классе", "zh-CN": "课堂可控性", "zh-HK": "課堂可控性" },
@@ -244,7 +244,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Cultural Source": { ja: "文化的な源流", es: "Origen cultural", pt: "Origem cultural", fr: "Source culturelle", de: "Kulturelle Quelle", it: "Origine culturale", ko: "문화적 뿌리", ru: "Культурный исток", "zh-CN": "文化源流", "zh-HK": "文化源流" },
   "Cultural Tie-In": { ja: "文化との結び付き", es: "Vínculo cultural", pt: "Ligação cultural", fr: "Ancrage culturel", de: "Kultureller Bezug", it: "Legame culturale", ko: "문화적 연결", ru: "Культурная привязка", "zh-CN": "文化关联", "zh-HK": "文化關聯" },
   "Culture": { ja: "文化", es: "Cultura", pt: "Cultura", fr: "Culture", de: "Kultur", it: "Cultura", ko: "문화", ru: "Культура", "zh-CN": "文化", "zh-HK": "文化" },
-  "Custom Timing": { ja: "尺のカスタム", es: "Timing a medida", pt: "Timing sob medida", fr: "Timing sur mesure", de: "Individuelles Timing", it: "Timing su misura", ko: "맞춤 타이밍", ru: "Тайминг под задачу", "zh-CN": "定制时间点", "zh-HK": "定制時間點" },
+  "Custom Timing": { ja: "尺のカスタム", es: "Timing a medida", pt: "Timing sob medida", fr: "Timing sur mesure", de: "Individuelles Timing", it: "Timing su misura", ko: "맞춤 타이밍", ru: "Тайминг под задачу", "zh-CN": "定制时间点", "zh-HK": "自訂時間點" },
   "DMCA Risk": { ja: "DMCAリスク", es: "Riesgo de DMCA", pt: "Risco de DMCA", fr: "Risque DMCA", de: "DMCA-Risiko", it: "Rischio DMCA", ko: "DMCA 위험", ru: "Риск DMCA", "zh-CN": "DMCA 风险", "zh-HK": "DMCA 風險" },
   "DMCA Safety": { ja: "DMCA面の安全性", es: "Seguridad frente a DMCA", pt: "Segurança quanto ao DMCA", fr: "Sécurité vis-à-vis du DMCA", de: "DMCA-Sicherheit", it: "Sicurezza rispetto al DMCA", ko: "DMCA 안전성", ru: "Безопасность по DMCA", "zh-CN": "DMCA 安全性", "zh-HK": "DMCA 安全性" },
   "Dance": { ja: "ダンス", es: "Baile", pt: "Dança", fr: "Danse", de: "Tanz", it: "Danza", ko: "춤", ru: "Танец", "zh-CN": "舞蹈", "zh-HK": "舞蹈" },
@@ -292,7 +292,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Festival Rights": { ja: "映画祭での権利", es: "Derechos para festivales", pt: "Direitos para festivais", fr: "Droits pour les festivals", de: "Festivalrechte", it: "Diritti per i festival", ko: "페스티벌 권리", ru: "Права для фестивалей", "zh-CN": "影展放映权", "zh-HK": "影展放映權" },
   "First Movement": { ja: "第1楽章", es: "Primer movimiento", pt: "Primeiro movimento", fr: "Premier mouvement", de: "Erster Satz", it: "Primo movimento", ko: "1악장", ru: "Первая часть", "zh-CN": "第一乐章", "zh-HK": "第一樂章" },
   "Flexibility": { ja: "柔軟さ", es: "Flexibilidad", pt: "Flexibilidade", fr: "Souplesse", de: "Flexibilität", it: "Flessibilità", ko: "유연성", ru: "Гибкость", "zh-CN": "灵活度", "zh-HK": "靈活度" },
-  "Frequency": { ja: "頻度", es: "Frecuencia", pt: "Frequência", fr: "Fréquence", de: "Häufigkeit", it: "Frequenza", ko: "빈도", ru: "Частота", "zh-CN": "频率", "zh-HK": "頻率" },
+  "Frequency": { ja: "周波数特性", es: "Frecuencia", pt: "Frequência", fr: "Fréquence", de: "Frequenzspektrum", it: "Frequenza", ko: "주파수 특성", ru: "Частота", "zh-CN": "频率", "zh-HK": "頻率" },
   "Frequency Focus": { ja: "重視する帯域", es: "Foco de frecuencias", pt: "Foco de frequências", fr: "Focus fréquentiel", de: "Frequenzfokus", it: "Focus sulle frequenze", ko: "주파수 초점", ru: "Частотный акцент", "zh-CN": "频段重心", "zh-HK": "頻段重心" },
   "Frequency Response": { ja: "周波数特性", es: "Respuesta en frecuencia", pt: "Resposta de frequência", fr: "Réponse en fréquence", de: "Frequenzgang", it: "Risposta in frequenza", ko: "주파수 응답", ru: "Частотная характеристика", "zh-CN": "频率响应", "zh-HK": "頻率響應" },
   "Full Arrangements": { ja: "フル編成", es: "Arreglos completos", pt: "Arranjos completos", fr: "Arrangements complets", de: "Komplette Arrangements", it: "Arrangiamenti completi", ko: "풀 편곡", ru: "Полные аранжировки", "zh-CN": "完整编曲", "zh-HK": "完整編曲" },
@@ -326,7 +326,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Independence": { ja: "独立性", es: "Independencia", pt: "Independência", fr: "Indépendance", de: "Unabhängigkeit", it: "Indipendenza", ko: "독립성", ru: "Независимость", "zh-CN": "独立性", "zh-HK": "獨立性" },
   "Industry Hub": { ja: "産業の中心地", es: "Centro de la industria", pt: "Polo da indústria", fr: "Pôle de l'industrie", de: "Branchenzentrum", it: "Polo dell'industria", ko: "산업 거점", ru: "Центр индустрии", "zh-CN": "产业重镇", "zh-HK": "產業重鎮" },
   "Industry Model": { ja: "業界モデル", es: "Modelo de la industria", pt: "Modelo da indústria", fr: "Modèle de l'industrie", de: "Branchenmodell", it: "Modello dell'industria", ko: "산업 모델", ru: "Модель индустрии", "zh-CN": "产业模式", "zh-HK": "產業模式" },
-  "Interval Support": { ja: "インターバルへの対応", es: "Soporte para intervalos", pt: "Suporte a intervalos", fr: "Prise en charge des intervalles", de: "Unterstützung für Intervalle", it: "Supporto agli intervalli", ko: "인터벌 대응", ru: "Поддержка интервалов", "zh-CN": "间歇训练支持", "zh-HK": "間歇訓練支援" },
+  "Interval Support": { ja: "インターバルトレーニング対応", es: "Soporte para entrenamiento por intervalos", pt: "Suporte a treino intervalado", fr: "Prise en charge du fractionné", de: "Unterstützung für Intervalltraining", it: "Supporto all'allenamento a intervalli", ko: "인터벌 트레이닝 지원", ru: "Поддержка интервальных тренировок", "zh-CN": "间歇训练支持", "zh-HK": "間歇訓練支援" },
   "Key Examples": { ja: "代表例", es: "Ejemplos clave", pt: "Exemplos principais", fr: "Exemples clés", de: "Wichtige Beispiele", it: "Esempi principali", ko: "주요 사례", ru: "Ключевые примеры", "zh-CN": "主要例子", "zh-HK": "主要例子" },
   "Key Flexibility": { ja: "キーの融通", es: "Flexibilidad de tonalidad", pt: "Flexibilidade de tonalidade", fr: "Souplesse de tonalité", de: "Tonart-Flexibilität", it: "Flessibilità di tonalità", ko: "조성 유연성", ru: "Гибкость тональности", "zh-CN": "调性灵活度", "zh-HK": "調性靈活度" },
   "Key Forms": { ja: "主な形式", es: "Formas principales", pt: "Formas principais", fr: "Formes principales", de: "Wichtige Formen", it: "Forme principali", ko: "주요 형식", ru: "Основные формы", "zh-CN": "主要曲式", "zh-HK": "主要曲式" },
@@ -340,7 +340,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Kick Character": { ja: "キックの質感", es: "Carácter del bombo", pt: "Caráter do bumbo", fr: "Caractère du kick", de: "Kick-Charakter", it: "Carattere della cassa", ko: "킥 성격", ru: "Характер бочки", "zh-CN": "底鼓质感", "zh-HK": "底鼓質感" },
   "Layering": { ja: "レイヤリング", es: "Superposición de capas", pt: "Sobreposição de camadas", fr: "Superposition de couches", de: "Layering", it: "Stratificazione", ko: "레이어링", ru: "Наслоение", "zh-CN": "分层堆叠", "zh-HK": "分層堆疊" },
   "Legal Safety": { ja: "法務上の安全性", es: "Seguridad legal", pt: "Segurança jurídica", fr: "Sécurité juridique", de: "Rechtssicherheit", it: "Sicurezza legale", ko: "법적 안전성", ru: "Юридическая безопасность", "zh-CN": "法务安全性", "zh-HK": "法務安全性" },
-  "Lesson-Specific": { ja: "授業ごとの専用度", es: "Adaptado a cada clase", pt: "Adaptado a cada aula", fr: "Adapté à chaque cours", de: "Auf die Stunde zugeschnitten", it: "Su misura per la lezione", ko: "수업별 맞춤", ru: "Под конкретный урок", "zh-CN": "按课时定制", "zh-HK": "按課堂定制" },
+  "Lesson-Specific": { ja: "授業ごとの専用度", es: "Adaptado a cada clase", pt: "Adaptado a cada aula", fr: "Adapté à chaque cours", de: "Auf die Stunde zugeschnitten", it: "Su misura per la lezione", ko: "수업별 맞춤", ru: "Под конкретный урок", "zh-CN": "按课时定制", "zh-HK": "按課堂訂製" },
   "Licensing": { ja: "ライセンス", es: "Licencias", pt: "Licenciamento", fr: "Licences", de: "Lizenzierung", it: "Licenze", ko: "라이선스", ru: "Лицензирование", "zh-CN": "授权方式", "zh-HK": "授權方式" },
   "Licensing Cost": { ja: "ライセンス費用", es: "Coste de licencia", pt: "Custo de licenciamento", fr: "Coût de licence", de: "Lizenzkosten", it: "Costo di licenza", ko: "라이선스 비용", ru: "Стоимость лицензии", "zh-CN": "授权费用", "zh-HK": "授權費用" },
   "Licensing Need": { ja: "権利処理の要否", es: "Necesidad de licencia", pt: "Necessidade de licença", fr: "Besoin de licence", de: "Lizenzbedarf", it: "Necessità di licenza", ko: "라이선스 필요 여부", ru: "Нужна ли лицензия", "zh-CN": "是否需要授权", "zh-HK": "是否需要授權" },
@@ -388,11 +388,11 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Performer Count": { ja: "演奏人数", es: "Número de intérpretes", pt: "Número de intérpretes", fr: "Nombre d'interprètes", de: "Anzahl der Mitwirkenden", it: "Numero di esecutori", ko: "연주자 수", ru: "Число исполнителей", "zh-CN": "演出人数", "zh-HK": "演出人數" },
   "Personalization": { ja: "個別対応", es: "Personalización", pt: "Personalização", fr: "Personnalisation", de: "Personalisierung", it: "Personalizzazione", ko: "개인화", ru: "Персонализация", "zh-CN": "个性化", "zh-HK": "個人化" },
   "Physical Size": { ja: "楽器の大きさ", es: "Tamaño físico", pt: "Tamanho físico", fr: "Taille de l'instrument", de: "Größe des Instruments", it: "Dimensione fisica", ko: "악기 크기", ru: "Физический размер", "zh-CN": "乐器尺寸", "zh-HK": "樂器尺寸" },
-  "Picking Style": { ja: "ピッキング奏法", es: "Estilo de púa", pt: "Estilo de palhetada", fr: "Style de jeu au médiator", de: "Anschlagtechnik", it: "Stile di pizzicato", ko: "피킹 스타일", ru: "Техника звукоизвлечения", "zh-CN": "拨弦方式", "zh-HK": "撥弦方式" },
+  "Picking Style": { ja: "ピッキング奏法", es: "Estilo de púa", pt: "Estilo de palhetada", fr: "Technique de main droite", de: "Anschlagtechnik", it: "Stile di pizzicato", ko: "피킹 스타일", ru: "Техника звукоизвлечения", "zh-CN": "拨弦方式", "zh-HK": "撥弦方式" },
   "Platform": { ja: "プラットフォーム", es: "Plataforma", pt: "Plataforma", fr: "Plateforme", de: "Plattform", it: "Piattaforma", ko: "플랫폼", ru: "Платформа", "zh-CN": "平台", "zh-HK": "平台" },
   "Platform Coverage": { ja: "対応プラットフォーム", es: "Cobertura de plataformas", pt: "Cobertura de plataformas", fr: "Couverture des plateformes", de: "Plattform-Abdeckung", it: "Copertura delle piattaforme", ko: "플랫폼 커버리지", ru: "Охват платформ", "zh-CN": "平台覆盖", "zh-HK": "平台覆蓋" },
   "Platform Licensing": { ja: "プラットフォーム側の権利処理", es: "Licencias por plataforma", pt: "Licenciamento por plataforma", fr: "Licences par plateforme", de: "Plattform-Lizenzierung", it: "Licenze per piattaforma", ko: "플랫폼 라이선스", ru: "Лицензии платформ", "zh-CN": "平台授权", "zh-HK": "平台授權" },
-  "Players": { ja: "奏者数", es: "Intérpretes", pt: "Instrumentistas", fr: "Interprètes", de: "Spieler", it: "Esecutori", ko: "연주자 수", ru: "Исполнители", "zh-CN": "演奏人数", "zh-HK": "演奏人數" },
+  "Players": { ja: "奏者数", es: "Número de intérpretes", pt: "Número de instrumentistas", fr: "Nombre d'interprètes", de: "Anzahl der Spieler", it: "Numero di esecutori", ko: "연주자 수", ru: "Число исполнителей", "zh-CN": "演奏人数", "zh-HK": "演奏人數" },
   "Playing Technique": { ja: "演奏技法", es: "Técnica de ejecución", pt: "Técnica de execução", fr: "Technique de jeu", de: "Spieltechnik", it: "Tecnica esecutiva", ko: "연주 기법", ru: "Техника игры", "zh-CN": "演奏技法", "zh-HK": "演奏技法" },
   "Primary Appeal": { ja: "いちばんの魅力", es: "Principal atractivo", pt: "Principal atrativo", fr: "Attrait principal", de: "Hauptreiz", it: "Attrattiva principale", ko: "핵심 매력", ru: "Главная привлекательность", "zh-CN": "主要吸引力", "zh-HK": "主要吸引力" },
   "Primary Element": { ja: "中心となる要素", es: "Elemento principal", pt: "Elemento principal", fr: "Élément principal", de: "Hauptelement", it: "Elemento principale", ko: "주요 요소", ru: "Основной элемент", "zh-CN": "核心元素", "zh-HK": "核心元素" },
@@ -425,7 +425,7 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Sample Source": { ja: "サンプルの出どころ", es: "Origen de los samples", pt: "Origem dos samples", fr: "Origine des samples", de: "Herkunft der Samples", it: "Origine dei sample", ko: "샘플 출처", ru: "Источник сэмплов", "zh-CN": "采样来源", "zh-HK": "採樣來源" },
   "Saturation": { ja: "サチュレーション", es: "Saturación", pt: "Saturação", fr: "Saturation", de: "Sättigung", it: "Saturazione", ko: "새추레이션", ru: "Сатурация", "zh-CN": "饱和度", "zh-HK": "飽和度" },
   "Scalability": { ja: "拡張性", es: "Escalabilidad", pt: "Escalabilidade", fr: "Évolutivité", de: "Skalierbarkeit", it: "Scalabilità", ko: "확장성", ru: "Масштабируемость", "zh-CN": "可扩展性", "zh-HK": "可擴展性" },
-  "Scale": { ja: "音階", es: "Escala", pt: "Escala", fr: "Gamme", de: "Tonleiter", it: "Scala", ko: "음계", ru: "Гамма", "zh-CN": "音阶", "zh-HK": "音階" },
+  "Scale": { ja: "規模", es: "Envergadura", pt: "Porte", fr: "Ampleur", de: "Größenordnung", it: "Portata", ko: "규모", ru: "Масштаб", "zh-CN": "体量", "zh-HK": "體量" },
   "Scales/Modes": { ja: "音階・旋法", es: "Escalas y modos", pt: "Escalas e modos", fr: "Gammes et modes", de: "Tonleitern und Modi", it: "Scale e modi", ko: "음계·선법", ru: "Гаммы и лады", "zh-CN": "音阶与调式", "zh-HK": "音階與調式" },
   "Scene Switching": { ja: "シーン切り替え", es: "Cambio de escena", pt: "Troca de cena", fr: "Changement de scène", de: "Szenenwechsel", it: "Cambio di scena", ko: "장면 전환", ru: "Смена сцен", "zh-CN": "场景切换", "zh-HK": "場景切換" },
   "Setup Size": { ja: "セットの規模", es: "Tamaño del montaje", pt: "Tamanho do setup", fr: "Taille du dispositif", de: "Umfang des Aufbaus", it: "Dimensione del setup", ko: "세팅 규모", ru: "Размер установки", "zh-CN": "配置规模", "zh-HK": "配置規模" },
@@ -500,9 +500,17 @@ export const ROW_LABELS: Record<string, Record<string, string>> = {
   "Voice Space": { ja: "声の居場所", es: "Espacio para la voz", pt: "Espaço para a voz", fr: "Place pour la voix", de: "Platz für die Stimme", it: "Spazio per la voce", ko: "보컬 공간", ru: "Место для вокала", "zh-CN": "人声空间", "zh-HK": "人聲空間" },
   "Voice-Friendly Mix": { ja: "声が通るミックス", es: "Mezcla que respeta la voz", pt: "Mixagem que respeita a voz", fr: "Mixage qui laisse passer la voix", de: "Stimmfreundlicher Mix", it: "Mix che lascia spazio alla voce", ko: "보컬이 잘 들리는 믹스", ru: "Микс, не мешающий голосу", "zh-CN": "不压人声的混音", "zh-HK": "不壓人聲的混音" },
   "Voiceover Space": { ja: "ナレーションの余白", es: "Espacio para la locución", pt: "Espaço para locução", fr: "Place pour la voix off", de: "Platz für Voiceover", it: "Spazio per il voiceover", ko: "내레이션 여백", ru: "Место для закадрового голоса", "zh-CN": "旁白留白", "zh-HK": "旁白留白" },
-  "Voices": { ja: "声部数", es: "Voces", pt: "Vozes", fr: "Voix", de: "Stimmen", it: "Voci", ko: "성부", ru: "Голоса", "zh-CN": "声部数", "zh-HK": "聲部數" },
+  "Voices": { ja: "声部構成", es: "Voces", pt: "Vozes", fr: "Voix", de: "Stimmen", it: "Voci", ko: "성부", ru: "Голоса", "zh-CN": "人声编制", "zh-HK": "人聲編制" },
   "YouTube/Social Safe": { ja: "YouTube・SNSで安全", es: "Seguro en YouTube y redes", pt: "Seguro no YouTube e redes", fr: "Sûr sur YouTube et les réseaux", de: "Sicher auf YouTube und Social", it: "Sicuro su YouTube e social", ko: "유튜브·SNS 안전", ru: "Безопасно для YouTube и соцсетей", "zh-CN": "YouTube 与社媒可安全使用", "zh-HK": "YouTube 與社媒可安全使用" },
 };
 
-/** 这张表里有译名的标签数，校验脚本用。 */
-export const ROW_LABEL_KEYS = Object.keys(ROW_LABELS);
+/**
+ * 这张表要配齐的语言。**它是唯一事实来源**：
+ * buildTranslations 的 lang 参数类型和 scripts/check-row-labels.mjs 都从这里取，
+ * 加语言时只改这一处。各自硬写一份的话，两边迟早对不上。
+ */
+export const ROW_LABEL_LANGS = [
+  "ja", "es", "pt", "fr", "de", "it", "ko", "ru", "zh-CN", "zh-HK",
+] as const;
+
+export type RowLabelLang = (typeof ROW_LABEL_LANGS)[number];
