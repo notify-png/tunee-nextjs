@@ -1,5 +1,6 @@
 import type { GenreData } from "../types";
 import { getGenreData } from "../index";
+import { ROW_LABELS, type RowLabelLang } from "./row-labels";
 
 /* ── Language config type ── */
 export interface LangConfig {
@@ -21,16 +22,6 @@ export interface LangConfig {
   comparisonTitle: (name: string) => string;
   comparisonSub: (name: string) => string;
   compFeatureLabel: string;
-  /**
-   * 对比表第一列的译名，**按英文原文查**，查不到的保留英文。
-   *
-   * 不要改回按下标的数组：行标签是各页自己写的自由文本，全站 489 种、
-   * 其中 332 种只出现过一次，根本不存在一套固定的六行。按位置替换必然
-   * 张冠李戴——2026-11-16 实测 293 个有对比表的页**没有一个六行全对**，
-   * 1,739 行里 1,385 行（79.6%）被换成了不相干的词，例如
-   * 「Typical Use（典型用途）」被显示成「Duración（时长）」。
-   */
-  compRowLabels?: Record<string, string>;
   promptTitle: (name: string) => string;
   promptSub: (name: string) => string;
   /** Optional: 8 unique translated prompt card descriptions */
@@ -118,7 +109,15 @@ export const LANDING_SLUGS = [
 export const lowerFirst = (value: string) => value.charAt(0).toLowerCase() + value.slice(1);
 
 /* ── Factory: create translated GenreData from config ── */
-export function buildTranslations(config: LangConfig): Record<string, GenreData> {
+export function buildTranslations(
+  config: LangConfig,
+  /**
+   * 语言码。用联合类型而不是 string：写错一个字母（"zh-hk"、"jp"）时，
+   * ROW_LABELS 查不到就会静默回落英文，整个语言的对比表全部露英文，
+   * 而 tsc 和 check:row-labels 都不会报——后者只核表，不核谁来取。
+   */
+  lang: RowLabelLang,
+): Record<string, GenreData> {
   const result: Record<string, GenreData> = {};
 
   for (const slug of LANDING_SLUGS) {
@@ -185,7 +184,9 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
       comparison: {
         headers: [config.compFeatureLabel, ...en.comparison.headers.slice(1)],
         rows: en.comparison.rows.map((row) => [
-          config.compRowLabels?.[row[0]] ?? row[0],
+          // 查不到就露出英文原文。check:row-labels 会在构建前拦下漏配的标签，
+          // 所以线上不该出现这种回落；留着是为了让漏配时页面还能渲染。
+          ROW_LABELS[row[0]]?.[lang] ?? row[0],
           ...row.slice(1),
         ]),
       },
@@ -203,9 +204,17 @@ export function buildTranslations(config: LangConfig): Record<string, GenreData>
         title: config.useCases[i]?.title ?? uc.title,
         desc: config.useCases[i]?.desc(name) ?? uc.desc,
       })),
+      // 和上面 subgenres 同一个判据，理由见那里：names 按 slug 索引，而 slug 是
+      // 「点进去看哪个页」、name 才是「显示什么」。原来这里直接用 names[r.slug]，
+      // 后果比 subgenres 更明显——同一页里多张卡片指向同一个 slug 是常事
+      // （alternative 页有 Indie / Britpop / Emo 三张都指向 alternative），
+      // 于是译文版里塌缩成三张「另类」，React 还会因 key 重复告警。
       related: en.related.map((r) => ({
         ...r,
-        name: config.names[r.slug] || r.name,
+        name:
+          (getGenreData(r.slug)?.displayName === r.name
+            ? config.names[r.slug]
+            : undefined) ?? r.name,
       })),
       faqs: config.faqs.map((f) => ({
         q: f.q(name),

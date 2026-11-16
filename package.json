@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:row-labels && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:row-labels": "node scripts/check-row-labels.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
