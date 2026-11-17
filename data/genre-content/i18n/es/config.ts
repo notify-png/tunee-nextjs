@@ -1,4 +1,4 @@
-import { lowerFirst, type LangConfig } from "../helpers";
+import { type LangConfig } from "../helpers";
 import { slugData } from "./slug-data";
 
 export const config: LangConfig = {
@@ -327,23 +327,120 @@ export const config: LangConfig = {
     `Crea pistas de ${name} únicas al instante. Solo describe lo que quieres y la IA de Tunee compone la música por ti.`,
   badges: ["Sin tarjeta de crédito", "Uso comercial OK", "Listo en segundos"],
 
+  /* 人群页名称的句中形态。names 里是标题形态（Title Case），
+     正文句子里要的是西语的常规写法：普通名词小写，品牌名保留大写。
+     机械降首字母只能救「Para X」里的 P，救不了后面的实词
+     （「para Autores de Canciones」），所以这 26 条逐个写出来。 */
+  sentenceNames: {
+    "for-advertisers": "para anunciantes",
+    "for-app-developers": "para desarrolladores de apps",
+    "for-composers": "para compositores",
+    "for-content-creators": "para creadores",
+    "for-dancers": "para bailarines",
+    "for-djs": "para DJs",
+    "for-filmmakers": "para cineastas",
+    "for-game-developers": "para desarrolladores de juegos",
+    "for-indie-game-developers": "para desarrolladores indie",
+    "for-marketers": "para marketers",
+    "for-meditation-creators": "para meditación",
+    "for-musicians": "para músicos",
+    "for-podcasters": "para podcasters",
+    "for-producers": "para productores",
+    "for-singers": "para cantantes",
+    "for-small-businesses": "para pequeños negocios",
+    "for-social-media-managers": "para community managers",
+    "for-songwriters": "para autores de canciones",
+    "for-streamers": "para streamers",
+    "for-students": "para estudiantes",
+    "for-teachers": "para profesores",
+    "for-tiktok-creators": "para TikTok",
+    "for-video-creators": "para videocreadores",
+    "for-video-editors": "para editores de vídeo",
+    "for-wedding-creators": "para vídeos de boda",
+    "for-youtubers": "para YouTubers",
+  },
+
   /* ── DNA section ── */
   /* ── 人群页（creator-type）专用句式 ──
      常规模板假设 name 是曲风名词，人群名填进去是病句（见 helpers.ts 的 audience 注释）。
      只覆盖 SERP 与首屏看到的四个字段。 */
   audience: {
-    seoTitle: (name) => `Generador de Música con IA ${lowerFirst(name)} | Tunee`,
+    seoTitle: (name) => `Generador de Música con IA ${name} | Tunee`,
     seoDesc: (name) =>
-      `Música ${lowerFirst(name)} con el generador de IA de Tunee. Pistas de alta calidad en segundos, sin experiencia musical.`,
-    heroTitle: (name) => `Genera Música con IA ${lowerFirst(name)}`,
+      `Música ${name} con el generador de IA de Tunee. Pistas de alta calidad en segundos, sin experiencia musical.`,
+    heroTitle: (name) => `Genera Música con IA ${name}`,
     heroSub: (name) =>
-      `Crea pistas únicas ${lowerFirst(name)} al instante. Solo describe lo que quieres y la IA de Tunee compone la música por ti.`,
+      `Crea pistas únicas ${name} al instante. Solo describe lo que quieres y la IA de Tunee compone la música por ti.`,
     /* 「El ADN de Para DJs」是 de + para 两个介词连用。补一个 la música
        当中心词，介词短语就有东西可修饰了。 */
-    dnaTitle: (name) => `El ADN de la música ${lowerFirst(name)}`,
-    subgenreTitle: (name) => `Subgéneros de música ${lowerFirst(name)}`,
-    comparisonTitle: (name) => `Tunee vs Otros Generadores de Música ${lowerFirst(name)}`,
-    promptTitle: (name) => `Prompts Populares ${lowerFirst(name)}`,
+    dnaTitle: (name) => `El ADN de la música ${name}`,
+    subgenreTitle: (name) => `Subgéneros de música ${name}`,
+    comparisonTitle: (name) => `Tunee vs Otros Generadores de Música ${name}`,
+    promptTitle: (name) => `Prompts Populares ${name}`,
+    useCaseTitle: (name) => `Usos de la Música ${name}`,
+    finalCtaTitle: (name) => `Empieza a Crear Música ${name} Ahora`,
+
+    /* 正文层。常规模板把 name 当曲风名词（「música Para DJs」「el sonido de
+       Para DJs」），这里一律补中心词再接介词短语：「música para DJs」。
+       原模板里「de ${name}」的位置最容易出事——「de para DJs」两个介词连用，
+       所以凡是这种位置都改写成「de música para DJs」或直接去掉 de。 */
+    dnaSub: (name) =>
+      `Los elementos clave que definen el sonido de la música ${name} y cómo nuestra IA los captura.`,
+    subgenreSub: (name) =>
+      `Explora variantes populares de música ${name} que puedes generar con Tunee.`,
+    comparisonSub: (name) =>
+      `Descubre por qué Tunee es la mejor opción para crear música ${name} con IA.`,
+    promptSub: (name) =>
+      `Prueba estos prompts para generar pistas increíbles de música ${name} con Tunee.`,
+    useCaseSub: (name) =>
+      `Formas populares de usar música ${name} generada con IA en tus proyectos.`,
+    finalCtaSub: (name) =>
+      `Únete a miles de creadores que ya usan Tunee para generar música ${name} con IA. Es gratis para empezar.`,
+    useCaseDescs: [
+      (name) =>
+        `Música ${name} lista para publicar: vídeos cortos, Reels e historias. Capta la atención de tu audiencia al instante.`,
+      (name) =>
+        `Genera música ${name} profesional para comerciales y campañas publicitarias sin preocuparte por licencias.`,
+      (name) =>
+        `Produce bandas sonoras ${name} en cortometrajes, documentales y series. Calidad cinematográfica en minutos.`,
+      (name) =>
+        `Genera pistas de acompañamiento ${name} y úsalas en tus demos. Ideal para cantantes y compositores.`,
+      (name) =>
+        `Llena tus playlists con música ${name} original. Perfecto para creadores de contenido y curadores.`,
+      (name) =>
+        `Añade música ${name} a tus videojuegos y aplicaciones. Crea la atmósfera perfecta para cada escena.`,
+    ],
+    faqs: [
+      {
+        q: (name) => `¿Qué es el generador de música ${name} con IA de Tunee?`,
+        a: (name) =>
+          `Es una herramienta impulsada por inteligencia artificial que te permite crear música ${name} original a partir de descripciones de texto. Solo escribe el estilo que quieres y Tunee genera la pista completa en segundos.`,
+      },
+      {
+        q: (name) => `¿Cómo puedo crear música ${name} con Tunee?`,
+        a: (name) =>
+          `Es muy sencillo: escribe un prompt describiendo la música ${name} que quieres (por ejemplo, tempo, instrumentos, estado de ánimo), haz clic en generar y tu pista estará lista en segundos. Puedes ajustarla hasta que quede perfecta.`,
+      },
+      {
+        q: (name) => `¿Puedo usar con fines comerciales la música ${name} que cree en Tunee?`,
+        a: (name) =>
+          `Sí. La música ${name} que generes en Tunee se puede usar en proyectos comerciales, incluyendo videos de YouTube, podcasts, anuncios y más, dependiendo de tu plan.`,
+      },
+      {
+        q: (name) => `¿Necesito habilidades musicales para crear música ${name}?`,
+        a: () =>
+          `Para nada. Tunee está diseñado para todos, desde principiantes hasta profesionales. No necesitas saber teoría musical ni tocar ningún instrumento. Solo describe lo que quieres y la IA se encarga del resto.`,
+      },
+      {
+        q: (name) => `¿Es gratis generar música ${name} en Tunee?`,
+        a: (name) =>
+          `Tunee ofrece un plan gratuito para que pruebes el generador de música ${name} sin compromiso. Para acceder a más funciones y descargas en alta calidad, puedes explorar nuestros planes de pago.`,
+      },
+    ],
+    chatUser: (name) =>
+      `Crea una pista ${name} con vibras relajadas y buena energía`,
+    chatAi: (name) =>
+      `¡Listo! Aquí tienes tu pista ${name}. La generé con un ritmo chill, melodías suaves y buena vibra. ¿Quieres ajustar algo?`,
   },
 
   dnaTitle: (name) => `El ADN de ${name}`,

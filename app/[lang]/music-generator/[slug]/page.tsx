@@ -71,7 +71,8 @@ export default async function I18nGenreLandingPage({
   const data = getI18nGenreData(slug, lang);
   if (!data) notFound();
 
-  const ui = getSlugPageUI(lang);
+  const isAudience = data.category === "creator-type";
+  const ui = getSlugPageUI(lang, isAudience);
   const { colors } = data;
   /* 强调色统一用品牌橙紫，不跟页面走——page.module.css 的渐变也直接写死了
      同一对颜色，所以这里改成按页取色不会生效，得连 CSS 一起改。
@@ -126,9 +127,18 @@ export default async function I18nGenreLandingPage({
     })),
   } : null;
 
-  const nameLower = data.displayName.toLowerCase();
-  const r = (t: string) => t.replace(/\{name\}/g, data.displayName);
-  const rLower = (t: string) => t.replace(/\{name\}/g, nameLower);
+  // 句中位置优先用语言自己声明的句中形态（见 LangConfig.sentenceNames）。
+  // 没声明就还是整串小写——曲风页「Phonk」→「phonk」本来就对，人群页则维持
+  // 声明前的样子，不在这里用规则去猜（猜过一版：前两位都大写当缩写，
+  // 结果把 ja「TikTok向け」降成了「tikTok向け」）。
+  const sentenceName = data.sentenceName;
+  const nameLower = sentenceName ?? data.displayName.toLowerCase();
+  const r = (t: string) =>
+    t
+      .replace(/\{nameLower\}/g, sentenceName ?? data.displayName)
+      .replace(/\{name\}/g, data.displayName);
+  const rLower = (t: string) =>
+    t.replace(/\{nameLower\}/g, nameLower).replace(/\{name\}/g, nameLower);
   const ctaUrl = lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}`;
   const validRelated = getRelatedGenreLinks(slug, data);
   const prefix = `/${lang}/music-generator`;

@@ -42,9 +42,9 @@ export interface LangConfig {
       2026-10 线上实测 for-djs 的中文标题是「DJ专用风格AI音乐生成器」、
       日文「DJ向け系AI…」、俄文「Для диджеев музыка」，都是病句。
 
-      只覆盖这四个字段，因为它们决定 SERP 上看到的那两行与首屏第一眼；
-      页内小标题（dnaTitle / subgenreTitle 等）仍走常规模板，句式略怪但不影响点击。
-      不填则回落常规模板——回落的结果就是现状，不会更糟。 */
+      前四个字段（seoTitle / seoDesc / heroTitle / heroSub）决定 SERP 上看到的
+      那两行与首屏第一眼，必填；其余都是可选，不填即回落常规模板——回落的结果
+      就是现状，不会更糟。所以各语言可以按自己的语法需要逐步补，不必一次补齐。 */
   audience?: {
     seoTitle: (name: string) => string;
     seoDesc: (name: string) => string;
@@ -62,7 +62,32 @@ export interface LangConfig {
     promptTitle?: (name: string) => string;
     useCaseTitle?: (name: string) => string;
     finalCtaTitle?: (name: string) => string;
+
+    /* 正文层。标题修好了而正文没修，页面读起来一样碎——2026-11-17 线上
+       es/for-djs 的小标题已是「El ADN de la música para DJs」，同一屏的正文
+       却还是「el sonido de Para DJs」，往下 6 条用例、5 条 FAQ、聊天演示
+       和底部 CTA 全中，一页 20 多处。
+       与标题字段同理：不填即回落常规模板，不会比现状更糟。 */
+    dnaSub?: (name: string) => string;
+    subgenreSub?: (name: string) => string;
+    comparisonSub?: (name: string) => string;
+    promptSub?: (name: string) => string;
+    useCaseSub?: (name: string) => string;
+    finalCtaSub?: (name: string) => string;
+    /** 只替描述，用例标题（「Redes Sociales」等）与 name 无关，照用常规的。 */
+    useCaseDescs?: ((name: string) => string)[];
+    faqs?: { q: (name: string) => string; a: (name: string) => string }[];
+    chatUser?: (name: string) => string;
+    chatAi?: (name: string) => string;
   };
+
+  /** 人群页名称的句中形态，按 slug 索引。
+
+      names 里的是标题形态（「Para Autores de Canciones」），用在正文句子里
+      就成了句中大写。哪个语言需要句中形态，自己在这里声明；不声明的语言
+      所有取值与声明前逐字相同。声明之后，audience 的所有模板函数拿到的
+      name 就是这个句中形态（标题模板也一起——西语标题本来就不用 Title Case）。 */
+  sentenceNames?: Record<string, string>;
 
   /** Per-slug faithful translations of genre-specific content */
   slugData?: Record<string, {
@@ -108,6 +133,7 @@ export const LANDING_SLUGS = [
     句首保持大写，嵌进句中则要小写——德语的 für、意语的 per 在句中不大写。 */
 export const lowerFirst = (value: string) => value.charAt(0).toLowerCase() + value.slice(1);
 
+
 /* ── Factory: create translated GenreData from config ── */
 export function buildTranslations(
   config: LangConfig,
@@ -128,32 +154,36 @@ export function buildTranslations(
     const sd = config.slugData?.[slug];
     // 人群页有专用句式就用，没有就回落常规模板
     const au = en.category === "creator-type" ? config.audience : undefined;
+    // audience 的模板一律收句中形态；没声明就还是 name，与声明前完全一致
+    const sentenceName = au ? config.sentenceNames?.[slug] : undefined;
+    const auName = sentenceName ?? name;
     result[slug] = {
       ...en,
       displayName: name,
+      sentenceName,
       seo: {
-        title: (au?.seoTitle ?? config.seoTitle)(name),
-        description: (au?.seoDesc ?? config.seoDesc)(name),
+        title: (au?.seoTitle ?? config.seoTitle)(auName),
+        description: (au?.seoDesc ?? config.seoDesc)(auName),
       },
       hero: {
-        title: (au?.heroTitle ?? config.heroTitle)(name),
-        subtitle: (au?.heroSub ?? config.heroSub)(name),
+        title: (au?.heroTitle ?? config.heroTitle)(auName),
+        subtitle: (au?.heroSub ?? config.heroSub)(auName),
         badges: config.badges,
       },
       chatDemo: {
         ...en.chatDemo,
-        userMessage: config.chatUser(name),
-        aiReply: config.chatAi(name),
+        userMessage: (au?.chatUser ?? config.chatUser)(auName),
+        aiReply: (au?.chatAi ?? config.chatAi)(auName),
       },
-      dnaTitle: (au?.dnaTitle ?? config.dnaTitle)(name),
-      dnaSub: config.dnaSub(name),
+      dnaTitle: (au?.dnaTitle ?? config.dnaTitle)(auName),
+      dnaSub: (au?.dnaSub ?? config.dnaSub)(auName),
       dna: en.dna.map((d, i) => ({
         ...d,
         title: config.dnaSectionTitles[i] ?? d.title,
         desc: sd?.dnaDescs?.[i] ?? config.dnaDescs?.[i]?.(name) ?? d.desc,
       })),
-      subgenreTitle: (au?.subgenreTitle ?? config.subgenreTitle)(name),
-      subgenreSub: config.subgenreSub(name),
+      subgenreTitle: (au?.subgenreTitle ?? config.subgenreTitle)(auName),
+      subgenreSub: (au?.subgenreSub ?? config.subgenreSub)(auName),
       subgenres: en.subgenres.map((sg, i) => {
         // config.names 按 slug 索引，而 slug 是「链到哪个页」、name 是「显示什么」，
         // 两者常常不是一回事：alternative 页的 { name: "Shoegaze", slug: "dream-pop" }
@@ -179,8 +209,8 @@ export function buildTranslations(
             (config.subgenreDesc ? config.subgenreDesc(sgName, name) : sg.desc),
         };
       }),
-      comparisonTitle: (au?.comparisonTitle ?? config.comparisonTitle)(name),
-      comparisonSub: config.comparisonSub(name),
+      comparisonTitle: (au?.comparisonTitle ?? config.comparisonTitle)(auName),
+      comparisonSub: (au?.comparisonSub ?? config.comparisonSub)(auName),
       comparison: {
         headers: [config.compFeatureLabel, ...en.comparison.headers.slice(1)],
         rows: en.comparison.rows.map((row) => [
@@ -190,19 +220,19 @@ export function buildTranslations(
           ...row.slice(1),
         ]),
       },
-      promptTitle: (au?.promptTitle ?? config.promptTitle)(name),
-      promptSub: config.promptSub(name),
+      promptTitle: (au?.promptTitle ?? config.promptTitle)(auName),
+      promptSub: (au?.promptSub ?? config.promptSub)(auName),
       prompts: en.prompts.map((p, i) => ({
         ...p,
         title: sd?.promptTitles?.[i] ?? p.title,
         text: sd?.promptTexts?.[i] ?? config.promptDescs?.[i]?.(name) ?? p.text,
       })),
-      useCaseTitle: (au?.useCaseTitle ?? config.useCaseTitle)(name),
-      useCaseSub: config.useCaseSub(name),
+      useCaseTitle: (au?.useCaseTitle ?? config.useCaseTitle)(auName),
+      useCaseSub: (au?.useCaseSub ?? config.useCaseSub)(auName),
       useCases: en.useCases.map((uc, i) => ({
         icon: uc.icon,
         title: config.useCases[i]?.title ?? uc.title,
-        desc: config.useCases[i]?.desc(name) ?? uc.desc,
+        desc: (au?.useCaseDescs?.[i] ?? config.useCases[i]?.desc)?.(auName) ?? uc.desc,
       })),
       // 和上面 subgenres 同一个判据，理由见那里：names 按 slug 索引，而 slug 是
       // 「点进去看哪个页」、name 才是「显示什么」。原来这里直接用 names[r.slug]，
@@ -216,13 +246,15 @@ export function buildTranslations(
             ? config.names[r.slug]
             : undefined) ?? r.name,
       })),
-      faqs: config.faqs.map((f) => ({
-        q: f.q(name),
-        a: f.a(name),
+      // 注意 faqs 是整组替换不是逐条回落：audience 声明了就整组用它的，
+      // 条数也跟着变（会进 FAQPage 结构化数据）。补语言时别只写两三条。
+      faqs: (au?.faqs ?? config.faqs).map((f) => ({
+        q: f.q(auName),
+        a: f.a(auName),
       })),
       finalCta: {
-        title: (au?.finalCtaTitle ?? config.finalCtaTitle)(name),
-        subtitle: config.finalCtaSub(name),
+        title: (au?.finalCtaTitle ?? config.finalCtaTitle)(auName),
+        subtitle: (au?.finalCtaSub ?? config.finalCtaSub)(auName),
         buttonText: config.finalCtaButton,
       },
     };
