@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-singers",
   displayName: "For Singers",
+  sentenceName: "for singers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Singers Music Generator | Tunee AI",
-    description: "Create custom vocal backing tracks, karaoke instrumentals, and vocal practice accompaniments with Tunee's AI Music Generator. Any key, any style. Free to start.",
+    title: "Music Generator for Singers | Tunee AI",
+    description: "Create custom vocal backing tracks, karaoke instrumentals, and vocal practice accompaniments with Tunee's AI Music Generator. Any key, any style.",
   },
   hero: {
-    title: "For Singers\nMusic Generator",
+    title: "Music Generator\nfor Singers",
     subtitle: "Your perfect accompanist is always available. Generate backing tracks in any key, any tempo, any style — from karaoke-ready instrumentals to full-band arrangements that make your voice the star.",
     badges: ["Any Key", "Vocal-Ready Mix", "Instant Backing"],
   },

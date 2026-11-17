@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-tiktok-creators",
   displayName: "For TikTok Creators",
+  sentenceName: "for TikTok creators",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For TikTok Creators Music Generator | Tunee AI",
-    description: "Create original TikTok music with Tunee's AI Music Generator. Viral hooks, trending sounds, and scroll-stopping beats — stand out from the same recycled tracks.",
+    title: "Music Generator for TikTok Creators | Tunee AI",
+    description: "Create original TikTok music with Tunee's AI. Viral hooks, trending sounds, and scroll-stopping beats — stand out from the same recycled tracks.",
   },
   hero: {
-    title: "For TikTok Creators\nMusic Generator",
+    title: "Music Generator\nfor TikTok Creators",
     subtitle: "Stop using the same sounds as everyone else. Generate original tracks with viral hooks, punchy drops, and scroll-stopping energy — your own unique sound for every post.",
     badges: ["Viral Hooks", "Original Sounds", "Scroll-Stopping"],
   },

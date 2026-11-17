@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-indie-game-developers",
   displayName: "For Indie Game Developers",
+  sentenceName: "for indie game developers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Indie Game Developers Music Generator | Tunee AI",
+    title: "Music Generator for Indie Game Developers | Tunee AI",
     description: "Create indie game music with Tunee's AI Music Generator. Pixel-art chiptune, lo-fi ambient, and emotional scores — AAA-sounding music on an indie budget.",
   },
   hero: {
-    title: "For Indie Game Developers\nMusic Generator",
+    title: "Music Generator\nfor Indie Game Developers",
     subtitle: "AAA-quality music on an indie budget. Generate pixel-art chiptune, atmospheric ambient, emotional piano, and full orchestral — all without hiring a composer or buying asset packs.",
     badges: ["Indie Budget", "AAA Quality", "Full Soundtrack"],
   },

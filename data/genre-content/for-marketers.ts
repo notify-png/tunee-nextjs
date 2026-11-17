@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-marketers",
   displayName: "For Marketers",
+  sentenceName: "for marketers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Marketers Music Generator | Tunee AI",
-    description: "Create marketing music with Tunee's AI Music Generator. On-brand tracks for campaigns, social content, and presentations — consistent sonic branding without a music team.",
+    title: "Music Generator for Marketers | Tunee AI",
+    description: "Create marketing music with Tunee's AI. On-brand tracks for campaigns, social content, and presentations — consistent sonic branding without a music team.",
   },
   hero: {
-    title: "For Marketers\nMusic Generator",
+    title: "Music Generator\nfor Marketers",
     subtitle: "Build a sonic brand without a music team. Generate on-brand tracks for social campaigns, product videos, webinars, and presentations — describe your brand and get consistent music across every touchpoint.",
     badges: ["Sonic Branding", "Campaign-Ready", "Multi-Channel"],
   },

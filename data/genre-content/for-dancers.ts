@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-dancers",
   displayName: "For Dancers",
+  sentenceName: "for dancers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Dancers Music Generator | Tunee AI",
+    title: "Music Generator for Dancers | Tunee AI",
     description: "Create custom dance music for rehearsals, performances, and choreography with Tunee's AI Music Generator. Any style, any tempo, any length. Free to start.",
   },
   hero: {
-    title: "For Dancers\nMusic Generator",
+    title: "Music Generator\nfor Dancers",
     subtitle: "Music that moves with you. Create custom tracks for choreography, rehearsals, competitions, and performances — with exact tempo, length, and energy matched to your vision. No more editing stock music to fit your routine.",
     badges: ["Exact BPM", "Custom Length", "Performance-Ready"],
   },

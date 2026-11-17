@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-composers",
   displayName: "For Composers",
+  sentenceName: "for composers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Composers Music Generator | Tunee AI",
-    description: "Generate orchestral mockups, score sketches, and compositional ideas with Tunee's AI Music Generator. Hear your compositions performed instantly. Free to start.",
+    title: "Music Generator for Composers | Tunee AI",
+    description: "Generate orchestral mockups, score sketches, and compositional ideas with Tunee's AI Music Generator. Hear your compositions performed instantly.",
   },
   hero: {
-    title: "For Composers\nMusic Generator",
+    title: "Music Generator\nfor Composers",
     subtitle: "Hear your compositional ideas performed in real time. Generate orchestral mockups, sketch new works, explore harmonic possibilities, and create reference recordings — all from a text description of your vision.",
     badges: ["Orchestral Mockups", "Score Sketching", "Any Ensemble"],
   },

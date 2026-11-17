@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-producers",
   displayName: "For Producers",
+  sentenceName: "for producers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Producers Music Generator | Tunee AI",
-    description: "Generate stems, loops, reference tracks, and creative starting points for your productions with Tunee's AI Music Generator. Accelerate your workflow. Free to start.",
+    title: "Music Generator for Producers | Tunee AI",
+    description: "Generate stems, loops, reference tracks, and creative starting points for your productions with Tunee's AI Music Generator. Accelerate your workflow.",
   },
   hero: {
-    title: "For Producers\nMusic Generator",
+    title: "Music Generator\nfor Producers",
     subtitle: "Accelerate your production workflow. Generate reference tracks, creative starting points, loop ideas, and full arrangements from text descriptions — then bring them into your DAW and make them yours.",
     badges: ["DAW-Ready", "Unlimited Ideas", "Any Genre"],
   },

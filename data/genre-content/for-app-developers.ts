@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-app-developers",
   displayName: "For App Developers",
+  sentenceName: "for app developers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For App Developers Music Generator | Tunee AI",
-    description: "Create background music, UI sound design, and audio branding for your apps and games with Tunee's AI Music Generator. Royalty-free and API-ready. Free to start.",
+    title: "Music Generator for App Developers | Tunee AI",
+    description: "Create background music, UI sound design, and audio branding for your apps and games with Tunee's AI Music Generator. Royalty-free and API-ready.",
   },
   hero: {
-    title: "For App Developers\nMusic Generator",
+    title: "Music Generator\nfor App Developers",
     subtitle: "Add professional audio to your apps without hiring a composer. Generate background music, ambient soundscapes, notification sounds, and game audio — all royalty-free and ready to ship in your next build.",
     badges: ["Royalty-Free", "Loop-Ready", "Any Format"],
   },

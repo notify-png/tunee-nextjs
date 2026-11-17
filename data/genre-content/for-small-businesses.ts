@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-small-businesses",
   displayName: "For Small Businesses",
+  sentenceName: "for small businesses",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Small Businesses Music Generator | Tunee AI",
-    description: "Create professional background music, ad soundtracks, and brand audio for your small business with Tunee's AI Music Generator. No licensing fees. Free to start.",
+    title: "Music Generator for Small Businesses | Tunee AI",
+    description: "Create professional background music, ad soundtracks, and brand audio for your small business with Tunee's AI Music Generator. No licensing fees.",
   },
   hero: {
-    title: "For Small Businesses\nMusic Generator",
+    title: "Music Generator\nfor Small Businesses",
     subtitle: "Professional music for your brand without the professional price tag. Create background tracks for your store, social media ads, phone hold music, and promotional videos — all royalty-free and uniquely yours.",
     badges: ["Royalty-Free", "Brand-Ready Audio", "Commercial License"],
   },

@@ -83,17 +83,31 @@ export default async function GenreLandingPage({
     "--bg-base-rgb": colors.bgBaseRgb,
   } as React.CSSProperties;
 
-  const nameLower = data.displayName.toLowerCase();
+  // 人群页的 displayName 是介词短语（「For DJs」），整串小写会毁掉里面的大写
+  // （DJs → djs、TikTok → tiktok），所以句中形态由内容文件自己给（sentenceName）。
+  // 曲风页没有这个字段，照旧整串小写——「Phonk」→「phonk」本来就对。
+  const isAudience = data.category === "creator-type";
+  const nameLower = data.sentenceName ?? data.displayName.toLowerCase();
+  // 标题位要的是标题形态：displayName 一律是「For X」，只降首字母就得到
+  // 「for Small Businesses」。直接用 nameLower 会把 Small Businesses 也降掉，
+  // 于是面包屑和 title 标签在同一个页上自相矛盾。
+  const nameTitle = data.displayName.charAt(0).toLowerCase() + data.displayName.slice(1);
   const validRelated = getRelatedGenreLinks(slug, data);
 
   const genre = data.displayName;
+  /** 标题位：曲风名在前（Phonk Music Generator），人群名是介词短语只能挂后面。 */
+  const titlePhrase = (noun: string) =>
+    isAudience ? `${noun} ${nameTitle}` : `${genre} ${noun}`;
+  /** 句中位：your phonk music / your music for DJs。 */
+  const sentencePhrase = (noun: string) =>
+    isAudience ? `${noun} ${nameLower}` : `${nameLower} ${noun}`;
   const engPath = `/music-generator/${canonicalGenreSlug(slug)}`;
   const pageCanonical = `https://www.tunee.ai${engPath}`;
 
   const jsonLdSoftwareApp = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: `Tunee ${genre} Music Generator`,
+    name: `Tunee ${titlePhrase("Music Generator")}`,
     description: data.seo.description,
     url: pageCanonical,
     applicationCategory: "MultimediaApplication",
@@ -108,15 +122,15 @@ export default async function GenreLandingPage({
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tunee.ai" },
       { "@type": "ListItem", position: 2, name: "AI Music Generator", item: "https://www.tunee.ai/music-generator" },
-      { "@type": "ListItem", position: 3, name: `${genre} Music Generator`, item: pageCanonical },
+      { "@type": "ListItem", position: 3, name: titlePhrase("Music Generator"), item: pageCanonical },
     ],
   };
 
   const jsonLdHowTo = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: `How to create ${genre} music with AI`,
-    description: `Generate ${genre} music using Tunee's AI music generator in 3 steps.`,
+    name: `How to create ${isAudience ? `music ${nameLower}` : `${genre} music`} with AI`,
+    description: `Generate ${isAudience ? `music ${nameLower}` : `${genre} music`} using Tunee's AI music generator in 3 steps.`,
     step: STEPS.map((st, i) => ({
       "@type": "HowToStep",
       position: i + 1,
@@ -159,7 +173,7 @@ export default async function GenreLandingPage({
                     <span className={s.sep}>&rsaquo;</span>
                     <Link href="/music-generator">Music Generator</Link>
                     <span className={s.sep}>&rsaquo;</span>
-                    <span className={s.current}>{data.displayName} Music Generator</span>
+                    <span className={s.current}>{titlePhrase("Music Generator")}</span>
                   </nav>
                   <h1 className={s.heroTitle}>
                     {data.hero.title.split("\n").map((line, i) => (
@@ -169,7 +183,7 @@ export default async function GenreLandingPage({
                   <p className={s.heroSub}>{data.hero.subtitle}</p>
                   <div className={s.heroCtas}>
                     <a href="https://www.tunee.ai" className={s.btnPrimary}>
-                      Create {data.displayName} Music
+                      Create {titlePhrase("Music")}
                     </a>
                     <a href="#prompts" className={s.btnGhost}>Browse Prompts &darr;</a>
                   </div>
@@ -312,7 +326,7 @@ export default async function GenreLandingPage({
           <section className={s.section}>
             <div className={s.wrap}>
               <h2 className={s.sectionTitle}>Three Simple Steps</h2>
-              <p className={s.sectionSub}>From idea to finished track — describe, refine, and export your {nameLower} music.</p>
+              <p className={s.sectionSub}>From idea to finished track — describe, refine, and export your {sentencePhrase("music")}.</p>
               <div className={s.stepsGrid}>
                 {STEPS.map((st) => (
                   <div key={st.num} className={s.stepCard}>
@@ -324,7 +338,7 @@ export default async function GenreLandingPage({
               </div>
               <div className={s.stepsCta}>
                 <a href="https://www.tunee.ai" className={s.btnPrimary}>
-                  Start Creating {data.displayName} Music
+                  Start Creating {titlePhrase("Music")}
                 </a>
               </div>
             </div>
@@ -349,7 +363,7 @@ export default async function GenreLandingPage({
           <section className={s.section}>
             <div className={s.wrap}>
               <h2 className={s.sectionTitle}>Frequently Asked Questions</h2>
-              <p className={s.sectionSub}>Everything you need to know about creating {nameLower} music with Tunee.</p>
+              <p className={s.sectionSub}>Everything you need to know about creating {sentencePhrase("music")} with Tunee.</p>
               <FaqAccordion faqs={data.faqs} />
             </div>
           </section>

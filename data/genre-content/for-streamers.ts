@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-streamers",
   displayName: "For Streamers",
+  sentenceName: "for streamers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Streamers Music Generator | Tunee AI",
+    title: "Music Generator for Streamers | Tunee AI",
     description: "Create DMCA-free stream music with Tunee's AI Music Generator. Background beats, alerts, and waiting screen music — never worry about a takedown again.",
   },
   hero: {
-    title: "For Streamers\nMusic Generator",
+    title: "Music Generator\nfor Streamers",
     subtitle: "DMCA-free music that fits your stream. Generate background beats, waiting screen loops, hype tracks, and chill vibes — your music, your brand, zero takedown risk.",
     badges: ["DMCA-Free", "Stream-Safe", "24/7 Ready"],
   },

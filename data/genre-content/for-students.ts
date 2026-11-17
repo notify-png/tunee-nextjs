@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-students",
   displayName: "For Students",
+  sentenceName: "for students",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Students Music Generator | Tunee AI",
-    description: "Create music for school projects, study playlists, and creative assignments with Tunee's AI Music Generator. Learn music production by doing. Free to start.",
+    title: "Music Generator for Students | Tunee AI",
+    description: "Create music for school projects, study playlists, and creative assignments with Tunee's AI Music Generator. Learn music production by doing.",
   },
   hero: {
-    title: "For Students\nMusic Generator",
+    title: "Music Generator\nfor Students",
     subtitle: "Whether you're scoring a film school project, building a study playlist, or exploring music theory hands-on — create professional-quality tracks instantly. No instrument or production experience needed.",
     badges: ["Free to Start", "Learn by Creating", "Project-Ready"],
   },

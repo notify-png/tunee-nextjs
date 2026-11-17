@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-musicians",
   displayName: "For Musicians",
+  sentenceName: "for musicians",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Musicians Music Generator | Tunee AI",
+    title: "Music Generator for Musicians | Tunee AI",
     description: "Create backing tracks, practice accompaniments, and song demos with Tunee's AI Music Generator. Accelerate your creative workflow. Free to start.",
   },
   hero: {
-    title: "For Musicians\nMusic Generator",
+    title: "Music Generator\nfor Musicians",
     subtitle: "Your AI-powered creative partner. Generate backing tracks for practice, create demo arrangements, explore new genres, and break through creative blocks — all from a simple text description.",
     badges: ["Backing Tracks", "Any Genre", "Instant Demos"],
   },
