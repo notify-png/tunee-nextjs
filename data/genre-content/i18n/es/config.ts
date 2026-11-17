@@ -344,6 +344,70 @@ export const config: LangConfig = {
     subgenreTitle: (name) => `Subgéneros de música ${lowerFirst(name)}`,
     comparisonTitle: (name) => `Tunee vs Otros Generadores de Música ${lowerFirst(name)}`,
     promptTitle: (name) => `Prompts Populares ${lowerFirst(name)}`,
+    useCaseTitle: (name) => `Usos de la Música ${lowerFirst(name)}`,
+    finalCtaTitle: (name) => `Empieza a Crear Música ${lowerFirst(name)} Ahora`,
+
+    /* 正文层。常规模板把 name 当曲风名词（「música Para DJs」「el sonido de
+       Para DJs」），这里一律补中心词再接介词短语：「música para DJs」。
+       原模板里「de ${name}」的位置最容易出事——「de para DJs」两个介词连用，
+       所以凡是这种位置都改写成「de música para DJs」或直接去掉 de。 */
+    dnaSub: (name) =>
+      `Los elementos clave que definen el sonido de la música ${lowerFirst(name)} y cómo nuestra IA los captura.`,
+    subgenreSub: (name) =>
+      `Explora variantes populares de música ${lowerFirst(name)} que puedes generar con Tunee.`,
+    comparisonSub: (name) =>
+      `Descubre por qué Tunee es la mejor opción para crear música ${lowerFirst(name)} con IA.`,
+    promptSub: (name) =>
+      `Prueba estos prompts para generar pistas increíbles de música ${lowerFirst(name)} con Tunee.`,
+    useCaseSub: (name) =>
+      `Formas populares de usar música ${lowerFirst(name)} generada con IA en tus proyectos.`,
+    finalCtaSub: (name) =>
+      `Únete a miles de creadores que ya usan Tunee para generar música ${lowerFirst(name)} con IA. Es gratis para empezar.`,
+    useCaseDescs: [
+      (name) =>
+        `Crea música ${lowerFirst(name)} ideal para TikTok, Reels e historias. Capta la atención de tu audiencia al instante.`,
+      (name) =>
+        `Genera música ${lowerFirst(name)} profesional para comerciales y campañas publicitarias sin preocuparte por licencias.`,
+      (name) =>
+        `Produce bandas sonoras ${lowerFirst(name)} en cortometrajes, documentales y series. Calidad cinematográfica en minutos.`,
+      (name) =>
+        `Genera pistas de acompañamiento ${lowerFirst(name)} y úsalas en tus demos. Ideal para cantantes y compositores.`,
+      (name) =>
+        `Llena tus playlists con música ${lowerFirst(name)} original. Perfecto para creadores de contenido y curadores.`,
+      (name) =>
+        `Añade música ${lowerFirst(name)} a tus videojuegos y aplicaciones. Crea la atmósfera perfecta para cada escena.`,
+    ],
+    faqs: [
+      {
+        q: (name) => `¿Qué es el generador de música ${lowerFirst(name)} con IA de Tunee?`,
+        a: (name) =>
+          `Es una herramienta impulsada por inteligencia artificial que te permite crear música ${lowerFirst(name)} original a partir de descripciones de texto. Solo escribe el estilo que quieres y Tunee genera la pista completa en segundos.`,
+      },
+      {
+        q: (name) => `¿Cómo puedo crear música ${lowerFirst(name)} con Tunee?`,
+        a: (name) =>
+          `Es muy sencillo: escribe un prompt describiendo la música ${lowerFirst(name)} que quieres (por ejemplo, tempo, instrumentos, estado de ánimo), haz clic en generar y tu pista estará lista en segundos. Puedes ajustarla hasta que quede perfecta.`,
+      },
+      {
+        q: (name) => `¿Puedo usar con fines comerciales la música ${lowerFirst(name)} generada?`,
+        a: (name) =>
+          `Sí. La música ${lowerFirst(name)} generada en Tunee se puede usar en proyectos comerciales, incluyendo videos de YouTube, podcasts, anuncios y más, dependiendo de tu plan.`,
+      },
+      {
+        q: (name) => `¿Necesito habilidades musicales para crear música ${lowerFirst(name)}?`,
+        a: () =>
+          `Para nada. Tunee está diseñado para todos, desde principiantes hasta profesionales. No necesitas saber teoría musical ni tocar ningún instrumento. Solo describe lo que quieres y la IA se encarga del resto.`,
+      },
+      {
+        q: (name) => `¿Es gratis generar música ${lowerFirst(name)} en Tunee?`,
+        a: (name) =>
+          `Tunee ofrece un plan gratuito para que pruebes el generador de música ${lowerFirst(name)} sin compromiso. Para acceder a más funciones y descargas en alta calidad, puedes explorar nuestros planes de pago.`,
+      },
+    ],
+    chatUser: (name) =>
+      `Crea una pista ${lowerFirst(name)} con vibras relajadas y buena energía`,
+    chatAi: (name) =>
+      `¡Listo! Aquí tienes tu pista ${lowerFirst(name)}. La generé con un ritmo chill, melodías suaves y buena vibra. ¿Quieres ajustar algo?`,
   },
 
   dnaTitle: (name) => `El ADN de ${name}`,

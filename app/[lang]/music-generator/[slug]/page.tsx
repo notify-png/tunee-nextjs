@@ -5,6 +5,7 @@ import { getAllSlugs, getRelatedGenreLinks, canonicalGenreSlug } from "@/data/ge
 import {
   getI18nGenreData,
   getSlugPageUI,
+  lowerFirstWord,
   hasI18nGenreData,
 } from "@/data/genre-content/i18n";
 import { buildAlternates, buildSocialMetadata, normalizeMetaDescription } from "@/lib/musicSeo";
@@ -71,7 +72,8 @@ export default async function I18nGenreLandingPage({
   const data = getI18nGenreData(slug, lang);
   if (!data) notFound();
 
-  const ui = getSlugPageUI(lang);
+  const isAudience = data.category === "creator-type";
+  const ui = getSlugPageUI(lang, isAudience);
   const { colors } = data;
   /* 强调色统一用品牌橙紫，不跟页面走——page.module.css 的渐变也直接写死了
      同一对颜色，所以这里改成按页取色不会生效，得连 CSS 一起改。
@@ -126,9 +128,15 @@ export default async function I18nGenreLandingPage({
     })),
   } : null;
 
-  const nameLower = data.displayName.toLowerCase();
-  const r = (t: string) => t.replace(/\{name\}/g, data.displayName);
-  const rLower = (t: string) => t.replace(/\{name\}/g, nameLower);
+  // 人群页的 displayName 是介词短语（es「Para DJs」、de「Für DJs」、ru「Для диджеев」）。
+  // 整串小写会把内部的大写也毁掉（Para DJs → para djs、Para TikTok → para tiktok），
+  // 所以这类页只降首字母。曲风页照旧整串小写（「Phonk」→「phonk」是对的）。
+  const nameFirstLower = lowerFirstWord(data.displayName);
+  const nameLower = isAudience ? nameFirstLower : data.displayName.toLowerCase();
+  const r = (t: string) =>
+    t.replace(/\{nameLower\}/g, nameFirstLower).replace(/\{name\}/g, data.displayName);
+  const rLower = (t: string) =>
+    t.replace(/\{nameLower\}/g, nameFirstLower).replace(/\{name\}/g, nameLower);
   const ctaUrl = lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}`;
   const validRelated = getRelatedGenreLinks(slug, data);
   const prefix = `/${lang}/music-generator`;

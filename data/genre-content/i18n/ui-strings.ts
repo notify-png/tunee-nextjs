@@ -23,6 +23,16 @@ export interface SlugPageUI {
   /** "Everything you need to know about creating {name} music with Tunee." */
   faqSub: string;
   footerTagline: string;
+  /** 人群类页（category === "creator-type"）的覆盖项。
+
+      上面这些模板把 {name} 当曲风名词接在名词后面（「Generador de Música {name}」），
+      人群名填进去就是「Generador de Música Para DJs」——句中一个大写的介词。
+      各语言的 {name} 位置不同（de / ko / zh 在开头，罗曼语系在中间），
+      没法在渲染处统一处理，所以哪个语言需要哪个语言自己声明；不声明即照旧。
+
+      这里可以用 `{nameLower}`：只降首字母（Para DJs → para DJs），
+      区别于模板里 stepsSub / faqSub 用的整串小写（会把 DJs 毁成 djs）。 */
+  audience?: Partial<Omit<SlugPageUI, "audience" | "steps">>;
 }
 
 const ui: Record<string, SlugPageUI> = {
@@ -47,7 +57,9 @@ const ui: Record<string, SlugPageUI> = {
     faqSub: "Everything you need to know about creating {name} music with Tunee.",
     footerTagline: "Create music with AI — any genre, any style, any mood.",
   },
-  jp: {
+  // 键名原本写成 jp，而全站语言码是 ja（目录、ROW_LABEL_LANGS、路由都用 ja），
+  // 于是 ui.ja 取不到、整站日文页的模板文案一直回落英文。2026-11-17 改正。
+  ja: {
     breadcrumbHome: "ホーム",
     breadcrumbGenerator: "音楽ジェネレーター",
     breadcrumbCurrent: "{name} 音楽ジェネレーター",
@@ -88,6 +100,11 @@ const ui: Record<string, SlugPageUI> = {
     faqTitle: "Preguntas Frecuentes",
     faqSub: "Todo lo que necesitas saber sobre crear música {name} con Tunee.",
     footerTagline: "Crea música con IA — cualquier género, estilo o estado de ánimo.",
+    audience: {
+      breadcrumbCurrent: "Generador de Música {nameLower}",
+      btnCreate: "Crear Música {nameLower}",
+      stepsCta: "Comenzar a Crear Música {nameLower}",
+    },
   },
   pt: {
     breadcrumbHome: "Início",
@@ -259,6 +276,8 @@ const ui: Record<string, SlugPageUI> = {
   },
 };
 
-export function getSlugPageUI(lang: string): SlugPageUI {
-  return ui[lang] ?? ui.en;
+export function getSlugPageUI(lang: string, isAudience = false): SlugPageUI {
+  const base = ui[lang] ?? ui.en;
+  // 没声明 audience 的语言原样返回，行为与改动前完全一致
+  return isAudience && base.audience ? { ...base, ...base.audience } : base;
 }

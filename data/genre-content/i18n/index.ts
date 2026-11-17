@@ -1,6 +1,7 @@
 /* Re-export core API from registry (no circular deps) */
 export { registerLang, getI18nGenreData, hasI18nGenreData } from "./registry";
 export { getSlugPageUI } from "./ui-strings";
+export { lowerFirst, lowerFirstWord } from "./helpers";
 
 /* ── Side-effect imports: populate langRegistries ── */
 import "./ja";
