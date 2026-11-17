@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-wedding-creators",
   displayName: "For Wedding Creators",
+  sentenceName: "for wedding creators",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Wedding Creators Music Generator | Tunee AI",
-    description: "Create custom wedding music for ceremonies, receptions, and highlight films with Tunee's AI Music Generator. Original, romantic, and royalty-free. Free to start.",
+    title: "Music Generator for Wedding Creators | Tunee AI",
+    description: "Create custom wedding music for ceremonies, receptions, and highlight films with Tunee's AI Music Generator. Original, romantic, and royalty-free.",
   },
   hero: {
-    title: "For Wedding Creators\nMusic Generator",
+    title: "Music Generator\nfor Wedding Creators",
     subtitle: "Every couple deserves a unique soundtrack. Create original ceremony music, first-dance arrangements, reception playlists, and highlight film scores that capture the magic of their day — no licensing headaches.",
     badges: ["Ceremony Music", "Royalty-Free", "Highlight Films"],
   },

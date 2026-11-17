@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-content-creators",
   displayName: "For Content Creators",
+  sentenceName: "for content creators",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Content Creators Music Generator | Tunee AI",
-    description: "Create royalty-free music for your content with Tunee's AI Music Generator. Background tracks for videos, podcasts, and social media — describe the vibe, get the track.",
+    title: "Music Generator for Content Creators | Tunee AI",
+    description: "Create royalty-free music for your content with Tunee's AI. Background tracks for videos, podcasts, and social media — describe the vibe, get the track.",
   },
   hero: {
-    title: "For Content Creators\nMusic Generator",
+    title: "Music Generator\nfor Content Creators",
     subtitle: "Stop searching stock libraries. Describe the vibe you need — upbeat intro, chill background, dramatic outro — and get original, royalty-free music in seconds. Your content deserves its own soundtrack.",
     badges: ["Royalty-Free", "Instant Generation", "All Platforms"],
   },

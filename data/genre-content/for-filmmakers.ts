@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-filmmakers",
   displayName: "For Filmmakers",
+  sentenceName: "for filmmakers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Filmmakers Music Generator | Tunee AI",
-    description: "Create film music with Tunee's AI Music Generator. Emotional underscores, tension cues, and cinematic themes — score your film without a full orchestra budget.",
+    title: "Music Generator for Filmmakers | Tunee AI",
+    description: "Create film music with Tunee's AI. Emotional underscores, tension cues, and cinematic themes — score your film without a full orchestra budget.",
   },
   hero: {
-    title: "For Filmmakers\nMusic Generator",
+    title: "Music Generator\nfor Filmmakers",
     subtitle: "Score your film without a six-figure music budget. Generate emotional underscores, tension builders, action cues, and sweeping themes — describe the scene and get cinema-quality music.",
     badges: ["Cinema-Quality", "Scene-Scored", "Festival-Ready"],
   },

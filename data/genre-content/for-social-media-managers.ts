@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-social-media-managers",
   displayName: "For Social Media Managers",
+  sentenceName: "for social media managers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Social Media Managers Music Generator | Tunee AI",
-    description: "Create social media music with Tunee's AI Music Generator. On-brand Reels tracks, story music, and trend-ready sounds — manage multiple accounts with unlimited original audio.",
+    title: "Music Generator for Social Media Managers | Tunee AI",
+    description: "Create social media music with Tunee's AI. On-brand Reels tracks, story music, and trend-ready sounds — unlimited original audio for every account.",
   },
   hero: {
-    title: "For Social Media Managers\nMusic Generator",
+    title: "Music Generator\nfor Social Media Managers",
     subtitle: "Manage music like you manage content — at scale. Generate on-brand tracks for Reels, Stories, TikToks, and posts across multiple client accounts. Original music, every platform, zero licensing risk.",
     badges: ["Multi-Account", "Platform-Native", "Trend-Ready"],
   },

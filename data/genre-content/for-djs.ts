@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-djs",
   displayName: "For DJs",
+  sentenceName: "for DJs",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For DJs Music Generator | Tunee AI",
-    description: "Create exclusive DJ edits, intro tools, transition tracks, and mashup elements with Tunee's AI Music Generator. Stand out from every other DJ. Free to start.",
+    title: "Music Generator for DJs | Tunee AI",
+    description: "Create exclusive DJ edits, intro tools, transition tracks, and mashup elements with Tunee's AI Music Generator. Stand out from every other DJ.",
   },
   hero: {
-    title: "For DJs\nMusic Generator",
+    title: "Music Generator\nfor DJs",
     subtitle: "Stop playing the same tracks as everyone else. Create exclusive edits, custom intro tools, transition elements, and genre-bridging mashup beds that make your sets impossible to replicate.",
     badges: ["DJ Exclusives", "Mix-Ready", "Any BPM/Key"],
   },

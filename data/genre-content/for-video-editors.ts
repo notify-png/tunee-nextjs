@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-video-editors",
   displayName: "For Video Editors",
+  sentenceName: "for video editors",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Video Editors Music Generator | Tunee AI",
-    description: "Create royalty-free music for your edits with Tunee's AI Music Generator. BPM-matched, edit-synced tracks — describe the scene and get music that fits the cut.",
+    title: "Music Generator for Video Editors | Tunee AI",
+    description: "Royalty-free music for your edits with Tunee's AI. BPM-matched, edit-synced tracks — describe the scene and get music that fits the cut.",
   },
   hero: {
-    title: "For Video Editors\nMusic Generator",
+    title: "Music Generator\nfor Video Editors",
     subtitle: "Music that matches your edit, not the other way around. Specify BPM, duration, energy curve, and mood — get tracks that sync to your timeline without a single cut to the beat grid.",
     badges: ["BPM-Matched", "Timeline-Ready", "Edit-Synced"],
   },

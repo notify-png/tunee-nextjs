@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-game-developers",
   displayName: "For Game Developers",
+  sentenceName: "for game developers",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Game Developers Music Generator | Tunee AI",
+    title: "Music Generator for Game Developers | Tunee AI",
     description: "Create game music with Tunee's AI Music Generator. Battle themes, exploration ambient, menu music, and boss scores — soundtrack your entire game with AI.",
   },
   hero: {
-    title: "For Game Developers\nMusic Generator",
+    title: "Music Generator\nfor Game Developers",
     subtitle: "Soundtrack your game without hiring a composer. Generate battle themes, exploration ambient, menu loops, and boss music — describe the game state and get production-ready audio.",
     badges: ["Game-State Audio", "Loop-Ready", "All Genres"],
   },

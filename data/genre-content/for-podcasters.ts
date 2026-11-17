@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-podcasters",
   displayName: "For Podcasters",
+  sentenceName: "for podcasters",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Podcasters Music Generator | Tunee AI",
-    description: "Create podcast music with Tunee's AI Music Generator. Intro themes, segment transitions, background beds, and outro stings — build your show's sonic identity.",
+    title: "Music Generator for Podcasters | Tunee AI",
+    description: "Create podcast music with Tunee's AI. Intro themes, segment transitions, background beds, and outro stings — build your show's sonic identity.",
   },
   hero: {
-    title: "For Podcasters\nMusic Generator",
+    title: "Music Generator\nfor Podcasters",
     subtitle: "Give your show a sonic identity. Generate memorable intro themes, smooth segment transitions, and subtle background beds — describe your podcast's personality and get broadcast-ready music.",
     badges: ["Show Identity", "Intro Themes", "Broadcast-Ready"],
   },

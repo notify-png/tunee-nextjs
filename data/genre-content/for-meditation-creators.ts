@@ -3,15 +3,16 @@ import type { GenreData } from "./types";
 export const data: GenreData = {
   slug: "for-meditation-creators",
   displayName: "For Meditation Creators",
+  sentenceName: "for meditation creators",
   category: "creator-type",
   colors: { bgBase: "#0a0f14", bgBaseRgb: "10,15,20" },
   svgType: "creatorDesk",
   seo: {
-    title: "For Meditation Creators Music Generator | Tunee AI",
-    description: "Create meditation music, guided session soundscapes, and healing audio with Tunee's AI Music Generator. Calm, therapeutic, and endlessly customizable. Free to start.",
+    title: "Music Generator for Meditation Creators | Tunee AI",
+    description: "Create meditation music, guided session soundscapes, and healing audio with Tunee's AI. Calm, therapeutic, and endlessly customizable.",
   },
   hero: {
-    title: "For Meditation Creators\nMusic Generator",
+    title: "Music Generator\nfor Meditation Creators",
     subtitle: "Create deeply calming soundscapes for guided meditations, yoga sessions, breathwork, and sleep content. Generate ambient textures, singing bowl tones, and nature-infused audio beds that support inner stillness.",
     badges: ["Therapeutic Audio", "Seamless Loops", "Voice-Friendly Mix"],
   },
