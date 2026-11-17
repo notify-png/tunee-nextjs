@@ -147,6 +147,11 @@ const ui: Record<string, SlugPageUI> = {
     faqTitle: "Questions Fréquentes",
     faqSub: "Tout ce que vous devez savoir sur la création de musique {name} avec Tunee.",
     footerTagline: "Créez de la musique avec l'IA — tout genre, style ou ambiance.",
+    audience: {
+      breadcrumbCurrent: "Générateur de Musique {nameLower}",
+      btnCreate: "Créer de la Musique {nameLower}",
+      stepsCta: "Commencer à Créer de la Musique {nameLower}",
+    },
   },
   de: {
     breadcrumbHome: "Startseite",

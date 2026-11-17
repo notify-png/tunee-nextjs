@@ -154,7 +154,11 @@ export function buildTranslations(
     const sd = config.slugData?.[slug];
     // 人群页有专用句式就用，没有就回落常规模板
     const au = en.category === "creator-type" ? config.audience : undefined;
-    // audience 的模板一律收句中形态；没声明就还是 name，与声明前完全一致
+    // 人群页上一律用句中形态；没声明 sentenceNames 就还是 name，与声明前完全一致。
+    // 注意这不只给 audience 用——dnaDescs / subgenreDesc / promptDescs 三个可选项
+    // 不在 audience 里（它们是整页通用的逐段文案，不分页类型），但同样把 name
+    // 拼进句子。今天十个语言都没定义这三个，所以拼不出错；不先堵上的话，
+    // 谁来补第一份就会踩到「la musique Pour DJs」。
     const sentenceName = au ? config.sentenceNames?.[slug] : undefined;
     const auName = sentenceName ?? name;
     result[slug] = {
@@ -180,7 +184,7 @@ export function buildTranslations(
       dna: en.dna.map((d, i) => ({
         ...d,
         title: config.dnaSectionTitles[i] ?? d.title,
-        desc: sd?.dnaDescs?.[i] ?? config.dnaDescs?.[i]?.(name) ?? d.desc,
+        desc: sd?.dnaDescs?.[i] ?? config.dnaDescs?.[i]?.(auName) ?? d.desc,
       })),
       subgenreTitle: (au?.subgenreTitle ?? config.subgenreTitle)(auName),
       subgenreSub: (au?.subgenreSub ?? config.subgenreSub)(auName),
@@ -206,7 +210,7 @@ export function buildTranslations(
           name: sgName,
           desc:
             sd?.subgenreDescs?.[i] ??
-            (config.subgenreDesc ? config.subgenreDesc(sgName, name) : sg.desc),
+            (config.subgenreDesc ? config.subgenreDesc(sgName, auName) : sg.desc),
         };
       }),
       comparisonTitle: (au?.comparisonTitle ?? config.comparisonTitle)(auName),
@@ -225,7 +229,7 @@ export function buildTranslations(
       prompts: en.prompts.map((p, i) => ({
         ...p,
         title: sd?.promptTitles?.[i] ?? p.title,
-        text: sd?.promptTexts?.[i] ?? config.promptDescs?.[i]?.(name) ?? p.text,
+        text: sd?.promptTexts?.[i] ?? config.promptDescs?.[i]?.(auName) ?? p.text,
       })),
       useCaseTitle: (au?.useCaseTitle ?? config.useCaseTitle)(auName),
       useCaseSub: (au?.useCaseSub ?? config.useCaseSub)(auName),
