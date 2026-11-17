@@ -4,6 +4,12 @@ export interface GenreData {
   indexable?: boolean;
   updatedAt?: string;
   displayName: string;
+  /** 句中形态的名称。只有声明了 sentenceNames 的语言 + 人群页才有。
+
+      displayName 是标题形态（es「Para Autores de Canciones」），直接塞进正文
+      句子里就是一串句中大写；而降首字母这种机械规则既救不了它，又会把
+      ja「TikTok向け」毁成「tikTok向け」。所以句中怎么写由各语言自己给。 */
+  sentenceName?: string;
   category: string;
   colors: ColorScheme;
   svgType: SvgBgType;
