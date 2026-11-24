@@ -94,10 +94,30 @@ export default async function I18nGenreLandingPage({
 
   const genre = data.displayName;
 
+  // 句中位置优先用语言自己声明的句中形态（见 LangConfig.sentenceNames）。
+  // 没声明就还是整串小写——曲风页「Phonk」→「phonk」本来就对，人群页则维持
+  // 声明前的样子，不在这里用规则去猜（猜过一版：前两位都大写当缩写，
+  // 结果把 ja「TikTok向け」降成了「tikTok向け」）。
+  //
+  // 这四个声明原本在下方 JSON-LD 之后。2026-11-24 上移，因为结构化数据
+  // 现在也要用 r() 套 ui 的模板——它和可见面包屑必须是同一份数据。
+  const sentenceName = data.sentenceName;
+  const nameLower = sentenceName ?? data.displayName.toLowerCase();
+  const r = (t: string) =>
+    t
+      .replace(/\{nameLower\}/g, sentenceName ?? data.displayName)
+      .replace(/\{name\}/g, data.displayName);
+  const rLower = (t: string) =>
+    t.replace(/\{nameLower\}/g, nameLower).replace(/\{name\}/g, nameLower);
+
+  // 第 3 级与可见面包屑同源：各语言语序不同（ru 是「Генератор Музыки {name}」、
+  // de 是「{name}-Musikgenerator」），不能用 `${genre} Music Generator` 拼。
+  const crumbCurrent = r(ui.breadcrumbCurrent);
+
   const jsonLdSoftwareApp = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: `Tunee ${genre} Music Generator`,
+    name: `Tunee ${crumbCurrent}`,
     description: data.seo.description,
     url: `https://www.tunee.ai${engPath}`,
     applicationCategory: "MultimediaApplication",
@@ -110,9 +130,9 @@ export default async function I18nGenreLandingPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}` },
-      { "@type": "ListItem", position: 2, name: "AI Music Generator", item: lang === "en" ? "https://www.tunee.ai/music-generator" : `https://www.tunee.ai/${lang}/music-generator` },
-      { "@type": "ListItem", position: 3, name: `${genre} Music Generator`, item: pageCanonical },
+      { "@type": "ListItem", position: 1, name: ui.breadcrumbHome, item: lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}` },
+      { "@type": "ListItem", position: 2, name: ui.breadcrumbGenerator, item: lang === "en" ? "https://www.tunee.ai/music-generator" : `https://www.tunee.ai/${lang}/music-generator` },
+      { "@type": "ListItem", position: 3, name: crumbCurrent, item: pageCanonical },
     ],
   };
 
@@ -127,18 +147,6 @@ export default async function I18nGenreLandingPage({
     })),
   } : null;
 
-  // 句中位置优先用语言自己声明的句中形态（见 LangConfig.sentenceNames）。
-  // 没声明就还是整串小写——曲风页「Phonk」→「phonk」本来就对，人群页则维持
-  // 声明前的样子，不在这里用规则去猜（猜过一版：前两位都大写当缩写，
-  // 结果把 ja「TikTok向け」降成了「tikTok向け」）。
-  const sentenceName = data.sentenceName;
-  const nameLower = sentenceName ?? data.displayName.toLowerCase();
-  const r = (t: string) =>
-    t
-      .replace(/\{nameLower\}/g, sentenceName ?? data.displayName)
-      .replace(/\{name\}/g, data.displayName);
-  const rLower = (t: string) =>
-    t.replace(/\{nameLower\}/g, nameLower).replace(/\{name\}/g, nameLower);
   const ctaUrl = lang === "en" ? "https://www.tunee.ai" : `https://www.tunee.ai/${lang}`;
   const validRelated = getRelatedGenreLinks(slug, data);
   const prefix = `/${lang}/music-generator`;
@@ -168,7 +176,7 @@ export default async function I18nGenreLandingPage({
                     <span className={s.sep}>&rsaquo;</span>
                     <Link href={prefix}>{ui.breadcrumbGenerator}</Link>
                     <span className={s.sep}>&rsaquo;</span>
-                    <span className={s.current}>{r(ui.breadcrumbCurrent)}</span>
+                    <span className={s.current}>{crumbCurrent}</span>
                   </nav>
                   <h1 className={s.heroTitle}>
                     {data.hero.title.split("\n").map((line, i) => (
