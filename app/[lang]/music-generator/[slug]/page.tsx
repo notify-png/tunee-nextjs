@@ -92,8 +92,6 @@ export default async function I18nGenreLandingPage({
     ? `https://www.tunee.ai${engPath}`
     : `https://www.tunee.ai/${lang}${engPath}`;
 
-  const genre = data.displayName;
-
   // 句中位置优先用语言自己声明的句中形态（见 LangConfig.sentenceNames）。
   // 没声明就还是整串小写——曲风页「Phonk」→「phonk」本来就对，人群页则维持
   // 声明前的样子，不在这里用规则去猜（猜过一版：前两位都大写当缩写，
@@ -111,7 +109,7 @@ export default async function I18nGenreLandingPage({
     t.replace(/\{nameLower\}/g, nameLower).replace(/\{name\}/g, nameLower);
 
   // 第 3 级与可见面包屑同源：各语言语序不同（ru 是「Генератор Музыки {name}」、
-  // de 是「{name}-Musikgenerator」），不能用 `${genre} Music Generator` 拼。
+  // de 是「{name}-Musikgenerator」），不能拿显示名直接拼英文后缀。
   const crumbCurrent = r(ui.breadcrumbCurrent);
 
   const jsonLdSoftwareApp = {
